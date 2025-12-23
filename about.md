@@ -24,7 +24,9 @@ permalink: /about/
 <div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #2d3748; text-align: justify;">
   <h2 style="color: #2b6cb0; border-left: 5px solid #2b6cb0; padding-left: 15px; margin-bottom: 20px;">Giới thiệu bản thân</h2>
   <p>
-    Chào mừng bạn đến với blog của tôi! Tôi là một kỹ sư chuyên về hạ tầng mạng và hệ thống, với niềm đam mê xây dựng các kiến trúc mạng ổn định, an toàn và tối ưu cho doanh nghiệp. Công việc của tôi tập trung vào triển khai các giao thức định tuyến, quản trị server và bảo mật hệ thống.
+    Chào mừng bạn đến với blog của tôi! Tôi là Trương Quang Trường, một kỹ sư trẻ mang trong mình niềm đam mê cháy bỏng với thế giới của hạ tầng mạng và hệ thống. Đối với tôi, một kiến trúc mạng hoàn hảo không chỉ dừng lại ở sự kết nối, mà phải là một "hệ tuần hoàn" ổn định, an toàn và được tối ưu hóa thông minh để làm nền tảng vững chắc cho sự phát triển của doanh nghiệp.
+
+    Công việc cốt lõi của tôi tập trung vào việc triển khai các giao thức định tuyến nâng cao như OSPF, BGP, quản trị chuyên sâu hệ thống máy chủ Linux, và xây dựng các lớp bảo mật nghiêm ngặt thông qua hệ thống Firewall hiện đại. Tôi không ngừng theo đuổi mục tiêu trở thành chuyên gia về Network Automation, kết hợp giữa hạ tầng truyền thống và tư duy lập trình để gia tăng hiệu suất vận hành. Blog này là nơi tôi ghi lại hành trình học tập, chia sẻ những kiến thức thực chiến với cộng đồng kỹ thuật, với hy vọng cùng nhau xây dựng những hệ thống mạng bền vững và hiện đại hơn.
   </p>
 
   <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 30px;">
