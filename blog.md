@@ -3,7 +3,7 @@ layout: page
 title: "Kỹ Thuật Mạng & Hệ Thống"
 permalink: /blog/
 ---
-![Chân dung Trương Quang Trường](/assets/avatar.jpg){: width="180px" style="display: block; margin: 0 auto; border-radius: 15px;"}
+![Chân dung Trương Quang Trường](/assets/me.jpg){: width="180px" style="display: block; margin: 0 auto; border-radius: 15px;"}
 
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <p style="color: #666; font-style: italic; margin-bottom: 30px;">
