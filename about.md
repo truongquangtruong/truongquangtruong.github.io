@@ -12,4 +12,4 @@ permalink: /about/
   </div>
 
   <p>Chào mừng bạn đến với Profile của tôi!</p>
-</div>
+</div> 
