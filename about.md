@@ -49,6 +49,6 @@ permalink: /about/
   <div style="background: #f7fafc; padding: 25px; border-radius: 12px; border: 1px solid #e2e8f0; margin-top: 40px; text-align: center;">
     <h3 style="margin-top: 0; color: #2d3748;">Kết nối với tôi</h3>
     <p>Tôi luôn sẵn sàng trao đổi về kỹ thuật và các giải pháp hạ tầng.</p>
-    <p style="margin-bottom: 0;">Email: <a href="mailto:truong.quang@email.com" style="color: #3182ce; text-decoration: none; font-weight: bold;">truong.quang@email.com</a></p>
+    <p style="margin-bottom: 0;">Email: <a href="mailto:truongblueblack0702@email.com" style="color: #3182ce; text-decoration: none; font-weight: bold;">truongblueblack0702@email.com</a></p>
   </div>
 </div>
