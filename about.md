@@ -57,4 +57,4 @@ permalink: /about/
     <h3 style="margin-top: 0;">Kết nối với tôi</h3>
     <p style="margin-bottom: 0;">Bạn có thể theo dõi các bài viết kỹ thuật của tôi tại phần <a href="/" style="color: #3182ce; text-decoration: none; font-weight: bold;">Blog</a> hoặc liên hệ qua email để trao đổi công việc.</p>
   </div>
-</div>
+</div> 
