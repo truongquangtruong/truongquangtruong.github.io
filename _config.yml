@@ -1,9 +1,22 @@
-title: TQ Truong Blog
+title: TQ Truong Portfolio
 author: Trương Quang Trường
+email: truong.quang@email.com
+description: >- # This means to ignore newlines until "baseurl:"
+  Blog cá nhân về Network Engineering và System Administration của Trương Quang Trường.
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://truongquangtruong.github.io" # the base hostname & protocol for your site
 theme: minima
 
+# Cấu hình thanh Menu (Navigation)
 header_pages:
   - index.md
   - about.md
   - blog.md
   - contact.md
+
+# Cấu hình mạng xã hội
+github_username:  truongquangtruong
+# linkedin_username: truong-quang-truong (Bỏ dấu # nếu bạn muốn hiện link LinkedIn)
+
+plugins:
+  - jekyll-feed
