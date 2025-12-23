@@ -3,7 +3,7 @@ layout: page
 title: "Profile"
 permalink: /about/
 ---
-
+ 
 <div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="margin-bottom: 25px;">
     <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
