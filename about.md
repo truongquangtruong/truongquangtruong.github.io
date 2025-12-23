@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Profile cá nhân"
+title: "Profile"
 permalink: /about/
 ---
 
