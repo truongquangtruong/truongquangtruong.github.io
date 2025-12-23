@@ -1,0 +1,9 @@
+title: TQ Truong Blog
+author: Trương Quang Trường
+theme: minima
+
+header_pages:
+  - index.md
+  - about.md
+  - blog.md
+  - contact.md
