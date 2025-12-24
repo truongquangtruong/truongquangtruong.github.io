@@ -11,26 +11,24 @@ draft: false
 ---
 
 ### 📍 Mục lục nội dung
-* [1. Phân tích thực thể: Các véc-tơ tấn công Fullstack](#1-phân-tích-thực-thể)
-* [2. Các kiểu tấn công điển hình (XSS, CORS, MitM)](#2-các-kiểu-tấn-công)
-* [3. Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java](#3-nghiên-cứu-thực-nghiệm)
+1. [Phân tích thực thể: Các véc-tơ tấn công Fullstack](#phan-tich-thuc-the)
+2. [Tấn công XSS, CORS Misconfiguration và MitM](#cac-kieu-tan-cong)
+3. [Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java](#nghien-cuu-thuc-nghiem)
 
 ---
 
-Chào các bạn! Trong hành trình nghiên cứu sự kết nối giữa Java và JavaScript, chúng ta cần một câu hỏi sống còn: **Làm sao để đảm bảo dữ liệu không bị đánh cắp?**
+Chào các bạn! Trong hành trình nghiên cứu sự kết nối giữa Java và JavaScript, câu hỏi sống còn là: **Làm sao để đảm bảo dữ liệu không bị đánh cắp?**
 
 Bài nghiên cứu số 7 này sẽ đi sâu vào việc thiết lập các lớp "giáp trụ" bảo mật để bảo vệ sự tương tác giữa hai thực thể Java và JavaScript.
 
 ---
 
-<a name="1-phân-tích-thực-thể"></a>
-### 1. Phân tích thực thể: Các véc-tơ tấn công Fullstack điển hình
+<h3 id="phan-tich-thuc-the">1. Phân tích thực thể: Các véc-tơ tấn công Fullstack điển hình</h3>
 
 Qua quá trình đo lường, chúng ta xác định được 3 điểm yếu cốt lõi:
 
 
-<a name="2-các-kiểu-tấn-công"></a>
-#### 2. Tấn công XSS, CORS Misconfiguration và MitM
+<h3 id="cac-kieu-tan-cong">2. Tấn công XSS, CORS Misconfiguration và MitM</h3>
 
 * **XSS (Cross-Site Scripting):** Kẻ tấn công lừa hệ thống lưu trữ mã độc JavaScript vào Database.
 * **CORS Misconfiguration:** Java Server cấu hình `Allow-Origin: *` quá lỏng lẻo.
@@ -38,20 +36,14 @@ Qua quá trình đo lường, chúng ta xác định được 3 điểm yếu c�
 
 ---
 
-<a name="3-nghiên-cứu-thực-nghiệm"></a>
-### 3. Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java (Security Sanitizer)
+<h3 id="nghien-cuu-thuc-nghiem">3. Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java (Security Sanitizer)</h3>
 
-Chúng ta sẽ nghiên cứu cách "rửa sạch" mọi đầu vào từ JavaScript bằng Java.
+Để tránh trình duyệt nhận nhầm link trong code, tôi đã tinh chỉnh lại đoạn mã nghiên cứu:
 
 ```java
 import java.util.regex.Pattern;
 
-/**
- * Advanced Security Research Tool
- * Tác giả: Trương Quang Trưởng
- */
 public class SecurityDataResearch {
-
     private static final Pattern[] XSS_PATTERNS = {
         Pattern.compile("<script>(.*?)</script>", Pattern.CASE_INSENSITIVE),
         Pattern.compile("javascript:", Pattern.CASE_INSENSITIVE)
@@ -61,14 +53,15 @@ public class SecurityDataResearch {
         if (input == null) return null;
         String cleanData = input;
         for (Pattern scriptPattern : XSS_PATTERNS) {
-            cleanData = scriptPattern.matcher(cleanData).replaceAll("[SECURE_REMOVED]");
+            cleanData = scriptPattern.matcher(cleanData).replaceAll("[SECURE]");
         }
         return cleanData.replace("'", "''");
     }
 
     public static void main(String[] args) {
-        String maliciousPayload = "{\"comment\": \"<script>alert('hack')</script>\"}";
-        System.out.println("=== HỆ THỐNG BẢO MẬT [TRƯỞNG] ===");
-        System.out.println("[SAFE OUTPUT]: " + sanitize(maliciousPayload));
+        // Dữ liệu mô phỏng
+        String payload = "{\"comment\": \"<script>alert(1)</script>\"}";
+        System.out.println("=== HE THONG BAO MAT [TRUONG] ===");
+        System.out.println("[SAFE OUTPUT]: " + sanitize(payload));
     }
 }
