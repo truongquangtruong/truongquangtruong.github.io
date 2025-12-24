@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Nghiên cứu thực thể Client](https://i.imgur.com/8N7Xn9A.png)
+![Thực thể Client trong mạng](https://i.imgur.com/8N7Xn9A.png)
 
 ---
 
