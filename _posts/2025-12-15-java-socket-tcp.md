@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
- ![Mô hình OSI và TCP/IP](https://media.bkns.vn/uploads/2020/01/osi-chia-giao-tiep-mang-thanh-7-tang.jpg)
+ ! [Mô hình OSI và TCP/IP](https://media.bkns.vn/uploads/2020/01/osi-chia-giao-tiep-mang-thanh-7-tang.jpg)
 
 ---
 
