@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Kỹ Thuật Mạng & Hệ Thống"
+title: "Java & JavaScipt"
 permalink: /blog/
 ---
 
