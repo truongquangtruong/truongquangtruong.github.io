@@ -8,11 +8,11 @@ title: Trang Chủ
   <p style="font-size: 1.2em; color: #4a5568;">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng </p>
   
   <div style="margin-top: 30px; display: flex; justify-content: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
-    <input type="text" id="search-input" placeholder="Tìm kiếm bài viết..." 
+    <input type="text" id="search-input" placeholder="Paste tiêu đề bài viết vào đây..." 
       style="flex: 1; padding: 12px 20px; border: 2px solid #fff; border-radius: 8px; outline: none; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
-      onkeyup="searchPosts()">
-    <button onclick="searchPosts()" style="padding: 12px 25px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
-      Tìm
+      onkeyup="filterPosts()">
+    <button onclick="jumpToPost()" style="padding: 12px 25px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
+      Tìm & Nhảy tới bài
     </button>
   </div>
 
@@ -40,7 +40,7 @@ title: Trang Chủ
 <div id="post-container">
   {% for post in site.posts reversed %}
     <article class="post-item" style="margin-bottom: 15px; background: #fff; border: 1px solid #edf2f7; border-radius: 10px; transition: 0.3s;">
-      <a href="{{ post.url }}" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
+      <a href="{{ post.url }}" class="post-link" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
         <div>
           <h4 class="post-title" style="margin: 0; color: #2d3748; font-size: 1.1em;">{{ post.title }}</h4>
           <small style="color: #a0aec0;">Ngày đăng: {{ post.date | date: "%d/%m/%Y" }}</small>
@@ -52,24 +52,48 @@ title: Trang Chủ
 </div>
 
 <script>
-function searchPosts() {
-  // Lấy giá trị từ ô nhập liệu và chuyển thành chữ thường
+// 1. Hàm lọc bài viết khi đang gõ (vẫn giữ lại để giao diện mượt)
+function filterPosts() {
   let input = document.getElementById('search-input').value.toLowerCase();
-  // Lấy tất cả các thẻ article (bài viết)
   let posts = document.getElementsByClassName('post-item');
 
   for (let i = 0; i < posts.length; i++) {
-    // Lấy tiêu đề của từng bài viết
     let title = posts[i].getElementsByClassName('post-title')[0].innerText.toLowerCase();
-    
-    // Nếu tiêu đề chứa từ khóa thì hiện, không thì ẩn
-    if (title.includes(input)) {
-      posts[i].style.display = "";
-    } else {
-      posts[i].style.display = "none";
-    }
+    posts[i].style.display = title.includes(input) ? "" : "none";
   }
 }
+
+// 2. Hàm "Nhảy" thẳng vào khóa học khi ấn nút Tìm
+function jumpToPost() {
+  let input = document.getElementById('search-input').value.toLowerCase().trim();
+  let posts = document.getElementsByClassName('post-item');
+  
+  if (input === "") {
+    alert("Trưởng ơi, hãy nhập hoặc paste tiêu đề bài viết nhé!");
+    return;
+  }
+
+  for (let i = 0; i < posts.length; i++) {
+    let titleElement = posts[i].getElementsByClassName('post-title')[0];
+    let titleText = titleElement.innerText.toLowerCase();
+    let postUrl = posts[i].getElementsByClassName('post-link')[0].getAttribute('href');
+
+    // Nếu tiêu đề khớp hoàn toàn hoặc từ khóa nằm trong tiêu đề
+    if (titleText.includes(input)) {
+      window.location.href = postUrl; // Thực hiện "nhảy" trang
+      return;
+    }
+  }
+  
+  alert("Không tìm thấy bài học nào khớp với tiêu đề này, Trưởng kiểm tra lại nhé!");
+}
+
+// Hỗ trợ ấn phím Enter để tìm kiếm cho nhanh
+document.getElementById("search-input").addEventListener("keydown", function(event) {
+  if (event.key === "Enter") {
+    jumpToPost();
+  }
+});
 </script>
 
 <style>
