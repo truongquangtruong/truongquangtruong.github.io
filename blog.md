@@ -12,8 +12,7 @@ permalink: /blog/
   <div style="display: flex; flex-direction: column; gap: 25px;">
     
     {% comment %} 
-      Lấy tất cả bài viết và sắp xếp theo thuộc tính 'weight' tăng dần.
-      Bài có weight: 1 sẽ hiện lên đầu tiên.
+      SẮP XẾP LẠI: Lấy tất cả bài viết và xếp theo số thứ tự (weight) từ 1 đến 9
     {% endcomment %}
     {% assign sorted_posts = site.posts | sort: "weight" %}
     
@@ -30,7 +29,7 @@ permalink: /blog/
 
     {% if site.posts.size == 0 %}
     <div style="text-align: center; padding: 50px; background: #f8fafc; border-radius: 15px; border: 2px dashed #cbd5e0;">
-      <p style="color: #718096; font-size: 1.1em;">Hiện tại chưa có bài viết nào. Hãy đón chờ những chia sẻ sắp tới về Network Engineering!</p>
+      <p style="color: #718096; font-size: 1.1em;">Hiện tại chưa có bài viết nào.</p>
     </div>
     {% endif %}
 
