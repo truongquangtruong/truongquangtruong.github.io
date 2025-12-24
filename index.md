@@ -1,5 +1,5 @@
 ---
-layout: home
+layout: default
 title: Trang Chủ
 ---
 
@@ -38,7 +38,9 @@ title: Trang Chủ
 </h2>
 
 <div id="post-container">
-  {% for post in site.posts reversed %}
+  {% comment %} Sử dụng sort: "weight" để đảm bảo đúng thứ tự từ bài 1 đến bài 9 {% endcomment %}
+  {% assign sorted_posts = site.posts | sort: "weight" %}
+  {% for post in sorted_posts %}
     <article class="post-item" style="margin-bottom: 15px; background: #fff; border: 1px solid #edf2f7; border-radius: 10px; transition: 0.3s;">
       <a href="{{ post.url }}" class="post-link" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
         <div>
@@ -52,43 +54,34 @@ title: Trang Chủ
 </div>
 
 <script>
-// 1. Hàm lọc bài viết khi đang gõ (vẫn giữ lại để giao diện mượt)
 function filterPosts() {
   let input = document.getElementById('search-input').value.toLowerCase();
   let posts = document.getElementsByClassName('post-item');
-
   for (let i = 0; i < posts.length; i++) {
     let title = posts[i].getElementsByClassName('post-title')[0].innerText.toLowerCase();
     posts[i].style.display = title.includes(input) ? "" : "none";
   }
 }
 
-// 2. Hàm "Nhảy" thẳng vào khóa học khi ấn nút Tìm
 function jumpToPost() {
   let input = document.getElementById('search-input').value.toLowerCase().trim();
   let posts = document.getElementsByClassName('post-item');
-  
   if (input === "") {
     alert("Trưởng ơi, hãy nhập hoặc paste tiêu đề bài viết nhé!");
     return;
   }
-
   for (let i = 0; i < posts.length; i++) {
     let titleElement = posts[i].getElementsByClassName('post-title')[0];
     let titleText = titleElement.innerText.toLowerCase();
     let postUrl = posts[i].getElementsByClassName('post-link')[0].getAttribute('href');
-
-    // Nếu tiêu đề khớp hoàn toàn hoặc từ khóa nằm trong tiêu đề
     if (titleText.includes(input)) {
-      window.location.href = postUrl; // Thực hiện "nhảy" trang
+      window.location.href = postUrl;
       return;
     }
   }
-  
   alert("Không tìm thấy bài học nào khớp với tiêu đề này, Trưởng kiểm tra lại nhé!");
 }
 
-// Hỗ trợ ấn phím Enter để tìm kiếm cho nhanh
 document.getElementById("search-input").addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
     jumpToPost();
