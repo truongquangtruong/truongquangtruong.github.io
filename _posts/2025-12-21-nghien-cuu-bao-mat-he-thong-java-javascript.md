@@ -35,6 +35,8 @@ Kẻ tấn công lừa hệ thống lưu trữ mã độc JavaScript vào Databa
 #### 1.2. CORS Misconfiguration
 CORS (Cross-Origin Resource Sharing) là một cơ chế bảo mật quan trọng. Nếu Java Server cấu hình `Allow-Origin: *` một cách lỏng lẻo, các JavaScript từ các tên miền độc hại khác có thể dễ dàng gọi API của bạn để trích xuất dữ liệu của người dùng.
 
+
+
 #### 1.3. Tấn công Man-in-the-Middle (MitM)
 Dữ liệu JSON thô đi qua đường ống Internet nếu không được mã hóa (HTTPS) sẽ trở thành "mồi ngon" cho các công cụ bắt gói tin, để lộ toàn bộ cấu trúc dữ liệu mà chúng ta đã dày công nghiên cứu ở Bài 6.
 
