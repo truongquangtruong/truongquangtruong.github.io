@@ -70,3 +70,6 @@ public class ResearchClient {
         }
     }
 }
+| Bài trước | Trang chủ | Bài tiếp theo |
+| :--- | :---: | ---: |
+| [⬅️ Bài #01](/java%20network%20research/2025/12/15/bai-01/) | [🏠 Danh sách](/) | [Bài #03: Đa luồng ➡️](/java%20network%20research/2025/12/17/bai-03/) |

@@ -120,3 +120,6 @@ public class AdvancedJavaGateway {
                              name, address, module);
     }
 }
+| Bài trước | Trang chủ | Bài tiếp theo |
+| :--- | :---: | ---: |
+| [⬅️ Bài #08](/java%20network%20research/2025/12/22/bai-08/) | [🏠 Danh sách](/) | 🏁 Hoàn thành |

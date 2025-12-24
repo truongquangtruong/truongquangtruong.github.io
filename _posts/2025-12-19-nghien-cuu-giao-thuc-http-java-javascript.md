@@ -96,3 +96,6 @@ public class HttpRawProcessor {
         }
     }
 }
+| Bài trước | Trang chủ | Bài tiếp theo |
+| :--- | :---: | ---: |
+| [⬅️ Bài #04](/java%20network%20research/2025/12/18/bai-04/) | [🏠 Danh sách](/) | [Bài #06: Serialization ➡️](/java%20network%20research/2025/12/20/bai-06/) |

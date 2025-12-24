@@ -65,3 +65,6 @@ public class SecurityDataResearch {
         System.out.println("[SAFE OUTPUT]: " + sanitize(payload));
     }
 }
+| Bài trước | Trang chủ | Bài tiếp theo |
+| :--- | :---: | ---: |
+| [⬅️ Bài #06](/java%20network%20research/2025/12/20/bai-06/) | [🏠 Danh sách](/) | [Bài #08: WebSockets ➡️](/java%20network%20research/2025/12/22/bai-08/) |
