@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Mô hình OSI và TCP/IP](https://media.bkns.vn/uploads/2020/01/osi-chia-giao-tiep-mang-thanh-7-tang.jpg)
+ ![Mô hình OSI và TCP/IP](https://media.bkns.vn/uploads/2020/01/osi-chia-giao-tiep-mang-thanh-7-tang.jpg)
 
 Chào các bạn! Đây là bài viết đầu tiên trong series đồ án lập trình mạng của mình. Để bắt đầu hành trình này, chúng ta sẽ cùng nhau "mổ xẻ" nền tảng quan trọng nhất của mọi kết nối tin cậy trên Internet: **Socket TCP**.
 
