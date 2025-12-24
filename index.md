@@ -25,11 +25,11 @@ title: Trang Chủ
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
   <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
     <h3 style="color: #007bff;">🌐 Network Engineering</h3>
-    <p>Chia sẻ các giải pháp về định tuyến (Routing), chuyển mạch (Switching) và tối ưu hóa hiệu năng hệ thống mạng doanh nghiệp.</p>
+    <p>"Nghiên cứu triển khai hạ tầng mạng đa tầng, tập trung tối ưu hóa các giao thức định tuyến OSPF và BGP. Tôi đi sâu vào quản trị hệ thống Linux, tối ưu nhân Kernel và quản lý băng thông nhằm đảm bảo sự ổn định tuyệt đối cho các dịch vụ Backend Java, tạo nền tảng vững chắc cho hệ thống chịu tải cao.</p>
   </div>
   <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
     <h3 style="color: #007bff;">🛡️ Cyber Security</h3>
-    <p>Nghiên cứu và triển khai các giải pháp bảo mật hạ tầng, ngăn chặn tấn công và quản lý lỗ hổng hệ thống.</p>
+    <p>Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát luồng dữ liệu Fullstack. Tôi tập trung ngăn chặn các véc-tơ tấn công XSS, CSRF và cấu hình CORS nghiêm ngặt nhằm bảo vệ toàn vẹn dữ liệu giữa Java - JavaScript, hướng tới môi trường an ninh chủ động và giám sát API toàn diện.</p>
   </div>
 </div>
 

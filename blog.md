@@ -7,7 +7,7 @@ permalink: /blog/
 
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <p style="color: #666; font-style: italic; margin-bottom: 30px;">
-    Nơi chia sẻ kiến thức, kinh nghiệm thực chiến về hạ tầng mạng, bảo mật và hệ thống phân tán.
+   Hành trình thực nghiệm chuyên sâu: Từ hạ tầng mạng vững chắc đến nghệ thuật kết nối, tối ưu hóa dữ liệu liên tầng và thiết lập lá chắn bảo mật hệ thống phân tán hiện đại."
   </p>
 
   <div style="display: flex; flex-direction: column; gap: 25px;">
