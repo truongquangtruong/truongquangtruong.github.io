@@ -1,67 +1,72 @@
 ---
-title: "Khóa Học #02: Làm Chủ I/O Streams - Giải Mã Toàn Tập Về Luồng Dữ Liệu Và Chiến Lược Tối Ưu Hóa"
+title: "Khóa Học #02: Nghiên cứu Thực thể Client - Phân tích Luồng Gửi và Nhận Dữ liệu trong Mạng TCP"
 date: 2025-12-16
-tags: ["java", "io-streams", "performance", "backend"]
+tags: ["java", "network", "socket-client", "tcp", "backend"]
 categories: ["Java Network"]
 draft: false
 ---
 
- ![Kiến trúc Java I/O](https://cdn2.fptshop.com.vn/unsafe/800x0/java_backend_02_b2c774e5d5.jpg)
+![Nghiên cứu thực thể Client](https://securitydaily.net/wp-content/uploads/2014/11/Client-Server-700x350.png)
 
-<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
-    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
-  </h4>
-  <div style="color: #2d3748; line-height: 1.6;">
+---
 
-* TOC
-{:toc}
+### 📍 Mục lục nội dung
+1. [Bản chất của thực thể Client](#1-bản-chất-của-thực-thể-client)
+2. [Cơ chế luồng dữ liệu (Input/Output Stream)](#2-cơ-chế-luồng-dữ-liệu-inputoutput-stream)
+3. [Triển khai mã nguồn Client nghiên cứu](#3-triển-khai-mã-nguồn-client-nghiên-cứu)
 
-  </div>
-</div>
+---
 
-Chào các bạn! Tiếp nối thành công của Bài 1 về Socket TCP, hôm nay chúng ta sẽ cùng nhau thâm nhập vào một trong những thành phần "xương sống" nhất của lập trình hệ thống: **Java I/O Streams**. Nếu Socket là cánh cửa kết nối, thì Stream chính là hệ thống ống dẫn vận chuyển dữ liệu qua lại giữa Client và Server.
+Chào các bạn! Sau khi đã xây dựng xong "ngôi nhà" Server ở Bài 1, hôm nay chúng ta sẽ tạo ra một **Thực thể Client**. Trong mô hình mạng, nếu Server là bên cung cấp dịch vụ thì Client chính là bên khởi tạo nhu cầu. Việc hiểu cách Client đóng gói gói tin là bước đệm quan trọng để chúng ta tiến tới nghiên cứu JavaScript ở các bài sau.
 
-### 1. Tại sao I/O Streams lại quyết định hiệu suất hệ thống?
-Trong quá trình thực hiện đồ án, mình nhận thấy một sai lầm phổ biến của các bạn là đọc dữ liệu thô từng byte một. Bạn hãy tưởng tượng: mỗi lần bạn muốn uống nước, bạn lại chạy ra tận nhà máy nước để lấy 1 giọt. Điều này cực kỳ tốn thời gian và tài nguyên!
+### 1. Bản chất của thực thể Client
+Client không đứng yên chờ đợi như Server. Nó chủ động thực hiện một cuộc gọi đến địa chỉ IP và Port xác định. Trong đồ án này, chúng ta sẽ nghiên cứu cách một ứng dụng Java Client tìm thấy Server của chính mình trên cùng một máy chủ thông qua địa chỉ `localhost` (127.0.0.1).
 
-Trong lập trình mạng, mỗi khi bạn đọc/ghi 1 byte dữ liệu thô, CPU phải dừng lại để yêu cầu Hệ điều hành thực hiện một lệnh gọi hệ thống (**System Call**) xuống card mạng. Nếu bạn có 1 triệu byte, bạn tốn 1 triệu lần gọi — đây chính là lý do khiến ứng dụng bị lag hoặc treo Server.
-
-
-
-### 2. Phân tầng kiến trúc Java I/O (Decorator Pattern)
-Java sử dụng một kiến trúc cực kỳ thông minh gọi là **Decorator Pattern**. Nó cho phép chúng ta "bọc" các luồng dữ liệu chồng lên nhau để tăng thêm tính năng:
-
-- **Byte Streams (InputStream/OutputStream)**: Làm việc với dữ liệu nhị phân thô. Thích hợp cho file ảnh, video.
-- **Character Streams (Reader/Writer)**: Tự động xử lý bảng mã (Unicode), giúp truyền tiếng Việt có dấu mà không bị lỗi font.
-- **Buffered Streams (Bộ đệm)**: Đây là chìa khóa của tốc độ. Nó tạo ra một vùng nhớ tạm (Buffer) trong RAM (thường là 8KB). Nó gom dữ liệu lại rồi đẩy đi một lần duy nhất, giúp tốc độ tăng gấp hàng trăm lần.
+### 2. Cơ chế luồng dữ liệu (Input/Output Stream)
+Để giao tiếp được, thực thể Client cần hai "đường ống":
+* **OutputStream**: Để đẩy dữ liệu từ bộ nhớ RAM ra card mạng, gửi tới Server.
+* **InputStream**: Để hứng dữ liệu mà Server phản hồi về.
 
 
 
-### 3. Triển khai mã nguồn chuyên sâu (Full-stack Standard)
-Dưới đây là đoạn mã mình đã tối ưu hóa, sử dụng kỹ thuật bọc luồng để đạt hiệu năng cao nhất và hỗ trợ đầy đủ bảng mã UTF-8.
+### 3. Triển khai mã nguồn Client nghiên cứu
+Dưới đây là mã nguồn Client được thiết kế để tương tác trực tiếp với Server ở Bài 1.
 
 ```java
 import java.io.*;
 import java.net.*;
-import java.nio.charset.StandardCharsets;
+import java.util.Scanner;
 
 /**
- * Xử lý luồng dữ liệu tối ưu
- * Thực hiện bởi: Trương Quang Trưởng
+ * Thực thể Client nghiên cứu
+ * Tác giả: Trương Quang Trưởng
  */
-public class AdvancedStreamHandler {
-    public void processConnection(Socket socket) {
-        // Sử dụng try-with-resources để tự động đóng luồng, tránh Memory Leak
-        try (
-            // Bọc luồng thô thành luồng ký tự và thêm bộ đệm
-            BufferedReader reader = new BufferedReader(
-                new InputStreamReader(socket.getInputStream(), StandardCharsets.UTF_8)
-            );
+public class ResearchClient {
+    public static void main(String[] args) {
+        String serverAddress = "127.0.0.1";
+        int port = 8080;
+
+        try (Socket socket = new Socket(serverAddress, port);
+             PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
+             BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream(), "UTF-8"))) {
+
+            System.out.println("=== CLIENT NGHIÊN CỨU [TRƯỞNG] ĐÃ KẾT NỐI ===");
             
-            // Thiết lập luồng ghi có bộ đệm và tự động Flush
-            PrintWriter writer = new PrintWriter(
-                new BufferedWriter(
-                    new OutputStreamWriter(socket.getOutputStream(), StandardCharsets.UTF_8)
-                ), 
-                true // Auto-
+            // Nhập liệu thủ công để kiểm tra tính thời gian thực
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Nhập thông điệp gửi Server: ");
+            String message = scanner.nextLine();
+
+            // 1. Gửi dữ liệu qua OutputStream
+            out.println(message);
+            System.out.println("[SEND] Đã gửi: " + message);
+
+            // 2. Chờ nhận phản hồi từ InputStream
+            String response = in.readLine();
+            System.out.println("[RECEIVE] Server phản hồi: " + response);
+
+        } catch (IOException e) {
+            System.err.println("[ERR] Không thể kết nối tới Server: " + e.getMessage());
+        }
+    }
+}

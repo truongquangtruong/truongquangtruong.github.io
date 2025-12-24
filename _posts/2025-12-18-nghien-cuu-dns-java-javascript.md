@@ -1,53 +1,76 @@
 ---
-title: "Khóa Học #04: Nghiên cứu Chuyên sâu Hệ thống Định danh DNS - Sự giao thoa hạ tầng giữa Java Backend và JavaScript Frontend"
+title: "Khóa Học #04: Nghiên cứu Hệ thống định danh DNS - Cơ chế phân giải tên miền trong hạ tầng mạng Java"
 date: 2025-12-18
-tags: ["java", "javascript", "dns", "networking-research", "fullstack", "infrastructure"]
+tags: ["java", "dns", "network-infrastructure", "ip-address", "backend-research"]
 categories: ["Java Network Research"]
 draft: false
 ---
 
-![Nghiên cứu hạ tầng kết nối Java và JavaScript](https://tuhoclaptrinh.edu.vn/upload/post/2022/11/16/java-va-javascript-co-gi-khac-nhau-20221116104648-196233.jpg)
-
-<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
-    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
-  </h4>
-  <div style="color: #2d3748; line-height: 1.6;">
-
-* TOC
-{:toc}
-
-  </div>
-</div>
-
-Chào các bạn! Trong hành trình trở thành một Fullstack Developer chuyên nghiệp, chúng ta không thể chỉ dừng lại ở việc biết viết code. Một kỹ sư thực thụ cần hiểu rõ cách các thực thể phần mềm tìm thấy nhau trong không gian mạng bao la. 
-
-Hôm nay, chúng ta sẽ thực hiện một bài **nghiên cứu thực nghiệm quy mô lớn** về DNS (Domain Name System). Bài viết này sẽ bóc tách từng lớp mặt nạ của hạ tầng mạng để trả lời câu hỏi: *Làm sao thực thể JavaScript trên trình duyệt và thực thể Java trên Server có thể đồng bộ hóa định danh để thiết lập một kênh truyền dữ liệu an toàn?*
+![Nghiên cứu hệ thống DNS](https://vhost.vn/wp-content/uploads/2023/11/DNS-la-gi.png)
 
 ---
 
-### 1. Phân tích cơ chế: Hành trình của một gói tin định danh
-
-Khi bạn thực thi một yêu cầu mạng từ JavaScript, một chuỗi truy vấn định danh xuyên lục địa được kích hoạt để tìm đến "vùng đất" của Java.
-
-
-
-#### 1.1. Tầng thực thi JavaScript (Client-side)
-JavaScript sống trong trình duyệt, và trình duyệt là "kẻ canh cổng" đầu tiên trong việc phân giải.
-* **DNS Prefetching**: Các trình duyệt hiện đại (Chrome, Firefox) nghiên cứu trước các liên kết và phân giải IP ngay cả khi người dùng chưa tương tác.
-* **HSTS & DNS**: Nếu tên miền Java Server nằm trong danh sách HSTS, trình duyệt sẽ ép buộc mọi truy vấn phải qua kênh an toàn, ảnh hưởng đến cách DNS được tra cứu từ JS.
-
-#### 1.2. Tầng trung gian: Recursive Resolver & TLD
-Đây là nơi gói tin UDP/TCP cổng 53 hoạt động. Nó hỏi qua các Root Server, TLD Server cho đến khi tìm thấy địa chỉ IP thực sự của máy chủ Java.
-
-#### 1.3. Tầng Java Server (The Destination)
-Tại đây, Java không chỉ nhận gói tin. Nó thường thực hiện các truy vấn **Reverse DNS** để xác minh xem thực thể JavaScript đang gọi tới có phải là một IP giả mạo hay không.
+### 📍 Mục lục nội dung
+1. [Bản chất của DNS: "Danh bạ" toàn cầu](#1-bản-chất-của-dns-danh-bạ-toàn-cầu)
+2. [Cơ chế phân giải thực thể trong Java](#2-cơ-chế-phân-giải-thực-thể-trong-java)
+3. [Triển khai mã nguồn DNS Research Tool](#3-triển-khai-mã-nguồn-dns-research-tool)
 
 ---
 
-### 2. Nghiên cứu thực nghiệm: So sánh tư duy Java và JavaScript
+Chào các bạn! Ở các bài trước, chúng ta đã kết nối thông qua địa chỉ IP thô (như `127.0.0.1`). Tuy nhiên, con người không thể nhớ hàng tỷ dãy số đó. Đó là lý do bài nghiên cứu số 4 này tập trung vào **DNS (Domain Name System)** — hệ thống giúp biến những cái tên dễ nhớ thành địa chỉ IP mà Java Socket có thể hiểu được.
 
-Qua đo lường, chúng ta thấy rõ sự khác biệt trong cách hai nền tảng xử lý định danh mạng:
+### 1. Bản chất của DNS: "Danh bạ" toàn cầu
+DNS không chỉ là một máy chủ, nó là một hệ thống phân tán phân cấp. Khi bạn gõ `google.com`, yêu cầu sẽ đi qua:
+* **Root NameServer**: Gốc của toàn bộ hệ thống.
+* **TLD NameServer**: Quản lý các đuôi như `.com`, `.net`, `.vn`.
+* **Authoritative NameServer**: Nơi lưu giữ chính xác địa chỉ IP của tên miền đó.
 
-| Đặc điểm nghiên cứu | JavaScript (Frontend) | Java (Backend) |
-| :---
+### 2. Cơ chế phân giải thực thể trong Java
+Trong Java, chúng ta sử dụng lớp `InetAddress`. Đây là thực thể cầu nối, nó sẽ gọi các hàm hệ thống (System Calls) để hỏi DNS Server của nhà mạng (ISP) và trả về kết quả cho ứng dụng của chúng ta.
+
+
+
+### 3. Triển khai mã nguồn DNS Research Tool
+Dưới đây là công cụ nghiên cứu DNS mà mình đã viết để bóc tách thông tin từ bất kỳ tên miền nào.
+
+```java
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.Scanner;
+
+/**
+ * DNS Research & Analysis Tool
+ * Tác giả: Trương Quang Trưởng
+ */
+public class DnsResearchTool {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("=== HỆ THỐNG NGHIÊN CỨU ĐỊNH DANH [TRƯỞNG] ===");
+        
+        while (true) {
+            System.out.print("\nNhập tên miền để phân tích (hoặc 'exit'): ");
+            String domain = scanner.nextLine();
+
+            if (domain.equalsIgnoreCase("exit")) break;
+
+            try {
+                // Phân giải từ Tên miền sang IP
+                InetAddress address = InetAddress.getByName(domain);
+                
+                System.out.println("--- KẾT QUẢ PHÂN TÍCH ---");
+                System.out.println("[+] Host Name: " + address.getHostName());
+                System.out.println("[+] Canonical Host Name: " + address.getCanonicalHostName());
+                System.out.println("[+] IP Address: " + address.getHostAddress());
+                
+                // Kiểm tra khả năng kết nối (Reachability)
+                System.out.println("[+] Trạng thái: " + (address.isReachable(3000) ? "ĐANG HOẠT ĐỘNG" : "KHÔNG PHẢN HỒI"));
+
+            } catch (UnknownHostException e) {
+                System.err.println("[ERR] Không thể định danh tên miền: " + domain);
+            } catch (Exception e) {
+                System.err.println("[ERR] Lỗi hệ thống: " + e.getMessage());
+            }
+        }
+        scanner.close();
+    }
+}

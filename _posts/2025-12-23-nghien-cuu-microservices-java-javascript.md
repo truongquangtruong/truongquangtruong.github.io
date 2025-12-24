@@ -8,17 +8,15 @@ draft: false
 
 ![Nghiên cứu kiến trúc Microservices - Lợi ích và Thách thức](https://jamstackvietnam.com/uploads/Blog/2023-07-04-14-57-microservices-loi-ich-va-thach-thuc-khi-su-dung-trong-website-jamstack.jpg)
 
-<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
-    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
-  </h4>
-  <div style="color: #2d3748; line-height: 1.6;">
+---
 
-* TOC
-{:toc}
+### 📍 Mục lục nội dung
+1. [Phân tích thực thể: Sự sụp đổ của "Đế chế" Monolith](#1-phân-tích-thực-thể-sự-sụp-đổ-của-đế-chế-monolith)
+2. [Cuộc cách mạng Microservices](#12-cuộc-cách-mạng-microservices)
+3. [Nghiên cứu thực nghiệm: Mô hình API Gateway đa luồng](#2-nghiên-cứu-thực-nghiệm-mô-hình-api-gateway-đa-luồng-và-điều-hướng-thông-minh)
+4. [Mã nguồn Advanced Java Gateway](#triển-khai-mã-nguồn)
 
-  </div>
-</div>
+---
 
 Chào các bạn! Sau khi đã làm chủ việc truyền tải dữ liệu thời gian thực ở Bài 8, hôm nay chúng ta sẽ bước lên một cấp độ tư duy hoàn toàn mới: **Kiến trúc hệ thống phân tán (Distributed Systems)** thông qua mô hình **Microservices**.
 
@@ -35,8 +33,8 @@ Trong các nghiên cứu trước đây (từ Bài 1 đến Bài 8), chúng ta t
 #### 1.1. Những "nỗi đau" thực nghiệm
 Nghiên cứu sâu vào vận hành, mô hình đơn khối bộc lộ những hạn chế chí mạng:
 * **Sự cồng kềnh (Large Codebase):** Khi số lượng dòng code vượt mức hàng triệu, việc khởi động Server Java có thể mất cả chục phút.
-* **Rủi ro triển khai (Deployment Risk):** Chỉ cần sửa một dòng code nhỏ ở phần "Gửi Mail", bạn phải build lại và restart toàn bộ hệ thống.
-* **Nút thắt cổ chai về công nghệ:** Nếu một module cần tính toán AI nhưng cả khối đang chạy Java, bạn buộc phải hy sinh hiệu năng để viết bằng Java.
+* **Rủi ro triển khai (Deployment Risk):** Chỉ cần sửa một dòng code nhỏ ở phần "Gửi Mail", bạn phải build lại và restart toàn bộ hệ thống, gây gián đoạn cho cả phần "Thanh toán".
+* **Nút thắt cổ chai về công nghệ:** Nếu một module cần tính toán AI (phù hợp với Python) nhưng cả khối đang chạy Java, bạn buộc phải hy sinh hiệu năng để viết bằng Java.
 
 #### 1.2. Cuộc cách mạng Microservices
 Microservices không chỉ là chia nhỏ code, mà là chia nhỏ **trách nhiệm**. Mỗi dịch vụ là một thực thể độc lập:
@@ -52,6 +50,7 @@ Trong hệ thống Microservices, thực thể JavaScript (Frontend) không nên
 
 
 
+#### Triển khai mã nguồn
 Dưới đây là mã nguồn nghiên cứu một Gateway có khả năng quản lý luồng dữ liệu phức tạp:
 
 ```java

@@ -8,17 +8,15 @@ draft: false
 
 ![Nghiên cứu đồng bộ hóa dữ liệu JSON](https://gcalls.co/wp-content/uploads/2023/03/2023-03-24_0005.png)
 
-<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
-    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
-  </h4>
-  <div style="color: #2d3748; line-height: 1.6;">
+---
 
-* TOC
-{:toc}
+### 📍 Mục lục nội dung
+1. [Phân tích thực thể: Bản chất của Serialization và Deserialization](#1-phân-tích-thực-thể-bản-chất-của-serialization-và-deserialization)
+2. [Serialization: Quá trình "Đóng gói" (Java Side)](#11-serialization-quá-trình-đóng-gói-java-side)
+3. [Deserialization: Quá trình "Tái sinh" (JavaScript Side)](#12-deserialization-quá-trình-tái-sinh-javascript-side)
+4. [Nghiên cứu thực nghiệm: Bộ chuyển đổi dữ liệu thô (Raw Mapping)](#2-nghiên-cứu-thực-nghiệm-xây-dựng-bộ-chuyển-đổi-dữ-liệu-thô-raw-mapping)
 
-  </div>
-</div>
+---
 
 Chào các bạn! Sau khi đã làm chủ giao thức truyền tải HTTP ở Bài 5, chúng ta đối mặt với một thách thức mang tính bản sắc ngôn ngữ: **Làm sao để hai thực thể không cùng hệ tư tưởng hiểu được nhau?** Java là ngôn ngữ định kiểu mạnh (Strongly Typed), nơi mọi thứ phải nằm trong các Class nghiêm ngặt. JavaScript lại là ngôn ngữ định kiểu động (Dynamic Typing), nơi sự linh hoạt được ưu tiên hàng đầu. Để "hòa giải" sự khác biệt này, chúng ta cần một ngôn ngữ trung gian. Bài nghiên cứu số 6 này sẽ tập trung vào **JSON (JavaScript Object Notation)** và cơ chế **Serialization (Tuần tự hóa)** — quá trình biến đổi cấu trúc dữ liệu từ bộ nhớ RAM thành dòng văn bản xuyên lục địa.
 
@@ -40,4 +38,37 @@ Khi chuỗi JSON đến trình duyệt, JavaScript thực hiện quá trình ng�
 
 ### 2. Nghiên cứu thực nghiệm: Xây dựng Bộ chuyển đổi dữ liệu thô (Raw Mapping)
 
-Để thực sự hiểu cách dữ liệu bị biến đổi, chúng ta sẽ thực hiện nghiên cứu bằng cách tự tay xây dựng một bộ máy Serialization thủ công trong Java, không sử dụng bất kỳ thư viện bên thứ ba nào như Jackson hay
+Để thực sự hiểu cách dữ liệu bị biến đổi, chúng ta sẽ thực hiện nghiên cứu bằng cách tự tay xây dựng một bộ máy Serialization thủ công trong Java, không sử dụng bất kỳ thư viện bên thứ ba nào như Jackson hay Gson.
+
+#### 2.1. Thực thể dữ liệu nghiên cứu (Data Model)
+```java
+public class ResearchSubject {
+    private int id;
+    private String name;
+    private String[] skills;
+    private boolean isExpert;
+
+    public ResearchSubject(int id, String name, String[] skills, boolean isExpert) {
+        this.id = id;
+        this.name = name;
+        this.skills = skills;
+        this.isExpert = isExpert;
+    }
+
+    // Cơ chế đóng gói thủ công (Manual Serialization Logic)
+    public String toJson() {
+        StringBuilder sb = new StringBuilder();
+        sb.append("{\n");
+        sb.append("  \"id\": ").append(id).append(",\n");
+        sb.append("  \"name\": \"").append(name).append("\",\n");
+        sb.append("  \"isExpert\": ").append(isExpert).append(",\n");
+        sb.append("  \"skills\": [");
+        for (int i = 0; i < skills.length; i++) {
+            sb.append("\"").append(skills[i]).append("\"");
+            if (i < skills.length - 1) sb.append(", ");
+        }
+        sb.append("]\n");
+        sb.append("}");
+        return sb.toString();
+    }
+}
