@@ -9,8 +9,9 @@ title: Trang Chủ
   
   <div style="margin-top: 30px; display: flex; justify-content: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
     <input type="text" id="search-input" placeholder="Tìm kiếm bài viết..." 
-      style="flex: 1; padding: 12px 20px; border: 2px solid #fff; border-radius: 8px; outline: none; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
-    <button style="padding: 12px 25px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
+      style="flex: 1; padding: 12px 20px; border: 2px solid #fff; border-radius: 8px; outline: none; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
+      onkeyup="searchPosts()">
+    <button onclick="searchPosts()" style="padding: 12px 25px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
       Tìm
     </button>
   </div>
@@ -36,12 +37,12 @@ title: Trang Chủ
   📚 Lộ trình nghiên cứu (Bài #01 - Bài #09)
 </h2>
 
-<div class="post-list">
+<div id="post-container">
   {% for post in site.posts reversed %}
-    <article style="margin-bottom: 15px; background: #fff; border: 1px solid #edf2f7; border-radius: 10px; transition: 0.3s;" onmouseover="this.style.borderColor='#007bff'" onmouseout="this.style.borderColor='#edf2f7'">
+    <article class="post-item" style="margin-bottom: 15px; background: #fff; border: 1px solid #edf2f7; border-radius: 10px; transition: 0.3s;">
       <a href="{{ post.url }}" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
         <div>
-          <h4 style="margin: 0; color: #2d3748; font-size: 1.1em;">{{ post.title }}</h4>
+          <h4 class="post-title" style="margin: 0; color: #2d3748; font-size: 1.1em;">{{ post.title }}</h4>
           <small style="color: #a0aec0;">Ngày đăng: {{ post.date | date: "%d/%m/%Y" }}</small>
         </div>
         <span style="color: #007bff; font-weight: bold;">Đọc tiếp →</span>
@@ -50,8 +51,29 @@ title: Trang Chủ
   {% endfor %}
 </div>
 
+<script>
+function searchPosts() {
+  // Lấy giá trị từ ô nhập liệu và chuyển thành chữ thường
+  let input = document.getElementById('search-input').value.toLowerCase();
+  // Lấy tất cả các thẻ article (bài viết)
+  let posts = document.getElementsByClassName('post-item');
+
+  for (let i = 0; i < posts.length; i++) {
+    // Lấy tiêu đề của từng bài viết
+    let title = posts[i].getElementsByClassName('post-title')[0].innerText.toLowerCase();
+    
+    // Nếu tiêu đề chứa từ khóa thì hiện, không thì ẩn
+    if (title.includes(input)) {
+      posts[i].style.display = "";
+    } else {
+      posts[i].style.display = "none";
+    }
+  }
+}
+</script>
+
 <style>
   #search-input:focus { border-color: #007bff; background: #fff; }
   button:hover { background: #0056b3; transform: scale(1.05); }
-  article:hover { transform: translateX(10px); box-shadow: 0 4px 12px rgba(0,123,255,0.1); }
+  .post-item:hover { border-color: #007bff; transform: translateX(10px); box-shadow: 0 4px 12px rgba(0,123,255,0.1); }
 </style>
