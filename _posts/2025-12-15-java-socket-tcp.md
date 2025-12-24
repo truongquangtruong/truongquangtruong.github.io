@@ -26,6 +26,8 @@ Trong lập trình, **Socket** không phải là một giao thức, mà là mộ
 
 Nếu xét theo mô hình 7 tầng OSI, Socket nằm ở ranh giới giữa tầng **Application (Tầng 7)** và tầng **Transport (Tầng 4)**. Nó đóng vai trò như một "phiên dịch viên" cao cấp, giúp lập trình viên chúng ta gửi dữ liệu đi mà không cần quan tâm đến việc các bit điện tử chạy như thế nào dưới dây cáp hay qua các trạm router phức tạp.
 
+
+
 <h3 id="phan-tich-2">2. Tại sao lại là TCP? Phân tích cơ chế Bắt tay 3 bước</h3>
 
 Trong đồ án này, mình ưu tiên sử dụng TCP (Transmission Control Protocol) vì tính **Tin cậy tuyệt đối**. Khác với UDP (gửi và quên), TCP đảm bảo dữ liệu đến đích nguyên vẹn, không mất mát và đúng thứ tự.
@@ -34,6 +36,8 @@ Trong đồ án này, mình ưu tiên sử dụng TCP (Transmission Control Prot
 1.  **SYN (Synchronize):** Client gửi yêu cầu kết nối kèm một số thứ tự ngẫu nhiên $x$.
 2.  **SYN-ACK (Acknowledgment):** Server phản hồi "Đã nhận", gửi lại $x+1$ và số thứ tự của chính mình $y$.
 3.  **ACK:** Client gửi xác nhận cuối cùng $y+1$ để thiết lập đường truyền chính thức.
+
+
 
 <h3 id="phan-tich-3">3. Kiến trúc Blocking I/O và dòng chảy dữ liệu</h3>
 
