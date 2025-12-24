@@ -1,6 +1,6 @@
 ---
 title: "Khóa Học #04: Nghiên cứu Chuyên sâu Hệ thống Định danh DNS - Sự giao thoa hạ tầng giữa Java Backend và JavaScript Frontend"
-date: 2025-12-24
+date: 2025-12-18
 tags: ["java", "javascript", "dns", "networking-research", "fullstack", "infrastructure"]
 categories: ["Java Network Research"]
 draft: false
