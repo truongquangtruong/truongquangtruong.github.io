@@ -7,7 +7,7 @@ draft: false
 ---
 
 ![Nghiên cứu giao thức truyền tải dữ liệu](https://npp.com.vn/wp-content/uploads/2024/06/dong-bo-hoa-du-lieu.jpg)
-
+ 
 Chào các bạn! Sau khi đã hoàn thành nghiên cứu về DNS ở Bài 4, chúng ta đã biết cách các thực thể tìm thấy nhau. Tuy nhiên, trong môi trường Fullstack hiện đại, việc "thấy" nhau chỉ là bước khởi đầu. Bài nghiên cứu số 5 này sẽ tập trung hoàn toàn vào **HTTP (HyperText Transfer Protocol)** — "trái tim" của mọi giao tiếp Web.
 
 Mục tiêu của bài nghiên cứu này là bóc tách lớp vỏ của các thư viện như Axios (JS) hay Spring RestTemplate (Java) để quan sát luồng dữ liệu thô chạy qua Socket. Chúng ta sẽ tìm hiểu cách hai ngôn ngữ khác biệt về bản chất này lại có thể hiểu ý nhau thông qua một tập hợp các quy tắc văn bản nghiêm ngặt.
