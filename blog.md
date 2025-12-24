@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Java & JavaScipt"
+title: "Blog"
 permalink: /blog/
 ---
 
