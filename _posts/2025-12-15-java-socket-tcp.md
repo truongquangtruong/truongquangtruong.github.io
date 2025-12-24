@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Java Networking](https://images.search.yahoo.com/images/view;_ylt=Awr999kmeEtp67ImzHqJzbkF;_ylu=c2VjA3NyBHNsawNpbWcEb2lkAzY3OWNiYTdmYWYwN2ZjNjE5ZDhmNDRjMjcwNjQ3NmI1BGdwb3MDMzAEaXQDYmluZw--?back=https%3A%2F%2Fimages.search.yahoo.com%2Fsearch%2Fimages%3Fp%3DM%25C3%25B4%2Bh%25C3%25ACnh%2Bk%25E1%25BA%25BFt%2Bn%25E1%25BB%2591i%2BTCP%26type%3DE211US885G0%26fr%3Dmcafee%26fr2%3Dpiv-web%26tab%3Dorganic%26ri%3D30&w=650&h=421&imgurl=media.bkns.vn%2Fuploads%2F2020%2F01%2Fosi-chia-giao-tiep-mang-thanh-7-tang.jpg&rurl=https%3A%2F%2Fwww.bkns.vn%2Fso-sanh-mo-hinh-osi-va-tcp-ip.html&size=19KB&p=M%C3%B4+h%C3%ACnh+k%E1%BA%BFt+n%E1%BB%91i+TCP&oid=679cba7faf07fc619d8f44c2706476b5&fr2=piv-web&fr=mcafee&tt=So+s%C3%A1nh+m%C3%B4+h%C3%ACnh+OSI+v%C3%A0+TCP%2FIP+-+BKNS.VN&b=0&ni=21&no=30&ts=&tab=organic&sigr=w1jfm9NSWhOq&sigb=2c2CoMZMHOeS&sigi=M7e0h..wUizh&sigt=in9HAUF4d.8N&.crumb=fbvD3JkaZPl&fr=mcafee&fr2=piv-web&type=E211US885G0)
+![Mô hình OSI và TCP/IP](https://media.bkns.vn/uploads/2020/01/osi-chia-giao-tiep-mang-thanh-7-tang.jpg)
 
 Chào các bạn! Đây là bài viết đầu tiên trong series đồ án lập trình mạng của mình. Để bắt đầu hành trình này, chúng ta sẽ cùng nhau "mổ xẻ" nền tảng quan trọng nhất của mọi kết nối tin cậy trên Internet: **Socket TCP**.
 
