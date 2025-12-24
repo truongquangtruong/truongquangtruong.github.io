@@ -8,11 +8,11 @@ title: Trang Chủ
   <p style="font-size: 1.2em; color: #4a5568;">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng </p>
   
   <div style="margin-top: 30px; display: flex; justify-content: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
-    <input type="text" id="search-input" placeholder="Paste tiêu đề bài viết vào đây..." 
+    <input type="text" id="search-input" placeholder="Tìm kiếm bài viết" 
       style="flex: 1; padding: 12px 20px; border: 2px solid #fff; border-radius: 8px; outline: none; font-size: 16px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);"
       onkeyup="filterPosts()">
     <button onclick="jumpToPost()" style="padding: 12px 25px; background: #007bff; color: white; border: none; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.3s;">
-      Tìm & Nhảy tới bài
+      Tìm kiếm
     </button>
   </div>
 
