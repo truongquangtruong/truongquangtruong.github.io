@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
- ![Kiến trúc Server Đa Luồng](https://images.unsplash.com/photo-1558494949-ef010cbdcc51?q=80&w=2000&auto=format&fit=crop)
+ ![Đồng bộ hóa luồng trong Java](https://gpcoder.com/wp-content/uploads/2018/02/object-locking-e1518363859630.png)
 
 Chào các bạn! Sau khi chúng ta đã nắm vững kỹ thuật tối ưu "ống dẫn" dữ liệu ở bài học số 2, hôm nay chúng ta sẽ bước vào một chương đầy thử thách nhưng cũng đầy thú vị: **Multi-threading (Đa luồng)**. 
 
