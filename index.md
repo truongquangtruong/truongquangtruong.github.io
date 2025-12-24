@@ -25,11 +25,11 @@ title: Trang Chủ
 <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 50px;">
   <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
     <h3 style="color: #007bff;">🌐 Network Engineering</h3>
-    <p>"Nghiên cứu triển khai hạ tầng mạng đa tầng, tập trung tối ưu hóa các giao thức định tuyến OSPF và BGP. Đi sâu vào quản trị hệ thống Linux, tối ưu nhân Kernel và quản lý băng thông nhằm đảm bảo sự ổn định tuyệt đối cho các dịch vụ Backend Java, tạo nền tảng vững chắc cho hệ thống chịu tải cao.</p>
+    <p>Nghiên cứu triển khai hạ tầng mạng đa tầng, tập trung tối ưu hóa các giao thức định tuyến OSPF và BGP. Đi sâu vào quản trị hệ thống Linux, tối ưu nhân Kernel.</p>
   </div>
   <div style="padding: 20px; border: 1px solid #e2e8f0; border-radius: 12px; background: #fff; box-shadow: 0 4px 6px rgba(0,0,0,0.02);">
     <h3 style="color: #007bff;">🛡️ Cyber Security</h3>
-    <p>Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát luồng dữ liệu Fullstack. Tập trung ngăn chặn các véc-tơ tấn công XSS, CSRF và cấu hình CORS nghiêm ngặt nhằm bảo vệ toàn vẹn dữ liệu giữa Java - JavaScript, hướng tới môi trường an ninh chủ động và giám sát API toàn diện.</p>
+    <p>Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát luồng dữ liệu Fullstack. Ngăn chặn các véc-tơ tấn công XSS, CSRF và cấu hình CORS nghiêm ngặt.</p>
   </div>
 </div>
 
@@ -38,11 +38,14 @@ title: Trang Chủ
 </h2>
 
 <div id="post-container">
-  {% comment %} Sử dụng sort: "weight" để đảm bảo đúng thứ tự từ bài 1 đến bài 9 {% endcomment %}
+  {% comment %} 
+    LẤY BÀI VIẾT THEO THỨ TỰ TỪ 1 ĐẾN 9
+    Lưu ý: Phải có dòng 'weight' trong mỗi bài viết để code này chạy đúng.
+  {% endcomment %}
   {% assign sorted_posts = site.posts | sort: "weight" %}
   {% for post in sorted_posts %}
     <article class="post-item" style="margin-bottom: 15px; background: #fff; border: 1px solid #edf2f7; border-radius: 10px; transition: 0.3s;">
-      <a href="{{ post.url }}" class="post-link" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
+      <a href="{{ post.url | relative_url }}" class="post-link" style="display: flex; justify-content: space-between; align-items: center; padding: 20px; text-decoration: none; color: inherit;">
         <div>
           <h4 class="post-title" style="margin: 0; color: #2d3748; font-size: 1.1em;">{{ post.title }}</h4>
           <small style="color: #a0aec0;">Ngày đăng: {{ post.date | date: "%d/%m/%Y" }}</small>
@@ -66,31 +69,18 @@ function filterPosts() {
 function jumpToPost() {
   let input = document.getElementById('search-input').value.toLowerCase().trim();
   let posts = document.getElementsByClassName('post-item');
-  if (input === "") {
-    alert("Trưởng ơi, hãy nhập hoặc paste tiêu đề bài viết nhé!");
-    return;
-  }
+  if (input === "") return;
   for (let i = 0; i < posts.length; i++) {
-    let titleElement = posts[i].getElementsByClassName('post-title')[0];
-    let titleText = titleElement.innerText.toLowerCase();
+    let titleText = posts[i].getElementsByClassName('post-title')[0].innerText.toLowerCase();
     let postUrl = posts[i].getElementsByClassName('post-link')[0].getAttribute('href');
     if (titleText.includes(input)) {
       window.location.href = postUrl;
       return;
     }
   }
-  alert("Không tìm thấy bài học nào khớp với tiêu đề này, Trưởng kiểm tra lại nhé!");
 }
-
-document.getElementById("search-input").addEventListener("keydown", function(event) {
-  if (event.key === "Enter") {
-    jumpToPost();
-  }
-});
 </script>
 
 <style>
-  #search-input:focus { border-color: #007bff; background: #fff; }
-  button:hover { background: #0056b3; transform: scale(1.05); }
   .post-item:hover { border-color: #007bff; transform: translateX(10px); box-shadow: 0 4px 12px rgba(0,123,255,0.1); }
 </style>
