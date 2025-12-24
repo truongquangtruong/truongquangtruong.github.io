@@ -4,7 +4,7 @@ title: Trang Chủ
 ---
 
 <div style="text-align: center; padding: 40px 0; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%); border-radius: 20px; margin-bottom: 40px;">
-  <h1 style="font-size: 2.5em; color: #1a202c; margin-bottom: 10px;">Chào mừng bạn đến với Portfolio của tôi</h1>
+  <h1 style="font-size: 2.5em; color: #1a202c; margin-bottom: 10px;">Chào mừng bạn đến với khóa học của tôi</h1>
   <p style="font-size: 1.2em; color: #4a5568;">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng </p>
   
   <div style="margin-top: 30px; display: flex; justify-content: center; gap: 10px; max-width: 500px; margin-left: auto; margin-right: auto;">
