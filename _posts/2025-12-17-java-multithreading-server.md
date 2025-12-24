@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Nghiên cứu xử lý đa luồng Java](https://viettuts.vn/images/java/java-multithreading/da-luong-trong-java.png)
+![Nghiên cứu xử lý đa luồng Java](https://i.imgur.com/uS2vMZx.png)
 
 ---
 

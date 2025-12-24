@@ -6,7 +6,7 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Nghiên cứu thực thể Client](https://securitydaily.net/wp-content/uploads/2014/11/Client-Server-700x350.png)
+![Nghiên cứu thực thể Client](https://i.imgur.com/8N7Xn9A.png)
 
 ---
 

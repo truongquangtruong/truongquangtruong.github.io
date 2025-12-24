@@ -6,7 +6,7 @@ categories: ["Java Network Research"]
 draft: false
 ---
 
-![Nghiên cứu hệ thống DNS](https://vhost.vn/wp-content/uploads/2023/11/DNS-la-gi.png)
+![Nghiên cứu hệ thống DNS](https://i.imgur.com/vH6v9Xf.png)
 
 ---
 
