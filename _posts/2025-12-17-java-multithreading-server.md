@@ -80,6 +80,4 @@ class ClientHandler implements Runnable {
         }
     }
 }
-| Bài trước | Trang chủ | Bài tiếp theo |
-| :--- | :---: | ---: |
-| [⬅️ Bài #02](/java%20network%20research/2025/12/16/bai-02/) | [🏠 Danh sách](/) | [Bài #04: DNS ➡️](/java%20network%20research/2025/12/18/bai-04/) |
+|

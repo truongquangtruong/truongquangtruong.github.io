@@ -74,6 +74,3 @@ public class DnsResearchTool {
         scanner.close();
     }
 }
-| Bài trước | Trang chủ | Bài tiếp theo |
-| :--- | :---: | ---: |
-| [⬅️ Bài #03](/java%20network%20research/2025/12/17/bai-03/) | [🏠 Danh sách](/) | [Bài #05: HTTP ➡️](/java%20network%20research/2025/12/19/bai-05/) |

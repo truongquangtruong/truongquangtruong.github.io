@@ -72,6 +72,3 @@ public class ResearchSubject {
         return sb.toString();
     }
 }
-| Bài trước | Trang chủ | Bài tiếp theo |
-| :--- | :---: | ---: |
-| [⬅️ Bài #05](/java%20network%20research/2025/12/19/bai-05/) | [🏠 Danh sách](/) | [Bài #07: Bảo mật ➡️](/java%20network%20research/2025/12/21/bai-07/) |

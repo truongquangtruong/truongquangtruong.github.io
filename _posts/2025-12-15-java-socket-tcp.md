@@ -88,6 +88,4 @@ public class ProfessionalTcpServer {
         }
     }
 }
-| Bài trước | Trang chủ | Bài tiếp theo |
-| :--- | :---: | ---: |
-| ❌ Không có | [🏠 Danh sách](/) | [Bài #02: Client TCP ➡️](/java%20network%20research/2025/12/16/bai-02/) |
+|

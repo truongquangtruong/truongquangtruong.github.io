@@ -111,6 +111,3 @@ public class DeepWebSocketServer {
         }
     }
 }
-| Bài trước | Trang chủ | Bài tiếp theo |
-| :--- | :---: | ---: |
-| [⬅️ Bài #07](/java%20network%20research/2025/12/21/bai-07/) | [🏠 Danh sách](/) | [Bài #09: Microservices ➡️](/java%20network%20research/2025/12/23/bai-09/) |
