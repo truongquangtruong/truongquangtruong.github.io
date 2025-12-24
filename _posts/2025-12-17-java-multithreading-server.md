@@ -8,6 +8,18 @@ draft: false
 
  ![Đồng bộ hóa luồng trong Java](https://gpcoder.com/wp-content/uploads/2018/02/object-locking-e1518363859630.png)
 
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
+    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
+  </h4>
+  <div style="color: #2d3748; line-height: 1.6;">
+
+* TOC
+{:toc}
+
+  </div>
+</div>
+
 Chào các bạn! Sau khi chúng ta đã nắm vững kỹ thuật tối ưu "ống dẫn" dữ liệu ở bài học số 2, hôm nay chúng ta sẽ bước vào một chương đầy thử thách nhưng cũng đầy thú vị: **Multi-threading (Đa luồng)**. 
 
 Trong quá trình thực hiện đồ án, mình đã từng đặt câu hỏi: *Tại sao các website lớn như Facebook hay Shopee có thể phục vụ hàng triệu người cùng lúc, trong khi Server Socket cơ bản của mình chỉ đón được một người là đã "nghẹt thở"?* Câu trả lời nằm ở khả năng xử lý đồng thời (Concurrency). Hôm nay mình sẽ chia sẻ toàn bộ kiến thức mình đã "vượt khó" để nâng cấp Server từ đơn luồng lên đa luồng chuyên nghiệp.
@@ -19,8 +31,6 @@ Trong quá trình thực hiện đồ án, mình đã từng đặt câu hỏi: 
 3. Trong lúc khách A đang ăn, có 10 khách khác đang đứng ngoài cửa. Nhưng vì nhân viên đang bận phục vụ khách A, cửa hàng hoàn toàn bị "tắc nghẽn".
 
 Trong lập trình mạng, nếu Client A kết nối mà không gửi dữ liệu, dòng lệnh `in.readLine()` sẽ treo toàn bộ Server. Đây chính là lỗ hổng khiến hệ thống của bạn dễ dàng bị tấn công từ chối dịch vụ (DoS).
-
-
 
 ### 2. Giải pháp kiến trúc: Từ Thread-per-Client đến Thread Pool
 Để giải quyết, mình đã nghiên cứu hai hướng tiếp cận chính:
@@ -34,8 +44,6 @@ Thay vì tạo mới, mình sử dụng **Executor Framework**. Mình thuê sẵ
 * Khách đến -> Giao Socket cho 1 Thread trong Pool.
 * Khách đi -> Thread quay lại Pool nghỉ ngơi, chờ khách mới.
 * **Lợi ích:** Kiểm soát tuyệt đối tài nguyên, Server không bao giờ bị "tràn bộ nhớ" hay sập nguồn do quá tải kết nối.
-
-
 
 ### 3. Thực thi mã nguồn Server Đa luồng "Khủng"
 Đây là bộ mã nguồn mình đã tinh chỉnh để đạt độ ổn định cao nhất, tách biệt rõ ràng giữa logic lắng nghe và logic xử lý dữ liệu.
@@ -108,11 +116,4 @@ class ClientWorker implements Runnable {
             }
         } catch (Exception e) {
             System.err.println("[ERR-" + threadName + "] Lỗi phiên làm việc: " + e.getMessage());
-        } finally {
-            try {
-                clientSocket.close();
-                System.out.println("[-] " + threadName + " đã hoàn thành nhiệm vụ và đóng kết nối.");
-            } catch (IOException e) { e.printStackTrace(); }
         }
-    }
-}

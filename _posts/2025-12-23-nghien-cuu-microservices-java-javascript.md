@@ -8,6 +8,18 @@ draft: false
 
 ![Nghiên cứu kiến trúc Microservices - Lợi ích và Thách thức](https://jamstackvietnam.com/uploads/Blog/2023-07-04-14-57-microservices-loi-ich-va-thach-thuc-khi-su-dung-trong-website-jamstack.jpg)
 
+<div style="background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 20px; margin-bottom: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <h4 style="margin-top: 0; color: #007bff; display: flex; align-items: center;">
+    <span style="margin-right: 10px;">📍</span> Mục lục nội dung
+  </h4>
+  <div style="color: #2d3748; line-height: 1.6;">
+
+* TOC
+{:toc}
+
+  </div>
+</div>
+
 Chào các bạn! Sau khi đã làm chủ việc truyền tải dữ liệu thời gian thực ở Bài 8, hôm nay chúng ta sẽ bước lên một cấp độ tư duy hoàn toàn mới: **Kiến trúc hệ thống phân tán (Distributed Systems)** thông qua mô hình **Microservices**.
 
 Trong lộ trình nghiên cứu, nếu Java là "linh hồn" xử lý và JavaScript là "giao diện" tương tác, thì Microservices chính là phương pháp để chúng ta tổ chức các linh hồn đó thành một đội quân tinh nhuệ, thay vì một gã khổng lồ chậm chạp.
@@ -18,11 +30,13 @@ Trong lộ trình nghiên cứu, nếu Java là "linh hồn" xử lý và JavaSc
 
 Trong các nghiên cứu trước đây (từ Bài 1 đến Bài 8), chúng ta thường xây dựng ứng dụng theo kiểu **Monolith (Đơn khối)**. Mọi thứ từ xác thực, quản lý sản phẩm, đến thanh toán đều đóng gói vào một file `.jar` hoặc `.war` duy nhất.
 
+
+
 #### 1.1. Những "nỗi đau" thực nghiệm
 Nghiên cứu sâu vào vận hành, mô hình đơn khối bộc lộ những hạn chế chí mạng:
 * **Sự cồng kềnh (Large Codebase):** Khi số lượng dòng code vượt mức hàng triệu, việc khởi động Server Java có thể mất cả chục phút.
-* **Rủi ro triển khai (Deployment Risk):** Chỉ cần sửa một dòng code nhỏ ở phần "Gửi Mail", bạn phải build lại và restart toàn bộ hệ thống, gây gián đoạn cho cả phần "Thanh toán".
-* **Nút thắt cổ chai về công nghệ:** Nếu một module cần tính toán AI (phù hợp với Python) nhưng cả khối đang chạy Java, bạn buộc phải hy sinh hiệu năng để viết bằng Java.
+* **Rủi ro triển khai (Deployment Risk):** Chỉ cần sửa một dòng code nhỏ ở phần "Gửi Mail", bạn phải build lại và restart toàn bộ hệ thống.
+* **Nút thắt cổ chai về công nghệ:** Nếu một module cần tính toán AI nhưng cả khối đang chạy Java, bạn buộc phải hy sinh hiệu năng để viết bằng Java.
 
 #### 1.2. Cuộc cách mạng Microservices
 Microservices không chỉ là chia nhỏ code, mà là chia nhỏ **trách nhiệm**. Mỗi dịch vụ là một thực thể độc lập:
@@ -35,6 +49,8 @@ Microservices không chỉ là chia nhỏ code, mà là chia nhỏ **trách nhi�
 ### 2. Nghiên cứu thực nghiệm: Mô hình API Gateway đa luồng và Điều hướng thông minh
 
 Trong hệ thống Microservices, thực thể JavaScript (Frontend) không nên biết có bao nhiêu dịch vụ Java phía sau. Nó chỉ cần biết một điểm chạm duy nhất: **API Gateway**.
+
+
 
 Dưới đây là mã nguồn nghiên cứu một Gateway có khả năng quản lý luồng dữ liệu phức tạp:
 
