@@ -20,20 +20,16 @@ draft: false
 Chào các bạn! Ở các bài trước, chúng ta đã kết nối thông qua địa chỉ IP thô (như `127.0.0.1`). Tuy nhiên, con người không thể nhớ hàng tỷ dãy số đó. Đó là lý do bài nghiên cứu số 4 này tập trung vào **DNS (Domain Name System)** — hệ thống giúp biến những cái tên dễ nhớ thành địa chỉ IP mà Java Socket có thể hiểu được.
 
 <h3 id="phan-tich-1">1. Bản chất của DNS: "Danh bạ" toàn cầu</h3>
-DNS không chỉ là một máy chủ, nó là một hệ thống phân tán phân cấp. Khi bạn gõ `google.com`, yêu cầu sẽ đi qua:
-* **Root NameServer**: Gốc của toàn bộ hệ thống.
-* **TLD NameServer**: Quản lý các đuôi như `.com`, `.net`, `.vn`.
-* **Authoritative NameServer**: Nơi lưu giữ chính xác địa chỉ IP của tên miền đó.
+DNS không chỉ là một máy chủ, nó là một hệ thống phân tán phân cấp. Khi bạn gõ `google.com`, yêu cầu sẽ đi qua các máy chủ Root và TLD để tìm ra địa chỉ IP cuối cùng.
 
 
 
 <h3 id="phan-tich-2">2. Cơ chế phân giải thực thể trong Java</h3>
-Trong Java, chúng ta sử dụng lớp `InetAddress`. Đây là thực thể cầu nối, nó sẽ gọi các hàm hệ thống (System Calls) để hỏi DNS Server của nhà mạng (ISP) và trả về kết quả cho ứng dụng của chúng ta.
+Trong Java, chúng ta sử dụng lớp `InetAddress`. Đây là thực thể cầu nối, nó sẽ gọi các hàm hệ thống (System Calls) để hỏi DNS Server và trả về kết quả.
 
 
 
 <h3 id="phan-tich-3">3. Triển khai mã nguồn DNS Research Tool</h3>
-Dưới đây là công cụ nghiên cứu DNS mà mình đã viết để bóc tách thông tin từ bất kỳ tên miền nào.
 
 ```java
 import java.net.InetAddress;
@@ -52,25 +48,18 @@ public class DnsResearchTool {
         while (true) {
             System.out.print("\nNhập tên miền để phân tích (hoặc 'exit'): ");
             String domain = scanner.nextLine();
-
             if (domain.equalsIgnoreCase("exit")) break;
 
             try {
-                // Phân giải từ Tên miền sang IP
                 InetAddress address = InetAddress.getByName(domain);
-                
                 System.out.println("--- KẾT QUẢ PHÂN TÍCH ---");
                 System.out.println("[+] Host Name: " + address.getHostName());
-                System.out.println("[+] Canonical Host Name: " + address.getCanonicalHostName());
                 System.out.println("[+] IP Address: " + address.getHostAddress());
-                
-                // Kiểm tra khả năng kết nối (Reachability)
-                System.out.println("[+] Trạng thái: " + (address.isReachable(3000) ? "ĐANG HOẠT ĐỘNG" : "KHÔNG PHẢN HỒI"));
-
+                System.out.println("[+] Trạng thái: " + (address.isReachable(3000) ? "ONLINE" : "OFFLINE"));
             } catch (UnknownHostException e) {
-                System.err.println("[ERR] Không thể định danh tên miền: " + domain);
+                System.err.println("[ERR] Khong tim thay: " + domain);
             } catch (Exception e) {
-                System.err.println("[ERR] Lỗi hệ thống: " + e.getMessage());
+                System.err.println("[ERR] Loi: " + e.getMessage());
             }
         }
         scanner.close();
