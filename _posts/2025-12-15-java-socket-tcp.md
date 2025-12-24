@@ -11,7 +11,7 @@ draft: false
 Chào các bạn! Đây là bài viết đầu tiên trong series đồ án lập trình mạng của mình. Để bắt đầu hành trình này, chúng ta sẽ cùng nhau "mổ xẻ" nền tảng quan trọng nhất của mọi kết nối tin cậy trên Internet: **Socket TCP**.
 
 ### 1. Socket là gì? Vị trí của nó trong thế giới kết nối
-Trong quá trình tự nghiên cứu, mình nhận thấy nhiều bạn thường nhầm lẫn Socket là một giao thức. Thực chất, Socket là một **Giao diện lập trình ứng dụng (API)**, một "điểm cuối" (endpoint) cho phép các tiến trình trao đổi dữ liệu với nhau qua mạng.
+Trong quá trình tự nghiên cứu, mình nhận thấy nhiều bạn thường nhầm lẫn Socket là một giao thức. Thực chất, Socket là một **Giao diện lập trình ứng dụng (API)**, một "điểm cuối" (endpoint) cho phép các tiến trình trao đổi dữ liệu với nhau qua mạng. 
 
 Nếu xét theo mô hình 7 tầng OSI, Socket nằm ở ranh giới giữa tầng **Application (Tầng 7)** và tầng **Transport (Tầng 4)**. Nó giúp chúng ta (những lập trình viên Java) tương tác với các giao thức phức tạp ở tầng thấp mà không cần quan tâm đến việc bit dữ liệu di chuyển như thế nào trên dây cáp.
 
