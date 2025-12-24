@@ -11,9 +11,9 @@ draft: false
 ---
 
 ### 📍 Mục lục nội dung
-1. [Phân tích thực thể: Các véc-tơ tấn công Fullstack điển hình](#1-phân-tích-thực-thể-các-véc-tơ-tấn-công-fullstack-điển-hình)
-2. [Tấn công XSS, CORS Misconfiguration và MitM](#11-tấn-công-xss-cross-site-scripting)
-3. [Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java (Security Sanitizer)](#2-nghiên-cứu-thực-nghiệm-xây-dựng-bộ-lọc-bảo-mật-java-security-sanitizer)
+* [1. Phân tích thực thể: Các véc-tơ tấn công Fullstack điển hình](#1-phân-tích-thực-thể-các-véc-tơ-tấn-công-fullstack-điển-hình)
+* [2. Tấn công XSS, CORS Misconfiguration và MitM](#2-tấn-công-xss-cors-misconfiguration-và-mitm)
+* [3. Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java](#3-nghiên-cứu-thực-nghiệm-bộ-lọc-bảo-mật-java-security-sanitizer)
 
 ---
 
@@ -28,21 +28,15 @@ Trong mô hình Fullstack, thực thể JavaScript (Frontend) thường là nơi
 Qua quá trình đo lường và thực nghiệm, chúng ta xác định được 3 điểm yếu cốt lõi trong mối quan hệ Java-JS:
 
 
+#### 2. Tấn công XSS, CORS Misconfiguration và MitM
 
-#### 1.1. Tấn công XSS (Cross-Site Scripting)
-Kẻ tấn công lừa hệ thống lưu trữ mã độc JavaScript vào Database thông qua Java. Khi người dùng hợp lệ yêu cầu dữ liệu, trình duyệt của họ sẽ thực thi mã độc này, dẫn đến mất Token xác thực hoặc lộ thông tin nhạy cảm.
-
-#### 1.2. CORS Misconfiguration
-CORS (Cross-Origin Resource Sharing) là một cơ chế bảo mật quan trọng. Nếu Java Server cấu hình `Allow-Origin: *` một cách lỏng lẻo, các JavaScript từ các tên miền độc hại khác có thể dễ dàng gọi API của bạn để trích xuất dữ liệu của người dùng.
-
-
-
-#### 1.3. Tấn công Man-in-the-Middle (MitM)
-Dữ liệu JSON thô đi qua đường ống Internet nếu không được mã hóa (HTTPS) sẽ trở thành "mồi ngon" cho các công cụ bắt gói tin, để lộ toàn bộ cấu trúc dữ liệu mà chúng ta đã dày công nghiên cứu ở Bài 6.
+* **Tấn công XSS (Cross-Site Scripting):** Kẻ tấn công lừa hệ thống lưu trữ mã độc JavaScript vào Database thông qua Java. Khi người dùng hợp lệ yêu cầu dữ liệu, trình duyệt của họ sẽ thực thi mã độc này, dẫn đến mất Token xác thực hoặc lộ thông tin nhạy cảm.
+* **CORS Misconfiguration:** CORS (Cross-Origin Resource Sharing) là một cơ chế bảo mật quan trọng. Nếu Java Server cấu hình `Allow-Origin: *` một cách lỏng lẻo, các JavaScript từ các tên miền độc hại khác có thể dễ dàng gọi API của bạn để trích xuất dữ liệu của người dùng.
+* **Tấn công Man-in-the-Middle (MitM):** Dữ liệu JSON thô đi qua đường ống Internet nếu không được mã hóa (HTTPS) sẽ trở thành "mồi ngon" cho các công cụ bắt gói tin, để lộ toàn bộ cấu trúc dữ liệu mà chúng ta đã dày công nghiên cứu ở Bài 6.
 
 ---
 
-### 2. Nghiên cứu thực nghiệm: Xây dựng Bộ lọc bảo mật Java (Security Sanitizer)
+### 3. Nghiên cứu thực nghiệm: Bộ lọc bảo mật Java (Security Sanitizer)
 
 Để bảo vệ thực thể Java, chúng ta sẽ nghiên cứu cách "rửa sạch" mọi đầu vào từ JavaScript trước khi đưa vào xử lý sâu hơn.
 
