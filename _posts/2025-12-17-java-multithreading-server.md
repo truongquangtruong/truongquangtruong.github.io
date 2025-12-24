@@ -6,28 +6,30 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Nghiên cứu xử lý đa luồng Java](https://i.imgur.com/uS2vMZx.png)
+![Nghiên cứu xử lý đa luồng Java](https://gpcoder.com/wp-content/uploads/2018/02/object-locking.png)
 
 ---
 
 ### 📍 Mục lục nội dung
-1. [Thách thức của mô hình đơn luồng](#1-thách-thức-của-mô-hình-đơn-luồng)
-2. [Cơ chế đa luồng (Multi-threading) trong Java](#2-cơ-chế-đa-luồng-multi-threading-trong-java)
-3. [Triển khai mã nguồn Multi-threaded Server](#3-triển-khai-mã-nguồn-multi-threaded-server)
+1. [Thách thức của mô hình đơn luồng](#phan-tich-1)
+2. [Cơ chế đa luồng (Multi-threading) trong Java](#phan-tich-2)
+3. [Triển khai mã nguồn Multi-threaded Server](#phan-tich-3)
 
 ---
 
 Chào các bạn! Ở Bài 1 và Bài 2, chúng ta đã xây dựng được một hệ thống Server-Client cơ bản. Tuy nhiên, qua thực nghiệm, nếu có 100 Client cùng kết nối một lúc, Server của chúng ta sẽ bị "treo". Bài nghiên cứu số 3 này sẽ giải quyết bài toán **Năng lực xử lý đồng thời (Concurrency)**.
 
-### 1. Thách thức của mô hình đơn luồng
+
+
+<h3 id="phan-tich-1">1. Thách thức của mô hình đơn luồng</h3>
 Trong các bài trước, Server sử dụng cơ chế **Blocking I/O** trên một luồng duy nhất. Khi một Client đang kết nối, Server bị "khóa" lại và không thể chấp nhận bất kỳ ai khác cho đến khi Client đó ngắt kết nối. Đây là nút thắt cổ chai cực lớn trong các hệ thống thực tế.
 
-### 2. Cơ chế đa luồng (Multi-threading) trong Java
+<h3 id="phan-tich-2">2. Cơ chế đa luồng (Multi-threading) trong Java</h3>
 Để giải quyết vấn đề này, mỗi khi có một kết nối mới (`accept()`), thực thể Java Server sẽ sinh ra một "Worker" (luồng con) để phục vụ riêng cho Client đó. Server chính sau đó quay lại trạng thái lắng nghe ngay lập tức.
 
 
 
-### 3. Triển khai mã nguồn Multi-threaded Server
+<h3 id="phan-tich-3">3. Triển khai mã nguồn Multi-threaded Server</h3>
 Dưới đây là mã nguồn Server được nâng cấp với khả năng phục vụ vô số Client cùng lúc bằng cách sử dụng `Thread`.
 
 ```java
@@ -43,7 +45,7 @@ public class MultiThreadedServer {
         int port = 8080;
 
         try (ServerSocket serverSocket = new ServerSocket(port)) {
-            System.out.println("=== MULTI-THREADED SERVER [TRƯỞNG] STARTING AT PORT " + port + " ===");
+            System.out.println("=== MULTI-THREADED SERVER [TRƯỜNG] STARTING AT PORT " + port + " ===");
 
             while (true) {
                 Socket clientSocket = serverSocket.accept();
@@ -80,4 +82,3 @@ class ClientHandler implements Runnable {
         }
     }
 }
-|

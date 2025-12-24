@@ -6,30 +6,32 @@ categories: ["Java Network"]
 draft: false
 ---
 
-![Thực thể Client trong mạng](https://i.imgur.com/8N7Xn9A.png)
+![Thực thể Client - Phân tích luồng TCP](https://viettuans.vn/uploads/2023/02/tcp-ip-la-gi.png)
 
 ---
 
 ### 📍 Mục lục nội dung
-1. [Bản chất của thực thể Client](#1-bản-chất-của-thực-thể-client)
-2. [Cơ chế luồng dữ liệu (Input/Output Stream)](#2-cơ-chế-luồng-dữ-liệu-inputoutput-stream)
-3. [Triển khai mã nguồn Client nghiên cứu](#3-triển-khai-mã-nguồn-client-nghiên-cứu)
+* [1. Bản chất của thực thể Client](#phan-tich-1)
+* [2. Cơ chế luồng dữ liệu (Input/Output Stream)](#phan-tich-2)
+* [3. Triển khai mã nguồn Client nghiên cứu](#phan-tich-3)
 
 ---
 
 Chào các bạn! Sau khi đã xây dựng xong "ngôi nhà" Server ở Bài 1, hôm nay chúng ta sẽ tạo ra một **Thực thể Client**. Trong mô hình mạng, nếu Server là bên cung cấp dịch vụ thì Client chính là bên khởi tạo nhu cầu. Việc hiểu cách Client đóng gói gói tin là bước đệm quan trọng để chúng ta tiến tới nghiên cứu JavaScript ở các bài sau.
 
-### 1. Bản chất của thực thể Client
+<h3 id="phan-tich-1">1. Bản chất của thực thể Client</h3>
 Client không đứng yên chờ đợi như Server. Nó chủ động thực hiện một cuộc gọi đến địa chỉ IP và Port xác định. Trong đồ án này, chúng ta sẽ nghiên cứu cách một ứng dụng Java Client tìm thấy Server của chính mình trên cùng một máy chủ thông qua địa chỉ `localhost` (127.0.0.1).
 
-### 2. Cơ chế luồng dữ liệu (Input/Output Stream)
+
+
+<h3 id="phan-tich-2">2. Cơ chế luồng dữ liệu (Input/Output Stream)</h3>
 Để giao tiếp được, thực thể Client cần hai "đường ống":
 * **OutputStream**: Để đẩy dữ liệu từ bộ nhớ RAM ra card mạng, gửi tới Server.
 * **InputStream**: Để hứng dữ liệu mà Server phản hồi về.
 
 
 
-### 3. Triển khai mã nguồn Client nghiên cứu
+<h3 id="phan-tich-3">3. Triển khai mã nguồn Client nghiên cứu</h3>
 Dưới đây là mã nguồn Client được thiết kế để tương tác trực tiếp với Server ở Bài 1.
 
 ```java
@@ -69,5 +71,3 @@ public class ResearchClient {
             System.err.println("[ERR] Không thể kết nối tới Server: " + e.getMessage());
         }
     }
-}
-| 

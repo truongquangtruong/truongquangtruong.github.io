@@ -6,31 +6,33 @@ categories: ["Java Network Research"]
 draft: false
 ---
 
-![Nghiên cứu hệ thống DNS](https://i.imgur.com/vH6v9Xf.png)
+![Nghiên cứu hệ thống DNS](https://ducmanh.vn/wp-content/uploads/2021/08/dns-la-gi.jpg)
 
 ---
 
 ### 📍 Mục lục nội dung
-1. [Bản chất của DNS: "Danh bạ" toàn cầu](#1-bản-chất-của-dns-danh-bạ-toàn-cầu)
-2. [Cơ chế phân giải thực thể trong Java](#2-cơ-chế-phân-giải-thực-thể-trong-java)
-3. [Triển khai mã nguồn DNS Research Tool](#3-triển-khai-mã-nguồn-dns-research-tool)
+* [1. Bản chất của DNS: "Danh bạ" toàn cầu](#phan-tich-1)
+* [2. Cơ chế phân giải thực thể trong Java](#phan-tich-2)
+* [3. Triển khai mã nguồn DNS Research Tool](#phan-tich-3)
 
 ---
 
 Chào các bạn! Ở các bài trước, chúng ta đã kết nối thông qua địa chỉ IP thô (như `127.0.0.1`). Tuy nhiên, con người không thể nhớ hàng tỷ dãy số đó. Đó là lý do bài nghiên cứu số 4 này tập trung vào **DNS (Domain Name System)** — hệ thống giúp biến những cái tên dễ nhớ thành địa chỉ IP mà Java Socket có thể hiểu được.
 
-### 1. Bản chất của DNS: "Danh bạ" toàn cầu
+<h3 id="phan-tich-1">1. Bản chất của DNS: "Danh bạ" toàn cầu</h3>
 DNS không chỉ là một máy chủ, nó là một hệ thống phân tán phân cấp. Khi bạn gõ `google.com`, yêu cầu sẽ đi qua:
 * **Root NameServer**: Gốc của toàn bộ hệ thống.
 * **TLD NameServer**: Quản lý các đuôi như `.com`, `.net`, `.vn`.
 * **Authoritative NameServer**: Nơi lưu giữ chính xác địa chỉ IP của tên miền đó.
 
-### 2. Cơ chế phân giải thực thể trong Java
+
+
+<h3 id="phan-tich-2">2. Cơ chế phân giải thực thể trong Java</h3>
 Trong Java, chúng ta sử dụng lớp `InetAddress`. Đây là thực thể cầu nối, nó sẽ gọi các hàm hệ thống (System Calls) để hỏi DNS Server của nhà mạng (ISP) và trả về kết quả cho ứng dụng của chúng ta.
 
 
 
-### 3. Triển khai mã nguồn DNS Research Tool
+<h3 id="phan-tich-3">3. Triển khai mã nguồn DNS Research Tool</h3>
 Dưới đây là công cụ nghiên cứu DNS mà mình đã viết để bóc tách thông tin từ bất kỳ tên miền nào.
 
 ```java
