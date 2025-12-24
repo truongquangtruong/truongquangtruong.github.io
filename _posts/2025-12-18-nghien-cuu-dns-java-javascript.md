@@ -14,86 +14,61 @@ Hôm nay, chúng ta sẽ thực hiện một bài **nghiên cứu thực nghiệ
 
 ---
 
-### 1. Kiến trúc phân tầng: Luồng định danh từ Client đến Server
+### 1. Phân tích cơ chế: Hành trình của một gói tin định danh
 
-Để JavaScript (Frontend) có thể "nói chuyện" với Java (Backend), nó phải trải qua một hành trình phân giải định danh gồm nhiều lớp phòng thủ và kiểm tra.
+Khi bạn thực thi một yêu cầu mạng từ JavaScript, một chuỗi truy vấn định danh xuyên lục địa được kích hoạt để tìm đến "vùng đất" của Java.
 
 
 
-#### 1.1. Tầng thực thi JavaScript (The Browser Layer)
-Khi lệnh `fetch('https://api.truong.com')` được kích hoạt, trình duyệt sẽ tra cứu theo thứ tự:
-* **Browser DNS Cache**: Các trình duyệt hiện đại (Chrome, Edge) lưu trữ kết quả DNS trong khoảng 1-10 phút. 
-* **Hệ điều hành (OS Cache)**: Nếu trình duyệt không thấy, nó sẽ hỏi qua File `hosts` và bộ nhớ đệm của Windows/Linux/MacOS.
+#### 1.1. Tầng thực thi JavaScript (Client-side)
+JavaScript sống trong trình duyệt, và trình duyệt là "kẻ canh cổng" đầu tiên trong việc phân giải.
+* **DNS Prefetching**: Các trình duyệt hiện đại (Chrome, Firefox) nghiên cứu trước các liên kết và phân giải IP ngay cả khi người dùng chưa tương tác.
+* **HSTS & DNS**: Nếu tên miền Java Server nằm trong danh sách HSTS, trình duyệt sẽ ép buộc mọi truy vấn phải qua kênh an toàn, ảnh hưởng đến cách DNS được tra cứu từ JS.
 
-#### 1.2. Tầng trung gian (The Resolver Layer)
-Đây là nơi các gói tin UDP cổng 53 hoạt động mạnh mẽ nhất. Các máy chủ DNS của nhà mạng (ISP) hoặc Google DNS (8.8.8.8) sẽ đóng vai trò "thám tử" để tìm ra địa chỉ IP vật lý mà Server Java đang trú ngụ.
+#### 1.2. Tầng trung gian: Recursive Resolver & TLD
+Đây là nơi gói tin UDP/TCP cổng 53 hoạt động. Nó hỏi qua các Root Server, TLD Server cho đến khi tìm thấy địa chỉ IP thực sự của máy chủ Java.
 
-#### 1.3. Tầng đích (The Java Server Layer)
-Tại đây, Server Java không chỉ nhận gói tin. Nó còn phải đối mặt với các yêu cầu kiểm tra tính chính danh (Reverse DNS) để đảm bảo rằng JavaScript đang gửi dữ liệu đến đúng nơi nó cần đến.
+#### 1.3. Tầng Java Server (The Destination)
+Tại đây, Java không chỉ nhận gói tin. Nó thường thực hiện các truy vấn **Reverse DNS** để xác minh xem thực thể JavaScript đang gọi tới có phải là một IP giả mạo hay không.
 
 ---
 
-### 2. Nghiên cứu thực nghiệm: Sự khác biệt về tư duy DNS giữa Java và JS
+### 2. Nghiên cứu thực nghiệm: So sánh tư duy Java và JavaScript
 
-Qua quá trình đo lường hiệu năng, mình nhận thấy một sự "lệch pha" thú vị giữa hai nền tảng này:
+Qua đo lường, chúng ta thấy rõ sự khác biệt trong cách hai nền tảng xử lý định danh mạng:
 
-| Đặc điểm | JavaScript (Frontend) | Java (Backend) |
+| Đặc điểm nghiên cứu | JavaScript (Frontend) | Java (Backend) |
 | :--- | :--- | :--- |
-| **Quyền kiểm soát** | Bị động (Phụ thuộc trình duyệt) | Chủ động (Can thiệp sâu vào JVM) |
-| **Cơ chế Cache** | Ngắn hạn (Dễ thay đổi) | Thường là dài hạn (Cần cấu hình tay) |
-| **Giao thức** | Chỉ dùng được qua API trình duyệt | Có thể tự xây dựng gói tin DNS thô |
-| **Mục tiêu** | Tìm kiếm điểm cuối (Endpoint) | Xác thực thực thể gọi tới |
-
-**Kết luận nghiên cứu:** Sự "lệch pha" này chính là nguyên nhân gây ra 70% các lỗi "Server không phản hồi" khi chúng ta vừa thay đổi địa chỉ IP máy chủ nhưng chưa làm sạch cache ở cả hai đầu.
+| **Quyền kiểm soát** | Bị động (Phụ thuộc trình duyệt/OS). | Chủ động (Can thiệp sâu vào JVM). |
+| **Cơ chế Cache** | Ngắn hạn, khó can thiệp. | Thường là dài hạn, có thể cấu hình tay. |
+| **Giao thức** | Chỉ qua API Browser (fetch/xhr). | Có thể tự đóng gói tin DNS thô (Raw). |
+| **Mục tiêu chính** | Tìm kiếm điểm cuối (Endpoint). | Xác thực và điều phối luồng vào. |
 
 ---
 
-### 3. Công cụ nghiên cứu mã nguồn: DNS Deep Analyzer (Java)
+### 3. Mã nguồn thực nghiệm: DNS Deep Profiler (Java)
 
-Để minh chứng cho khả năng can thiệp sâu của Java vào hạ tầng mạng, mình đã phát triển công cụ nghiên cứu này. Nó giúp chúng ta đo lường độ trễ và phân tích sự phân tán của các Node Java Backend.
+Để minh chứng cho khả năng can thiệp sâu của Java vào hạ tầng, chúng ta sẽ viết một công cụ không chỉ lấy IP mà còn đo lường độ trễ chính xác đến từng phần triệu giây.
 
 ```java
 import java.net.InetAddress;
 import java.net.UnknownHostException;
-import java.util.Arrays;
+import java.security.Security;
 
 /**
- * DNS Deep Analyzer - Công cụ nghiên cứu thực nghiệm hạ tầng mạng
+ * DNS Deep Profiler - Công cụ nghiên cứu thực nghiệm hạ tầng mạng
  * Tác giả: Trương Quang Trưởng
  */
-public class DNSDeepAnalyzer {
+public class DNSDeepProfiler {
     public static void main(String[] args) {
-        // Tên miền mục tiêu mà ứng dụng JavaScript sẽ gọi tới
         String targetDomain = "api.google.com"; 
 
+        // 1. Nghiên cứu cấu hình Cache của JVM
+        // Mặc định Java lưu cache DNS rất lâu để tối ưu hiệu năng
+        String ttl = Security.getProperty("networkaddress.cache.ttl");
+        System.out.println("[CONFIG] JVM DNS TTL hiện tại: " + (ttl == null ? "30s (Mặc định)" : ttl + "s"));
+
         try {
-            System.out.println("==============================================");
-            System.out.println("PHÂN TÍCH HẠ TẦNG ĐỊNH DANH CHO: " + targetDomain);
-            System.out.println("==============================================");
+            System.out.println("\n--- BẮT ĐẦU PHÂN TÍCH THỰC THỂ: " + targetDomain + " ---");
 
-            // 1. Phân tích Lookup Time (Độ trễ phân giải)
-            long start = System.nanoTime();
-            InetAddress primaryAddr = InetAddress.getByName(targetDomain);
-            long end = System.nanoTime();
-            
-            double durationMs = (end - start) / 1_000_000.0;
-            System.out.printf("[ANALYSIS] Độ trễ phân giải DNS: %.2f ms\n", durationMs);
-
-            // 2. Nghiên cứu tính phân tán (Cluster Research)
-            // Các hệ thống Java lớn thường chạy trên nhiều cụm Server (Cluster)
-            InetAddress[] allNodes = InetAddress.getAllByName(targetDomain);
-            System.out.println("[RESEARCH] Số lượng Node Java đang hoạt động: " + allNodes.length);
-            
-            for (int i = 0; i < allNodes.length; i++) {
-                System.out.println("   ├── Node #" + (i + 1) + ": " + allNodes[i].getHostAddress());
-            }
-
-            // 3. Nghiên cứu Reverse DNS (Truy vấn ngược)
-            // Giúp Java Server xác định danh tính thực thể gọi tới
-            System.out.println("\n[REVERSE] Đang thực hiện tra cứu ngược cho Node #1...");
-            String hostName = allNodes[0].getCanonicalHostName();
-            System.out.println("   └── Tên định danh thực tế: " + hostName);
-
-            // 4. Kiểm tra sức khỏe kết nối (Health Check)
-            System.out.println("\n[STATUS] Đang kiểm tra tính sẵn sàng của hệ thống...");
-            boolean isLive = primaryAddr.isReachable(5000); //
+            //
