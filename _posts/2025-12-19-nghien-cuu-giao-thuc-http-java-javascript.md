@@ -100,4 +100,4 @@ public class DeepHTTPAnalyzer {
                     String responseContent = "{\"status\": \"success\", \"message\": \"Nghiên cứu hoàn tất!\"}";
                     
                     String httpResponse = "HTTP/1.1 200 OK\r\n" +
-                                         "Content-Type: application/
+                                         "Content-Type: application/ 
