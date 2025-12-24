@@ -1,6 +1,6 @@
 ---
 title: "Khóa Học #06: Nghiên cứu Serialization và JSON - Nghệ thuật chuyển hóa dữ liệu giữa Java và JavaScript"
-date: 2025-12-26
+date: 2025-12-20
 tags: ["java", "javascript", "json", "serialization", "data-binding", "research"]
 categories: ["Java Network Research"]
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: "Khóa Học #05: Nghiên cứu Sâu Giao thức HTTP - Kiến trúc Truyền tải và Đồng bộ hóa Thực thể Java-JavaScript"
-date: 2025-12-25
+date: 2025-12-19
 tags: ["java", "javascript", "http-protocol", "network-research", "fullstack", "deep-dive"]
 categories: ["Java Network Research"]
 draft: false
