@@ -15,7 +15,7 @@ title: Trang Chủ
 
   .profile-img {
     width: 100%;
-    max-width: 320px;
+    max-width: 250px;
     height: auto;
     border-radius: 12px;
     object-fit: contain;
