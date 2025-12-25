@@ -4,48 +4,56 @@ title: "Profile"
 permalink: /about/
 ---
 
-<div style="font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2d3748; max-width: 1100px; margin: 20px auto; padding: 0 15px;">
-    
-    <div style="display: flex; flex-wrap: wrap; gap: 50px; align-items: flex-start; margin-top: 30px;">
-        
-        <div style="flex: 1; min-width: 320px; max-width: 450px;">
-            <div style="position: relative; border-radius: 24px; overflow: hidden; box-shadow: 0 20px 40px rgba(0,0,0,0.12); background: #f7fafc;">
-                <img src="https://via.placeholder.com/450x550" alt="Trương Quang Trưởng" style="width: 100%; height: auto; display: block; object-fit: cover;">
-            </div>
-        </div>
+<div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <div style="margin-bottom: 25px;">
+    <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" style="width: 200px; height: 200px; border-radius: 50%; object-fit: cover; border: 4px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+  </div>
 
-        <div style="flex: 1.5; min-width: 350px;">
-            <p style="color: #007bff; font-weight: 700; letter-spacing: 2.5px; margin-bottom: 8px; text-transform: uppercase; font-size: 0.9rem;">TÔI LÀ</p>
-            
-            <h1 style="font-size: 3.5rem; margin: 0; line-height: 1.1; font-weight: 800; color: #1a202c; letter-spacing: -1px;">
-                TRƯƠNG QUANG TRƯỞNG
-            </h1>
-            
-            <h2 style="font-size: 1.6rem; color: #4a5568; margin: 15px 0 25px 0; font-weight: 500; display: flex; align-items: center; gap: 10px;">
-                Sinh viên <span style="color: #cbd5e0;">|</span> Công nghệ Thông tin
-            </h2>
-            
-            <div style="background: #ebf8ff; color: #2b6cb0; padding: 8px 20px; border-radius: 50px; display: inline-block; font-weight: 600; margin-bottom: 30px;">
-                Chuyên ngành Quản trị Hệ thống & Mạng
-            </div>
-            
-            <div style="font-size: 1.1rem; line-height: 1.8; color: #4a5568; text-align: justify;">
-                Chào bạn! Tôi là <strong>Trưởng</strong>, sinh viên năm cuối với định hướng trở thành một Chuyên gia hạ tầng mạng và Hệ thống phân tán. 
-                <br><br>
-                Với niềm đam mê mãnh liệt trong việc nghiên cứu các giao thức kết nối thời gian thực như <strong>WebSockets</strong> và kiến trúc <strong>Microservices</strong> trên nền tảng Java, tôi đã xây dựng blog này để chia sẻ những kiến thức thực nghiệm chuyên sâu. Tôi tin rằng sự an toàn và hiệu suất của hệ thống chính là nền móng của mọi ứng dụng công nghệ thành công.
-                <br><br>
-                Triết lý hành động: <i>"Học đi đôi với hành, sáng tạo dựa trên nền tảng kỹ thuật vững chắc."</i>
-            </div>
+  <h1 style="color: #1a202c; font-size: 2.2em; margin-bottom: 5px;">Trương Quang Trường</h1>
+  <p style="color: #4a5568; font-size: 1.1em; font-weight: 500;">Sinh viên An ninh mạng | Nhà nghiên cứu Fullstack Security</p>
 
-            <div style="margin-top: 45px; display: flex; gap: 20px; flex-wrap: wrap;">
-                <a href="/contact/" style="padding: 14px 35px; background-color: #007bff; color: white; text-decoration: none; border-radius: 12px; font-weight: 700; box-shadow: 0 10px 20px rgba(0,123,255,0.3); transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 1.2rem;">👁️</span> Xem Liên Hệ
-                </a>
-                
-                <a href="#" style="padding: 14px 35px; background-color: transparent; color: #007bff; border: 2px solid #007bff; text-decoration: none; border-radius: 12px; font-weight: 700; transition: all 0.3s ease; display: flex; align-items: center; gap: 10px;">
-                    <span style="font-size: 1.2rem;">📥</span> Tải CV (PDF)
-                </a>
-            </div>
-        </div>
+  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
+    <span style="background: #ebf8ff; color: #2b6cb0; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #bee3f8;">Hạ tầng mạng</span>
+    <span style="background: #f0fff4; color: #2f855a; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #c6f6d5;">Lập trình hệ thống</span>
+    <span style="background: #fff5f5; color: #c53030; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #fed7d7;">Bảo mật dữ liệu</span>
+  </div>
+</div>
+
+<hr style="border: 0; height: 1px; background: #edf2f7; margin: 40px 0;">
+
+<div style="max-width: 800px; margin: 0 auto; line-height: 1.8; color: #2d3748;">
+  
+  <h2 style="color: #2b6cb0; border-left: 5px solid #2b6cb0; padding-left: 15px; margin-bottom: 20px;">Câu chuyện nghiên cứu của tôi</h2>
+  <p style="text-align: justify;">
+    Chào bạn! Tôi là Trưởng. Blog này không chỉ là một trang web, mà là cuốn nhật ký ghi lại hành trình tôi tự phá vỡ giới hạn của chính mình. Xuất phát điểm là một sinh viên chuyên về mạng (Network), tôi luôn tự hỏi: <em>"Làm sao để dữ liệu đi từ Server Java đến trình duyệt JavaScript một cách an toàn và nhanh nhất?"</em>. 
+  </p>
+  <p style="text-align: justify;">
+    Câu hỏi đó đã dẫn dắt tôi đi qua <strong>09 bài nghiên cứu thực nghiệm</strong>. Tôi đã dành hàng giờ để nghiên cứu cách Java "đóng gói" thực thể qua Serialization, cách thiết lập kênh truyền thời gian thực bằng WebSockets, và cách xây dựng những lá chắn bảo mật kiên cố để bảo vệ dữ liệu người dùng.
+  </p>
+
+  <h2 style="color: #2b6cb0; border-left: 5px solid #2b6cb0; padding-left: 15px; margin-top: 40px; margin-bottom: 20px;">Những thứ tôi đang tập trung phát triển</h2>
+  
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+      <h4 style="color: #2b6cb0; margin-top: 0;">🛠 Nghiên cứu Kỹ thuật</h4>
+      <p style="font-size: 0.95em; margin-bottom: 0;">
+        Tôi đang đi sâu vào việc hiểu rõ <strong>bản chất của giao thức</strong>. Không chỉ dừng lại ở việc dùng thư viện, tôi muốn biết từng byte dữ liệu di chuyển như thế nào trong mô hình Microservices và API Gateway mà tôi đã xây dựng.
+      </p>
     </div>
+    
+    <div style="background: #fff; padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0;">
+      <h4 style="color: #2b6cb0; margin-top: 0;">🚀 Định hướng tương lai</h4>
+      <p style="font-size: 0.95em; margin-bottom: 0;">
+        Tôi muốn trở thành một <strong>Fullstack Security Engineer</strong>. Đó là người có thể vừa thiết kế hạ tầng mạng an toàn, vừa có thể viết code Backend Java tối ưu và quản lý được toàn bộ quy trình vận hành trên Cloud.
+      </p>
+    </div>
+  </div>
+
+  <div style="background: #2d3748; color: white; padding: 30px; border-radius: 15px; margin-top: 40px; text-align: center;">
+    <h3 style="margin-top: 0;">Bạn có cùng đam mê nghiên cứu?</h3>
+    <p>Tôi luôn trân trọng mọi sự kết nối để cùng nhau trao đổi về kỹ thuật.</p>
+    <a href="mailto:truongblueblack0702@email.com" style="color: #63b3ed; text-decoration: none; font-weight: bold; font-size: 1.1em;">
+      truongblueblack0702@email.com
+    </a>
+  </div>
 </div>
