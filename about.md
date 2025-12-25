@@ -6,7 +6,7 @@ permalink: /about/
 
 <div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
   <div style="margin-bottom: 25px;">
-    <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" style="width: 280px; height: 280px; border-radius: 12px; object-fit: cover; border: 4px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
+    <img src="{{ '/assets/profile_v2.png' | relative_url }}" alt="Trương Quang Trường" style="width: 350px; height: 450px; border-radius: 12px; object-fit: contain; background: #f8f9fa; border: 4px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
   </div>
 
   <h1 style="color: #1a202c; font-size: 2.2em; margin-bottom: 5px;">Trương Quang Trường</h1>
