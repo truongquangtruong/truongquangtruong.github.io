@@ -1,7 +1,7 @@
 ---
 layout: page
 title: "Blog"
-permalink: /blog/
+permalink: /Quang Trường Blog/
 ---
 
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto;">
