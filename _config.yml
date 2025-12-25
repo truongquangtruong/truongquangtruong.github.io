@@ -1,6 +1,6 @@
 title: Quang Trường Blog
 author: Trương Quang Trường
-email: truongblueblacl0702@email.com
+email: truongblueblack0702@email.com
 description: >- # This means to ignore newlines until "baseurl:"
   Blog cá nhân về Network Engineering và System Administration của Trương Quang Trường.
 baseurl: "" # the subpath of your site, e.g. /blog
@@ -10,7 +10,6 @@ theme: minima
 # Cấu hình thanh Menu (Navigation)
 header_pages:
   - index.md
-  - about.md
   - blog.md
   - contact.md
 
