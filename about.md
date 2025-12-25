@@ -43,7 +43,7 @@ permalink: /blog/
       <p style="color: #4a5568; font-size: 0.95em; line-height: 1.6;">
         {{ post.excerpt | strip_html | truncatewords: 30 }}
       </p>
-      <a href="{{ post.url | relative_url }}" style="color: #007bff; font-weight: 600; text-decoration: none; font-size: 0.9em;">Đọc thêm →</a>
+      <a href="{{ post.url | relative_url }}" style="color: #007bff; font-weight: 600; text-decoration: none; font-size: 0.9em;">Đọc</a>
     </div>
     {% endfor %}
   </div>
