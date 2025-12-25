@@ -1,138 +1,60 @@
----
-layout: page
-title: "Giới thiệu"
-permalink: /Quang Trường Blog/ 
----
+<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; color: #333; line-height: 1.6;">
 
-<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto;">
-  <p style="color: #666; font-style: italic; margin-bottom: 30px; text-align: center;">
-    "Hành trình thực nghiệm chuyên sâu: Từ hạ tầng mạng vững chắc đến nghệ thuật kết nối, tối ưu hóa dữ liệu liên tầng và thiết lập lá chắn bảo mật hệ thống phân tán hiện đại."
-  </p>
-
-  <div style="display: flex; margin-bottom: 40px; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 10px;">
-    
-    <div style="position: relative; flex: 1;">
-      <input type="text" id="search-blog" placeholder="Tìm kiếm bài học..." 
-             onkeyup="handleKeyUp(event)"
-             style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #007bff; border-right: none; border-radius: 10px 0 0 10px; font-size: 16px; outline: none; box-sizing: border-box;">
-      
-      <span onclick="clearSearch()" id="clear-btn" 
-            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a0aec0; font-weight: bold; display: none; user-select: none;">✕</span>
-    </div>
-
-    <button onclick="executeSearch()" 
-            style="padding: 0 30px; background-color: #007bff; color: white; border: 2px solid #007bff; border-radius: 0 10px 10px 0; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s;">
-      Tìm
-    </button>
-
-    <div id="suggestion-box" 
-         style="display: none; position: absolute; width: calc(100% - 85px); background: white; border: 1px solid #e1e8ed; border-radius: 0 0 8px 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 52px; max-height: 250px; overflow-y: auto;">
+  <div style="text-align: center; margin-bottom: 40px;">
+    <h1 style="color: #007bff; margin-bottom: 10px;">TRƯƠNG QUANG TRƯỞNG</h1>
+    <p style="font-size: 1.2em; color: #666;">Software Engineer | Network & System Administrator</p>
+    <div style="display: flex; justify-content: center; gap: 20px; margin-top: 15px;">
+      <span>📍 TP. Hồ Chí Minh</span>
+      <span>📧 truongblueblacl0702@email.com</span>
     </div>
   </div>
 
-  <div id="blog-posts-container" style="display: flex; flex-direction: column; gap: 25px;">
-    {% assign posts = site.posts | sort: "weight" %}
-    {% for post in posts %}
-    <div class="post-card" style="border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; transition: 0.3s; background: #fff;" 
-         onmouseover="this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'; this.style.borderColor='#007bff'" 
-         onmouseout="this.style.boxShadow='none'; this.style.borderColor='#e1e8ed'">
-      <span style="color: #007bff; font-weight: bold; font-size: 0.85em; text-transform: uppercase;">{{ post.date | date: "%b %d, %Y" }}</span>
-      <h3 style="margin: 10px 0;">
-        <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #1a202c;">{{ post.title }}</a>
-      </h3>
-      <p style="color: #4a5568; font-size: 0.95em; line-height: 1.6;">
-        {{ post.excerpt | strip_html | truncatewords: 30 }}
-      </p>
-      <a href="{{ post.url | relative_url }}" style="color: #007bff; font-weight: 600; text-decoration: none; font-size: 0.9em;">Đọc</a>
+  <hr style="border: 0; border-top: 1px solid #eee; margin: 30px 0;">
+
+  <section style="margin-bottom: 30px;">
+    <h3 style="color: #007bff; border-left: 5px solid #007bff; padding-left: 15px;">MỤC TIÊU NGHỀ NGHIỆP</h3>
+    <p>Đam mê nghiên cứu về kiến trúc hệ thống phân tán và bảo mật mạng. Mong muốn xây dựng các nền tảng kỹ thuật vững chắc, tối ưu hóa hiệu suất và triển khai các giải pháp hạ tầng hiện đại (Microservices, WebSockets) để giải quyết các bài toán thực tế trong doanh nghiệp.</p>
+  </section>
+
+  <section style="margin-bottom: 30px;">
+    <h3 style="color: #007bff; border-left: 5px solid #007bff; padding-left: 15px;">KỸ NĂNG CHUYÊN MÔN</h3>
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 10px;">
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+        <strong>Lập trình & Frameworks:</strong>
+        <ul style="margin-top: 5px;">
+          <li>Java (Spring Boot), JavaScript (Node.js)</li>
+          <li>WebSockets, RESTful API</li>
+        </ul>
+      </div>
+      <div style="background: #f8f9fa; padding: 15px; border-radius: 8px;">
+        <strong>Hệ thống & Mạng:</strong>
+        <ul style="margin-top: 5px;">
+          <li>Quản trị hệ thống Linux, Socket TCP/IP</li>
+          <li>Kiến trúc Microservices, Docker</li>
+        </ul>
+      </div>
     </div>
-    {% endfor %}
-  </div>
+  </section>
+
+  <section style="margin-bottom: 30px;">
+    <h3 style="color: #007bff; border-left: 5px solid #007bff; padding-left: 15px;">DỰ ÁN NGHIÊN CỨU</h3>
+    <div style="padding: 10px 0;">
+      <h4 style="margin-bottom: 5px;">Hệ thống Blog Kỹ thuật & Thực nghiệm Hệ thống phân tán</h4>
+      <p style="font-size: 0.9em; color: #777; margin-bottom: 10px;">Dự án Đồ án tốt nghiệp | 2025</p>
+      <ul>
+        <li>Xây dựng nền tảng chia sẻ kiến thức sử dụng Jekyll và GitHub Pages.</li>
+        <li>Tích hợp công cụ tìm kiếm bài học đa năng dựa trên JavaScript.</li>
+        <li>Nghiên cứu và viết blog chuyên sâu về WebSockets, Java Streams và Microservices.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h3 style="color: #007bff; border-left: 5px solid #007bff; padding-left: 15px;">HỌC VẤN</h3>
+    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
+      <strong>Chuyên ngành Công nghệ thông tin</strong>
+      <span>2021 - 2025</span>
+    </div>
+  </section>
+
 </div>
-
-<script>
-// 1. Khởi tạo dữ liệu từ Jekyll
-const postData = [
-  {% for post in site.posts %}
-    { 
-        title: "{{ post.title | escape }}", 
-        url: "{{ post.url | relative_url }}" 
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
-];
-
-// 2. Xử lý gõ phím (Hiển thị gợi ý & Enter)
-function handleKeyUp(event) {
-    const value = event.target.value.trim();
-    const clearBtn = document.getElementById('clear-btn');
-    
-    clearBtn.style.display = value ? "block" : "none";
-    
-    if (event.key === "Enter") {
-        executeSearch();
-    } else {
-        showSuggestions(value);
-    }
-}
-
-// 3. Hiển thị danh sách gợi ý
-function showSuggestions(query) {
-    const suggestionBox = document.getElementById('suggestion-box');
-    if (!query) {
-        suggestionBox.style.display = "none";
-        return;
-    }
-
-    const matches = postData.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
-    
-    if (matches.length > 0) {
-        suggestionBox.innerHTML = matches.map(p => `
-            <div style="padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; font-size: 14px;" 
-                 onclick="window.location.href='${p.url}'"
-                 onmouseover="this.style.backgroundColor='#f8f9fa'"
-                 onmouseout="this.style.backgroundColor='#fff'">
-                ${p.title}
-            </div>
-        `).join('');
-        suggestionBox.style.display = "block";
-    } else {
-        suggestionBox.style.display = "none";
-    }
-}
-
-// 4. Thực thi tìm kiếm (Nút bấm hoặc Enter)
-function executeSearch() {
-    const input = document.getElementById('search-blog').value.trim().toLowerCase();
-    if (!input) return;
-
-    // Ưu tiên 1: Khớp tiêu đề 100% (Cho hành động copy-paste)
-    const exactMatch = postData.find(p => p.title.toLowerCase() === input);
-    if (exactMatch) {
-        window.location.href = exactMatch.url;
-        return;
-    }
-
-    // Ưu tiên 2: Nhảy vào kết quả tương ứng đầu tiên
-    const firstMatch = postData.filter(p => p.title.toLowerCase().includes(input))[0];
-    if (firstMatch) {
-        window.location.href = firstMatch.url;
-    } else {
-        alert("Không tìm thấy bài học nào!");
-    }
-}
-
-// 5. Xóa ô tìm kiếm
-function clearSearch() {
-    const input = document.getElementById('search-blog');
-    input.value = "";
-    input.focus();
-    document.getElementById('suggestion-box').style.display = "none";
-    document.getElementById('clear-btn').style.display = "none";
-}
-
-// Đóng gợi ý khi click ra ngoài
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('#search-blog') && !e.target.closest('#suggestion-box')) {
-        document.getElementById('suggestion-box').style.display = "none";
-    }
-});
-</script>
