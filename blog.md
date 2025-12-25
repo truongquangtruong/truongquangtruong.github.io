@@ -16,7 +16,19 @@ permalink: /blog/
              style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #e1e8ed; border-radius: 10px; font-size: 16px; outline: none; transition: 0.3s; box-sizing: border-box;"
              onfocus="this.style.borderColor='#007bff'">
       
-     
+      <span onclick="clearSearch()" id="clear-btn" 
+            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a0aec0; font-weight: bold; display: none; user-select: none;">✕</span>
+    </div>
+
+    <button onclick="executeSearch()" 
+            style="padding: 0 25px; background: #007bff; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; white-space: nowrap;">
+      Tìm kiếm
+    </button>
+    
+    <div id="suggestion-box" 
+         style="display: none; position: absolute; width: calc(100% - 115px); background: white; border: 1px solid #e1e8ed; border-radius: 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 60px; max-height: 250px; overflow-y: auto;">
+    </div>
+    
   </div>
 
   <div id="blog-posts-container" style="display: flex; flex-direction: column; gap: 25px;">
