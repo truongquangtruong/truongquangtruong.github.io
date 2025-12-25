@@ -1,7 +1,7 @@
 ---
 layout: page
-title: "Blog"
-permalink: /blog/
+title: "Giới thiệu"
+permalink: /about/
 ---
 
 <div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto;">
