@@ -38,7 +38,7 @@ import java.util.Scanner;
 
 /**
  * DNS Research & Analysis Tool
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class DnsResearchTool {
     public static void main(String[] args) {

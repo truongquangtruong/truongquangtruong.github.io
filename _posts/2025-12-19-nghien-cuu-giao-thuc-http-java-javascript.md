@@ -51,7 +51,7 @@ import java.nio.charset.StandardCharsets;
 
 /**
  * HTTP Raw Processor - Nghiên cứu cấu trúc giao thức
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class HttpRawProcessor {
     public static void main(String[] args) {

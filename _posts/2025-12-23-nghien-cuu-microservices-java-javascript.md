@@ -61,7 +61,7 @@ import java.util.concurrent.*;
 /**
  * Advanced Microservices API Gateway Research
  * Cơ chế Routing, Load Balancing và Thread Management
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class AdvancedJavaGateway {
     private static final int PORT = 8000;

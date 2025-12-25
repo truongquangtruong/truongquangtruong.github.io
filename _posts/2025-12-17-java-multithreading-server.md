@@ -38,7 +38,7 @@ import java.net.*;
 
 /**
  * Multi-threaded Server Research
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class MultiThreadedServer {
     public static void main(String[] args) {

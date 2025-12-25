@@ -41,7 +41,7 @@ import java.util.Scanner;
 
 /**
  * Thực thể Client nghiên cứu
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class ResearchClient {
     public static void main(String[] args) {

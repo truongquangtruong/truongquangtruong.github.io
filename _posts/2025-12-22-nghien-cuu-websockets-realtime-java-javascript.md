@@ -50,7 +50,7 @@ import java.util.regex.*;
 /**
  * Advanced WebSocket Concurrency Research Tool
  * Nghiên cứu cơ chế bắt tay và quản lý Frame dữ liệu cấp thấp
- * Tác giả: Trương Quang Trưởng
+ * Tác giả: Trương Quang Trường
  */
 public class DeepWebSocketServer {
     public static void main(String[] args) throws Exception {

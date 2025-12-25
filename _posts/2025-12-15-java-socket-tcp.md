@@ -46,7 +46,7 @@ import java.util.Date;
 
 /**
  * Hệ thống Server Socket chuyên dụng
- * Thực hiện bởi: Trương Quang Trưởng
+ * Thực hiện bởi: Trương Quang Trường
  */
 public class ProfessionalTcpServer {
     public static void main(String[] args) {
