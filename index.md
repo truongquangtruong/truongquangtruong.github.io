@@ -84,6 +84,7 @@ title: Trang Chủ
 
   <div style="margin-bottom: 20px;">
     <a href="{{ '/about/' | relative_url }}" class="btn-hero">Giới thiệu về tôi</a>
+    <a href="{{ '/blog/' | relative_url }}" class="btn-hero" style="margin-left: 10px;">Bài viết</a>
   </div>
 </div>
 
