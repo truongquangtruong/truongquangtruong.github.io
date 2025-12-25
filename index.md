@@ -14,11 +14,11 @@ title: Trang Chủ
   }
 
   .profile-img {
-    width: 320px;
-    height: 420px;
+    width: 100%;
+    max-width: 320px;
+    height: auto;
     border-radius: 12px;
     object-fit: contain;
-    background: #f8f9fa;
     border: 4px solid #007bff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     margin-bottom: 20px;
@@ -78,7 +78,7 @@ title: Trang Chủ
 </style>
 
 <div class="hero-section">
-  <img src="{{ '/assets/profile_v2.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
+  <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
   
   <h1 class="hero-title">Chào mừng bạn đến với blog của tôi</h1>
   <p class="hero-subtitle">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng</p>
