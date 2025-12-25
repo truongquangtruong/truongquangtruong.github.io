@@ -11,7 +11,7 @@ permalink: /blog/
 
   <div style="position: relative; margin-bottom: 40px; display: flex; gap: 10px;">
     <div style="position: relative; flex: 1;">
-      <input type="text" id="search-blog" placeholder="Tìm kiếm ..." 
+      <input type="text" id="search-blog" placeholder="Tìm kiếm bài viết ..." 
              onkeyup="handleKeyUp(event)"
              style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #e1e8ed; border-radius: 10px; font-size: 16px; outline: none; transition: 0.3s; box-sizing: border-box;"
              onfocus="this.style.borderColor='#007bff'">
