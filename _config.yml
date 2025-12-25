@@ -10,6 +10,7 @@ theme: minima
 # Cấu hình thanh Menu (Navigation)
 header_pages:
   - index.md
+  - about.md
   - blog.md
   - contact.md
 
