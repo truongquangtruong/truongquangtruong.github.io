@@ -14,9 +14,9 @@ title: Trang Chủ
   }
 
   .profile-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+    width: 220px;
+    height: 220px;
+    border-radius: 12px;
     object-fit: cover;
     border: 4px solid #007bff;
     box-shadow: 0 4px 15px rgba(0,0,0,0.1);
