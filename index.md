@@ -4,7 +4,7 @@ title: Trang Chủ
 ---
 
 <style>
-  /* Light Theme Styles for Homepage */
+  /* Giữ nguyên Style của Trưởng */
   .hero-section {
     text-align: center;
     padding: 60px 20px;
@@ -41,7 +41,7 @@ title: Trang Chủ
     display: inline-block;
     padding: 10px 25px;
     background-color: #007bff;
-    color: white;
+    color: white !important;
     text-decoration: none;
     border-radius: 25px;
     font-weight: 600;
@@ -52,10 +52,9 @@ title: Trang Chủ
     transform: translateY(-2px);
     background-color: #0056b3;
     text-decoration: none;
-    color: white;
+    color: white !important;
   }
 
-  /* Info Cards */
   .features-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -92,7 +91,7 @@ title: Trang Chủ
 </style>
 
 <div class="hero-section">
-  <img src="assets/me.png" alt="Trương Quang Trường" class="profile-img">
+  <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
   
   <h1 class="hero-title">Chào mừng bạn đến với blog của tôi</h1>
   <p class="hero-subtitle">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng</p>
@@ -101,16 +100,3 @@ title: Trang Chủ
     <a href="{{ '/about/' | relative_url }}" class="btn-hero">Giới thiệu về tôi</a>
     <a href="{{ '/blog/' | relative_url }}" class="btn-hero" style="margin-left: 10px;">Bài viết</a>
   </div>
-</div>
-
-<div class="features-grid">
-  <div class="feature-card">
-    <h3 class="feature-title">🌐 Network Engineering</h3>
-    <p class="feature-text">Nghiên cứu triển khai hạ tầng mạng đa tầng, tập trung tối ưu hóa các giao thức định tuyến OSPF và BGP.</p>
-  </div>
-  <div class="feature-card">
-    <h3 class="feature-title">🛡️ Cyber Security</h3>
-    <p class="feature-text">Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát luồng dữ liệu Fullstack.</p>
-  </div>
-</div>
-
