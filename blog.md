@@ -4,135 +4,71 @@ title: "Blog"
 permalink: /blog/
 ---
 
-<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 900px; margin: 0 auto;">
+<div style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1000px; margin: 0 auto;">
   <p style="color: #666; font-style: italic; margin-bottom: 30px; text-align: center;">
     "Hành trình thực nghiệm chuyên sâu: Từ hạ tầng mạng vững chắc đến nghệ thuật kết nối, tối ưu hóa dữ liệu liên tầng và thiết lập lá chắn bảo mật hệ thống phân tán hiện đại."
   </p>
 
-  <div style="display: flex; margin-bottom: 40px; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 10px;">
-    
-    <div style="position: relative; flex: 1;">
-      <input type="text" id="search-blog" placeholder="Tìm kiếm bài học..." 
+  <div style="display: flex; gap: 15px; margin-bottom: 40px; align-items: center; justify-content: center;">
+    <div style="position: relative; flex: 1; max-width: 700px;">
+      <input type="text" id="search-blog" placeholder="Tìm kiếm bài viết ..." 
              onkeyup="handleKeyUp(event)"
-             style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #007bff; border-right: none; border-radius: 10px 0 0 10px; font-size: 16px; outline: none; box-sizing: border-box;">
+             style="width: 100%; padding: 15px 20px; border: 1px solid #ddd; border-radius: 10px; font-size: 16px; outline: none;">
       
       <span onclick="clearSearch()" id="clear-btn" 
-            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a0aec0; font-weight: bold; display: none; user-select: none;">✕</span>
+            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #aaa; display: none;">✕</span>
+      
+      <div id="suggestion-box" 
+           style="display: none; position: absolute; width: 100%; background: white; border: 1px solid #ddd; border-radius: 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 60px; max-height: 250px; overflow-y: auto;">
+      </div>
     </div>
 
     <button onclick="executeSearch()" 
-            style="padding: 0 30px; background-color: #007bff; color: white; border: 2px solid #007bff; border-radius: 0 10px 10px 0; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s;">
-      Tìm
+            style="padding: 15px 35px; background-color: #007bff; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; font-size: 16px;">
+      Tìm kiếm
     </button>
-
-    <div id="suggestion-box" 
-         style="display: none; position: absolute; width: calc(100% - 85px); background: white; border: 1px solid #e1e8ed; border-radius: 0 0 8px 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 52px; max-height: 250px; overflow-y: auto;">
-    </div>
   </div>
 
-  <div id="blog-posts-container" style="display: flex; flex-direction: column; gap: 25px;">
-    {% assign posts = site.posts | sort: "weight" %}
+  <div id="blog-posts-container">
+    {% assign posts = site.posts | sort: "date" | reverse %}
     {% for post in posts %}
-    <div class="post-card" style="border: 1px solid #e1e8ed; border-radius: 12px; padding: 20px; transition: 0.3s; background: #fff;" 
-         onmouseover="this.style.boxShadow='0 5px 15px rgba(0,0,0,0.08)'; this.style.borderColor='#007bff'" 
-         onmouseout="this.style.boxShadow='none'; this.style.borderColor='#e1e8ed'">
-      <span style="color: #007bff; font-weight: bold; font-size: 0.85em; text-transform: uppercase;">{{ post.date | date: "%b %d, %Y" }}</span>
+    <div class="post-card" style="border: 1px solid #e1e8ed; border-radius: 15px; padding: 25px; margin-bottom: 25px; background: #fff;">
+      <span style="color: #007bff; font-weight: bold; font-size: 0.85em;">{{ post.date | date: "%b %d, %Y" }}</span>
       <h3 style="margin: 10px 0;">
         <a href="{{ post.url | relative_url }}" style="text-decoration: none; color: #1a202c;">{{ post.title }}</a>
       </h3>
-      <p style="color: #4a5568; font-size: 0.95em; line-height: 1.6;">
-        {{ post.excerpt | strip_html | truncatewords: 30 }}
-      </p>
-      <a href="{{ post.url | relative_url }}" style="color: #007bff; font-weight: 600; text-decoration: none; font-size: 0.9em;">Đọc→</a>
+      <p style="color: #4a5568;">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+      <a href="{{ post.url | relative_url }}" style="color: #007bff; font-weight: 600; text-decoration: none;">Đọc thêm →</a>
     </div>
     {% endfor %}
   </div>
 </div>
 
 <script>
-// 1. Khởi tạo dữ liệu từ Jekyll
-const postData = [
-  {% for post in site.posts %}
-    { 
-        title: "{{ post.title | escape }}", 
-        url: "{{ post.url | relative_url }}" 
-    }{% unless forloop.last %},{% endunless %}
-  {% endfor %}
-];
-
-// 2. Xử lý gõ phím (Hiển thị gợi ý & Enter)
+const postData = [{% for post in site.posts %}{ title: "{{ post.title | escape }}", url: "{{ post.url | relative_url }}" }{% unless forloop.last %},{% endunless %}{% endfor %}];
 function handleKeyUp(event) {
-    const value = event.target.value.trim();
-    const clearBtn = document.getElementById('clear-btn');
-    
-    clearBtn.style.display = value ? "block" : "none";
-    
-    if (event.key === "Enter") {
-        executeSearch();
-    } else {
-        showSuggestions(value);
-    }
+    const v = event.target.value.trim();
+    document.getElementById('clear-btn').style.display = v ? "block" : "none";
+    if (event.key === "Enter") executeSearch(); else showSuggestions(v);
 }
-
-// 3. Hiển thị danh sách gợi ý
-function showSuggestions(query) {
-    const suggestionBox = document.getElementById('suggestion-box');
-    if (!query) {
-        suggestionBox.style.display = "none";
-        return;
-    }
-
-    const matches = postData.filter(p => p.title.toLowerCase().includes(query.toLowerCase()));
-    
-    if (matches.length > 0) {
-        suggestionBox.innerHTML = matches.map(p => `
-            <div style="padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #f0f0f0; font-size: 14px;" 
-                 onclick="window.location.href='${p.url}'"
-                 onmouseover="this.style.backgroundColor='#f8f9fa'"
-                 onmouseout="this.style.backgroundColor='#fff'">
-                ${p.title}
-            </div>
-        `).join('');
-        suggestionBox.style.display = "block";
-    } else {
-        suggestionBox.style.display = "none";
-    }
+function showSuggestions(q) {
+    const b = document.getElementById('suggestion-box');
+    if (!q) { b.style.display = "none"; return; }
+    const m = postData.filter(p => p.title.toLowerCase().includes(q.toLowerCase()));
+    if (m.length > 0) {
+        b.innerHTML = m.map(p => `<div style="padding: 12px 20px; cursor: pointer; border-bottom: 1px solid #eee;" onclick="location.href='${p.url}'">${p.title}</div>`).join('');
+        b.style.display = "block";
+    } else { b.style.display = "none"; }
 }
-
-// 4. Thực thi tìm kiếm (Nút bấm hoặc Enter)
 function executeSearch() {
-    const input = document.getElementById('search-blog').value.trim().toLowerCase();
-    if (!input) return;
-
-    // Ưu tiên 1: Khớp tiêu đề 100% (Cho hành động copy-paste)
-    const exactMatch = postData.find(p => p.title.toLowerCase() === input);
-    if (exactMatch) {
-        window.location.href = exactMatch.url;
-        return;
-    }
-
-    // Ưu tiên 2: Nhảy vào kết quả tương ứng đầu tiên
-    const firstMatch = postData.filter(p => p.title.toLowerCase().includes(input))[0];
-    if (firstMatch) {
-        window.location.href = firstMatch.url;
-    } else {
-        alert("Không tìm thấy bài học nào!");
-    }
+    const i = document.getElementById('search-blog').value.trim().toLowerCase();
+    if (!i) return;
+    const match = postData.find(p => p.title.toLowerCase().includes(i));
+    if (match) window.location.href = match.url;
 }
-
-// 5. Xóa ô tìm kiếm
 function clearSearch() {
-    const input = document.getElementById('search-blog');
-    input.value = "";
-    input.focus();
+    document.getElementById('search-blog').value = "";
     document.getElementById('suggestion-box').style.display = "none";
     document.getElementById('clear-btn').style.display = "none";
 }
-
-// Đóng gợi ý khi click ra ngoài
-document.addEventListener('click', function(e) {
-    if (!e.target.closest('#search-blog') && !e.target.closest('#suggestion-box')) {
-        document.getElementById('suggestion-box').style.display = "none";
-    }
-});
 </script>
