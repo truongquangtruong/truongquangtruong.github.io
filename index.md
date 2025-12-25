@@ -4,7 +4,6 @@ title: Trang Chủ
 ---
 
 <style>
-  /* Giữ nguyên Style của Trưởng */
   .hero-section {
     text-align: center;
     padding: 60px 20px;
@@ -75,19 +74,6 @@ title: Trang Chủ
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border-color: #007bff;
   }
-
-  .feature-title {
-    color: #007bff;
-    font-size: 1.25em;
-    margin-top: 0;
-    margin-bottom: 15px;
-  }
-
-  .feature-text {
-    color: #4a5568;
-    line-height: 1.6;
-    margin-bottom: 0;
-  }
 </style>
 
 <div class="hero-section">
@@ -100,3 +86,15 @@ title: Trang Chủ
     <a href="{{ '/about/' | relative_url }}" class="btn-hero">Giới thiệu về tôi</a>
     <a href="{{ '/blog/' | relative_url }}" class="btn-hero" style="margin-left: 10px;">Bài viết</a>
   </div>
+</div>
+
+<div class="features-grid">
+  <div class="feature-card">
+    <h3 style="color: #007bff;">🌐 Network Engineering</h3>
+    <p style="color: #4a5568;">Nghiên cứu triển khai hạ tầng mạng đa tầng, tối ưu hóa OSPF và BGP.</p>
+  </div>
+  <div class="feature-card">
+    <h3 style="color: #007bff;">🛡️ Cyber Security</h3>
+    <p style="color: #4a5568;">Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát Fullstack.</p>
+  </div>
+</div>
