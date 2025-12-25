@@ -9,26 +9,25 @@ permalink: /blog/
     "Hành trình thực nghiệm chuyên sâu: Từ hạ tầng mạng vững chắc đến nghệ thuật kết nối, tối ưu hóa dữ liệu liên tầng và thiết lập lá chắn bảo mật hệ thống phân tán hiện đại."
   </p>
 
-  <div style="position: relative; margin-bottom: 40px; display: flex; gap: 10px;">
+  <div style="display: flex; margin-bottom: 40px; position: relative; box-shadow: 0 4px 12px rgba(0,0,0,0.05); border-radius: 10px;">
+    
     <div style="position: relative; flex: 1;">
-      <input type="text" id="search-blog" placeholder="Tìm kiếm bài viết ..." 
+      <input type="text" id="search-blog" placeholder="Tìm kiếm bài học..." 
              onkeyup="handleKeyUp(event)"
-             style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #e1e8ed; border-radius: 10px; font-size: 16px; outline: none; transition: 0.3s; box-sizing: border-box;"
-             onfocus="this.style.borderColor='#007bff'">
+             style="width: 100%; padding: 15px 45px 15px 20px; border: 2px solid #007bff; border-right: none; border-radius: 10px 0 0 10px; font-size: 16px; outline: none; box-sizing: border-box;">
       
       <span onclick="clearSearch()" id="clear-btn" 
             style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #a0aec0; font-weight: bold; display: none; user-select: none;">✕</span>
     </div>
 
     <button onclick="executeSearch()" 
-            style="padding: 0 25px; background: #007bff; color: white; border: none; border-radius: 10px; font-weight: bold; cursor: pointer; transition: 0.3s; white-space: nowrap;">
-      Tìm kiếm
+            style="padding: 0 30px; background-color: #007bff; color: white; border: 2px solid #007bff; border-radius: 0 10px 10px 0; font-weight: bold; cursor: pointer; font-size: 16px; transition: 0.3s;">
+      Tìm
     </button>
-    
+
     <div id="suggestion-box" 
-         style="display: none; position: absolute; width: calc(100% - 115px); background: white; border: 1px solid #e1e8ed; border-radius: 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 60px; max-height: 250px; overflow-y: auto;">
+         style="display: none; position: absolute; width: calc(100% - 85px); background: white; border: 1px solid #e1e8ed; border-radius: 0 0 8px 8px; z-index: 1000; box-shadow: 0 10px 25px rgba(0,0,0,0.1); top: 52px; max-height: 250px; overflow-y: auto;">
     </div>
-    
   </div>
 
   <div id="blog-posts-container" style="display: flex; flex-direction: column; gap: 25px;">
@@ -51,7 +50,7 @@ permalink: /blog/
 </div>
 
 <script>
-
+// 1. Khởi tạo dữ liệu từ Jekyll
 const postData = [
   {% for post in site.posts %}
     { 
@@ -61,13 +60,11 @@ const postData = [
   {% endfor %}
 ];
 
-
+// 2. Xử lý gõ phím (Hiển thị gợi ý & Enter)
 function handleKeyUp(event) {
     const value = event.target.value.trim();
     const clearBtn = document.getElementById('clear-btn');
-    const suggestionBox = document.getElementById('suggestion-box');
     
-   
     clearBtn.style.display = value ? "block" : "none";
     
     if (event.key === "Enter") {
@@ -77,7 +74,7 @@ function handleKeyUp(event) {
     }
 }
 
-
+// 3. Hiển thị danh sách gợi ý
 function showSuggestions(query) {
     const suggestionBox = document.getElementById('suggestion-box');
     if (!query) {
@@ -102,28 +99,28 @@ function showSuggestions(query) {
     }
 }
 
-
+// 4. Thực thi tìm kiếm (Nút bấm hoặc Enter)
 function executeSearch() {
     const input = document.getElementById('search-blog').value.trim().toLowerCase();
     if (!input) return;
 
-    
+    // Ưu tiên 1: Khớp tiêu đề 100% (Cho hành động copy-paste)
     const exactMatch = postData.find(p => p.title.toLowerCase() === input);
     if (exactMatch) {
         window.location.href = exactMatch.url;
         return;
     }
 
-    
-    const firstMatch = postData.find(p => p.title.toLowerCase().includes(input));
+    // Ưu tiên 2: Nhảy vào kết quả tương ứng đầu tiên
+    const firstMatch = postData.filter(p => p.title.toLowerCase().includes(input))[0];
     if (firstMatch) {
         window.location.href = firstMatch.url;
     } else {
-        alert("Không tìm thấy bài học nào phù hợp với từ khóa của bạn!");
+        alert("Không tìm thấy bài học nào!");
     }
 }
 
-
+// 5. Xóa ô tìm kiếm
 function clearSearch() {
     const input = document.getElementById('search-blog');
     input.value = "";
@@ -132,7 +129,7 @@ function clearSearch() {
     document.getElementById('clear-btn').style.display = "none";
 }
 
-
+// Đóng gợi ý khi click ra ngoài
 document.addEventListener('click', function(e) {
     if (!e.target.closest('#search-blog') && !e.target.closest('#suggestion-box')) {
         document.getElementById('suggestion-box').style.display = "none";
