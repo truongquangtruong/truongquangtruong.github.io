@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #05: Nghiên cứu Thượng tầng Giao thức HTTP - Kiến trúc Truyền tải và Đồng bộ hóa Thực thể Java-JavaScript"
+title: "Nghiên cứu Thượng tầng Giao thức HTTP - Kiến trúc Truyền tải và Đồng bộ hóa Thực thể Java-JavaScript"
 date: 2025-12-19
 tags: ["java", "javascript", "http-protocol", "network-research", "fullstack", "deep-dive", "low-level"]
 categories: ["Java Network Research"]

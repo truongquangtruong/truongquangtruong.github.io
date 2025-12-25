@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #04: Nghiên cứu Hệ thống định danh DNS - Cơ chế phân giải tên miền trong hạ tầng mạng Java"
+title: "Nghiên cứu Hệ thống định danh DNS - Cơ chế phân giải tên miền trong hạ tầng mạng Java"
 date: 2025-12-18
 tags: ["java", "dns", "network-infrastructure", "ip-address", "backend-research"]
 categories: ["Java Network Research"]

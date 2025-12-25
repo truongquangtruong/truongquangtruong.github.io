@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #09: Nghiên cứu Kiến trúc Microservices - Phân rã và Kết nối thực thể Java trong hệ thống Fullstack"
+title: "Nghiên cứu Kiến trúc Microservices - Phân rã và Kết nối thực thể Java trong hệ thống Fullstack"
 date: 2025-12-23
 tags: ["java", "javascript", "microservices", "distributed-systems", "api-gateway", "fullstack-research", "software-architecture"]
 categories: ["Java Network Research"]

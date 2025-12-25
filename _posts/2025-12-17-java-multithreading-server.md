@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #03: Nghiên cứu Đa luồng (Multi-threading) - Giải pháp tối ưu hóa năng lực xử lý cho thực thể Java Server"
+title: "Nghiên cứu Đa luồng (Multi-threading) - Giải pháp tối ưu hóa năng lực xử lý cho thực thể Java Server"
 date: 2025-12-17
 tags: ["java", "multi-threading", "concurrency", "socket-server", "backend-research"]
 categories: ["Java Network"]

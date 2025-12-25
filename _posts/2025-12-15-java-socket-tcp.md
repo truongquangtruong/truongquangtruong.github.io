@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #01: Chinh Phục Socket TCP - Từ Lý Thuyết Mô Hình OSI Đến Thực Thi Java Chuyên Sâu"
+title: "Chinh Phục Socket TCP - Từ Lý Thuyết Mô Hình OSI Đến Thực Thi Java Chuyên Sâu"
 date: 2025-12-15
 tags: ["java", "network", "socket", "tcp", "backend"]
 categories: ["Java Network"]

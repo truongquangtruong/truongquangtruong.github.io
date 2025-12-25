@@ -27,9 +27,9 @@ permalink: /about/
   <p style="text-align: justify;">
     Chào mừng bạn đến với blog nghiên cứu của tôi! Tôi là Trương Quang Trường, sinh viên năm cuối chuyên ngành An ninh mạng tại Đại học Công nghệ TP.HCM. Với tôi, một hệ thống công nghệ hoàn hảo không chỉ dừng lại ở sự kết nối, mà phải là một "hệ tuần hoàn" ổn định, an toàn và được tối ưu hóa thông minh.
 
-   Hành trình của tôi tập trung vào việc nghiên cứu sự giao thoa giữa hạ tầng mạng truyền thống và kiến trúc phần mềm hiện đại. Thông qua chuỗi bài thực nghiệm trên blog, tôi đã đi sâu vào việc làm chủ các giao thức truyền tải từ HTTP đến WebSockets, nghệ thuật xử lý thực thể dữ liệu liên tầng qua JSON/Serialization, và thiết lập những lá chắn bảo mật đa tầng cho hệ thống Java - JavaScript. Bên cạnh đó, tôi còn không ngừng phân rã các hệ thống đồ sộ sang mô hình Microservices linh hoạt.
+    Hành trình của tôi tập trung vào việc nghiên cứu sự giao thoa giữa hạ tầng mạng truyền thống và kiến trúc phần mềm hiện đại. Thông qua chuỗi bài thực nghiệm trên blog, tôi đã đi sâu vào việc làm chủ các giao thức truyền tải từ HTTP đến WebSockets, nghệ thuật xử lý thực thể dữ liệu liên tầng qua JSON/Serialization, và thiết lập những lá chắn bảo mật đa tầng cho hệ thống Java - JavaScript. Bên cạnh đó, tôi còn không ngừng phân rã các hệ thống đồ sộ sang mô hình Microservices linh hoạt.
 
-   Mục tiêu của tôi là trở thành một chuyên gia Fullstack Security Engineer, sử dụng tư duy lập trình và an ninh hạ tầng để xây dựng nên những nền tảng số bền vững cho doanh nghiệp. 
+  
   </p>
   <p style="text-align: justify;">
     Câu hỏi đó đã dẫn dắt tôi đi qua <strong>09 bài nghiên cứu thực nghiệm</strong>. Tôi đã dành hàng giờ để nghiên cứu cách Java "đóng gói" thực thể qua Serialization, cách thiết lập kênh truyền thời gian thực bằng WebSockets, và cách xây dựng những lá chắn bảo mật kiên cố để bảo vệ dữ liệu người dùng.

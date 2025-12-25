@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #06: Nghiên cứu Serialization - Nghệ thuật chuyển hóa thực thể dữ liệu liên tầng Java và JavaScript"
+title: "Nghiên cứu Serialization - Nghệ thuật chuyển hóa thực thể dữ liệu liên tầng Java và JavaScript"
 date: 2025-12-20
 tags: ["java", "javascript", "json", "serialization", "data-binding", "fullstack-research", "architecture"]
 categories: ["Java Network Research"]

@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #02: Nghiên cứu Thực thể Client - Phân tích Luồng Gửi và Nhận Dữ liệu trong Mạng TCP"
+title: "Nghiên cứu Thực thể Client - Phân tích Luồng Gửi và Nhận Dữ liệu trong Mạng TCP"
 date: 2025-12-16
 tags: ["java", "network", "socket-client", "tcp", "backend"]
 categories: ["Java Network"]

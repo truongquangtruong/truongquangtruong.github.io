@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #08: Nghiên cứu WebSockets - Cơ chế truyền tải dữ liệu thời gian thực giữa Java và JavaScript"
+title: "Nghiên cứu WebSockets - Cơ chế truyền tải dữ liệu thời gian thực giữa Java và JavaScript"
 date: 2025-12-22
 tags: ["java", "javascript", "websockets", "real-time", "networking-research", "fullstack", "concurrency"]
 categories: ["Java Network Research"]

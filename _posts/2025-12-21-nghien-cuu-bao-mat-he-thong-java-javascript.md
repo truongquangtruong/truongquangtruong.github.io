@@ -1,5 +1,5 @@
 ---
-title: "Khóa Học #07: Nghiên cứu Bảo mật Hệ thống - Thiết lập lá chắn đa tầng cho thực thể Java và JavaScript"
+title: "Nghiên cứu Bảo mật Hệ thống - Thiết lập lá chắn đa tầng cho thực thể Java và JavaScript"
 date: 2025-12-21
 tags: ["java", "javascript", "security", "cors", "xss", "fullstack-research", "cyber-security"]
 categories: ["Java Network Research"]
