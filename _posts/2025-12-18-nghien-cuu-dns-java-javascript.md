@@ -3,6 +3,7 @@ title: "Nghiên cứu Hệ thống định danh DNS - Cơ chế phân giải tê
 date: 2025-12-18
 tags: ["java", "dns", "network-infrastructure", "ip-address", "backend-research"]
 categories: ["Java Network Research"]
+description: "Giải mã cơ chế phân giải tên miền DNS và cách triển khai các thực nghiệm Fullstack giúp tối ưu hóa kết nối giữa Client và Server."
 draft: false
 ---
 

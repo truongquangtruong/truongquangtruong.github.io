@@ -3,6 +3,7 @@ title: "Nghiên cứu Bảo mật Hệ thống - Thiết lập lá chắn đa t�
 date: 2025-12-21
 tags: ["java", "javascript", "security", "cors", "xss", "fullstack-research", "cyber-security"]
 categories: ["Java Network Research"]
+description: "Thiết lập các cơ chế bảo mật quan trọng như xác thực, phân quyền và mã hóa dữ liệu để bảo vệ hệ thống trước các nguy cơ tấn công."
 draft: false
 ---
 

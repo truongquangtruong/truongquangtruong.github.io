@@ -2,7 +2,8 @@
 title: "Nghiên cứu Thực thể Client - Phân tích Luồng Gửi và Nhận Dữ liệu trong Mạng TCP"
 date: 2025-12-16
 tags: ["java", "network", "socket-client", "tcp", "backend"]
-categories: ["Java Network"]
+categories: ["Java Network Research"]
+description: "Phân tích sâu về luồng dữ liệu Java I/O, tối ưu hóa quá trình đọc/ghi và quản lý tài nguyên hệ thống hiệu quả."
 draft: false
 ---
 

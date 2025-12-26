@@ -1,8 +1,10 @@
+```
 ---
 title: "Chinh Phục Socket TCP - Từ Lý Thuyết Mô Hình OSI Đến Thực Thi Java Chuyên Sâu"
 date: 2025-12-15
 tags: ["java", "network", "socket", "tcp", "backend"]
-categories: ["Java Network"]
+categories: ["Java Network Research"]
+description: "Nghiên cứu nền tảng kết nối mạng cơ bản thông qua Socket TCP/IP trong Java, xây dựng hạ tầng truyền tải dữ liệu vững chắc."
 draft: false
 ---
 

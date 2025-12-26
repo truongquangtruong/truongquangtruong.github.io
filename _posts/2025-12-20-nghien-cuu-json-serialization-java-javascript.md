@@ -3,6 +3,7 @@ title: "Nghiên cứu Serialization - Nghệ thuật chuyển hóa thực thể 
 date: 2025-12-20
 tags: ["java", "javascript", "json", "serialization", "data-binding", "fullstack-research", "architecture"]
 categories: ["Java Network Research"]
+description: "Tìm hiểu nghệ thuật đóng gói và chuyển đổi dữ liệu thông qua JSON, đảm bảo tính toàn vẹn và tốc độ truyền tải trong hệ thống Fullstack."
 draft: false
 ---
 

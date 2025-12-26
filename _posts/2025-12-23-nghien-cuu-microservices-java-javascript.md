@@ -3,6 +3,7 @@ title: "Nghiên cứu Kiến trúc Microservices - Phân rã và Kết nối th�
 date: 2025-12-23
 tags: ["java", "javascript", "microservices", "distributed-systems", "api-gateway", "fullstack-research", "software-architecture"]
 categories: ["Java Network Research"]
+description: "Phân tích kiến trúc Microservices hiện đại, cách phân rã hệ thống Monolith thành các dịch vụ độc lập và kết nối chúng hiệu quả."
 draft: false
 ---
 

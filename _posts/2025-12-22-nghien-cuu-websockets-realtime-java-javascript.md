@@ -3,6 +3,7 @@ title: "Nghiên cứu WebSockets - Cơ chế truyền tải dữ liệu thời g
 date: 2025-12-22
 tags: ["java", "javascript", "websockets", "real-time", "networking-research", "fullstack", "concurrency"]
 categories: ["Java Network Research"]
+description: "Xây dựng ứng dụng tương tác thời gian thực với WebSockets, vượt qua các giới hạn của giao thức HTTP truyền thống."
 draft: false
 ---
 

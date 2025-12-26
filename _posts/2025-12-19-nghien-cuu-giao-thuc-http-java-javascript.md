@@ -3,6 +3,7 @@ title: "Nghiên cứu Thượng tầng Giao thức HTTP - Kiến trúc Truyền 
 date: 2025-12-19
 tags: ["java", "javascript", "http-protocol", "network-research", "fullstack", "deep-dive", "low-level"]
 categories: ["Java Network Research"]
+description: "Nghiên cứu chi tiết về giao thức HTTP, cách thức hoạt động của Request/Response và sự phối hợp giữa Java Backend và Web Frontend."
 draft: false
 ---
 

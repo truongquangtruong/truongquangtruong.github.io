@@ -1,8 +1,10 @@
+```
 ---
 title: "Nghiên cứu Đa luồng (Multi-threading) - Giải pháp tối ưu hóa năng lực xử lý cho thực thể Java Server"
 date: 2025-12-17
 tags: ["java", "multi-threading", "concurrency", "socket-server", "backend-research"]
-categories: ["Java Network"]
+categories: ["Java Network Research"]
+description: "Khám phá sức mạnh của lập trình đa luồng (Multithreading) để xây dựng các ứng dụng Server có hiệu năng cao và khả năng xử lý đồng thời."
 draft: false
 ---
 

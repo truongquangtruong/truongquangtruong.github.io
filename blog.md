@@ -52,7 +52,7 @@ permalink: /blog/
     {
       title: {{ post.title | jsonify }},
       url: {{ post.url | relative_url | jsonify }},
-      excerpt: {{ post.excerpt | strip_html | truncatewords: 30 | jsonify }},
+      description: {{ post.description | jsonify }},
       dateStr: "{{ post.date | date: '%-d/%m/%Y' }}",
       timestamp: {{ post.date | date: "%s" }},
       categories: {{ post.categories | join: ", " | jsonify }}
@@ -69,7 +69,7 @@ permalink: /blog/
     // Filter
     let filteredPosts = allPosts.filter(post => 
       post.title.toLowerCase().includes(searchQuery) || 
-      post.excerpt.toLowerCase().includes(searchQuery)
+      (post.description && post.description.toLowerCase().includes(searchQuery))
     );
 
     // Sort
@@ -101,7 +101,7 @@ permalink: /blog/
         </h2>
 
         <p style="color: #475569; line-height: 1.7; margin-bottom: 20px; font-size: 1.05em;">
-          ${post.excerpt}
+          ${post.description || ''}
         </p>
 
         <a href="${post.url}" style="color: #007bff; text-decoration: none; font-weight: 600; font-size: 0.95em; display: inline-flex; align-items: center; gap: 5px;">
@@ -126,7 +126,7 @@ permalink: /blog/
       clearBtn.style.display = 'block';
       const matches = allPosts.filter(post => 
         post.title.toLowerCase().includes(searchQuery) || 
-        post.excerpt.toLowerCase().includes(searchQuery)
+        (post.description && post.description.toLowerCase().includes(searchQuery))
       ).slice(0, 5);
 
       if (matches.length > 0) {
@@ -136,7 +136,7 @@ permalink: /blog/
                onmouseover="this.style.backgroundColor='#f8fafc'"
                onmouseout="this.style.backgroundColor='transparent'">
             <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">${post.title}</div>
-            <div style="font-size: 0.85em; color: #64748b;">${post.dateStr} - ${post.excerpt.split(' ').slice(0, 10).join(' ')}...</div>
+            <div style="font-size: 0.85em; color: #64748b;">${post.dateStr} - ${post.description || ''}</div>
           </div>
         `).join('');
         suggestionBox.style.display = 'block';

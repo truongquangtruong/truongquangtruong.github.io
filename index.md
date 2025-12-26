@@ -338,7 +338,7 @@ title: Trang Chủ
       <a href="{{ post.url | relative_url }}" class="post-card-mini">
         <span class="post-date">{{ post.date | date: "%-d/%m/%Y" }}</span>
         <div class="post-title">{{ post.title }}</div>
-        <p style="margin: 0; font-size: 0.9rem;">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+        <p style="margin: 0; font-size: 0.9rem;">{{ post.description }}</p>
       </a>
       {% endfor %}
     </div>
@@ -357,7 +357,7 @@ title: Trang Chủ
     {
       title: {{ post.title | jsonify }},
       url: {{ post.url | relative_url | jsonify }},
-      excerpt: {{ post.excerpt | strip_html | truncatewords: 20 | jsonify }},
+      description: {{ post.description | jsonify }},
       date: "{{ post.date | date: '%-d/%m/%Y' }}"
     }{% unless forloop.last %},{% endunless %}
     {% endfor %}
@@ -371,7 +371,7 @@ title: Trang Chủ
     if (query.length > 0) {
       const matches = posts.filter(post => 
         post.title.toLowerCase().includes(query) || 
-        post.excerpt.toLowerCase().includes(query)
+        (post.description && post.description.toLowerCase().includes(query))
       ).slice(0, 5);
 
       if (matches.length > 0) {
@@ -381,7 +381,7 @@ title: Trang Chủ
                onmouseover="this.style.backgroundColor='#f8fafc'"
                onmouseout="this.style.backgroundColor='transparent'">
             <div style="font-weight: 600; color: #1e293b; margin-bottom: 4px;">${post.title}</div>
-            <div style="font-size: 0.85em; color: #64748b;">${post.date} - ${post.excerpt}</div>
+            <div style="font-size: 0.85em; color: #64748b;">${post.date} - ${post.description || ''}</div>
           </div>
         `).join('');
         suggestionBox.style.display = 'block';
