@@ -4,18 +4,168 @@ title: "Profile"
 permalink: /about/
 ---
 
-<div style="text-align: center; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
-  <div style="margin-bottom: 25px;">
-    <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" style="width: 100%; max-width: 300px; height: auto; border-radius: 12px; border: 4px solid #007bff; box-shadow: 0 8px 16px rgba(0,0,0,0.15);">
-  </div>
+<style>
+  :root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border-color: #e2e8f0;
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
-  <h1 style="color: #1a202c; font-size: 2.2em; margin-bottom: 5px;">Trương Quang Trường</h1>
-  <p style="color: #4a5568; font-size: 1.1em; font-weight: 500;">Sinh viên An ninh mạng | Nhà nghiên cứu Fullstack Security</p>
+  .profile-container {
+    padding: 60px 0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  }
 
-  <div style="display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin: 20px 0;">
-    <span style="background: #ebf8ff; color: #2b6cb0; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #bee3f8;">Hạ tầng mạng</span>
-    <span style="background: #f0fff4; color: #2f855a; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #c6f6d5;">Lập trình hệ thống</span>
-    <span style="background: #fff5f5; color: #c53030; padding: 5px 15px; border-radius: 20px; font-size: 0.85em; font-weight: bold; border: 1px solid #fed7d7;">Bảo mật dữ liệu</span>
+  .profile-hero-wrapper {
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+  }
+
+  .profile-column-left {
+    flex-shrink: 0;
+  }
+
+  .profile-img-rect {
+    width: 300px;
+    height: 400px;
+    border-radius: 20px;
+    object-fit: cover;
+    display: block;
+    box-shadow: var(--shadow-md);
+    transition: var(--transition);
+  }
+
+  .profile-img-rect:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+
+  .profile-column-right {
+    flex: 1;
+    padding-top: 5px;
+  }
+
+  .profile-intro-tag {
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .profile-main-name {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0 0 10px 0;
+    line-height: 1;
+    color: #111;
+    letter-spacing: -2px;
+    text-transform: uppercase;
+  }
+
+  .profile-role-sub {
+    font-size: 1.2rem;
+    color: var(--text-main);
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .profile-role-sub span {
+    color: var(--text-muted);
+  }
+
+  .profile-major-highlight {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: #334155;
+  }
+
+  .profile-short-bio {
+    font-size: 1.05rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+
+  .profile-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .badge-item {
+    background: #f8fafc;
+    color: #475569;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 850px) {
+    .profile-hero-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 30px;
+    }
+    .profile-main-name {
+      font-size: 2.5rem;
+    }
+    .profile-role-sub {
+      justify-content: center;
+    }
+    .profile-badges {
+      justify-content: center;
+    }
+    .profile-img-rect {
+      width: 260px;
+      height: 350px;
+    }
+  }
+</style>
+
+<div class="profile-container">
+  <div class="profile-hero-wrapper">
+    <div class="profile-column-left">
+      <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img-rect">
+    </div>
+    
+    <div class="profile-column-right">
+      <span class="profile-intro-tag">Tôi là</span>
+      <h1 class="profile-main-name">Trương Quang Trường</h1>
+      
+      <div class="profile-role-sub">
+        Sinh viên An ninh mạng <span>|</span> Nhà nghiên cứu Fullstack Security
+      </div>
+
+      <div class="profile-major-highlight">
+        Chuyên ngành Hệ thống phân tán
+      </div>
+
+      <p class="profile-short-bio">
+        Chào bạn! Tôi là Trưởng, hiện đang theo đuổi sự chuyên nghiệp trong lĩnh vực bảo mật hệ thống và hạ tầng mạng.
+        Hành trình của tôi là sự kết hợp giữa tư duy phân tích của một chuyên gia an ninh và sự linh hoạt của một nhà nghiên cứu Fullstack.
+      </p>
+
+      <div class="profile-badges">
+        <span class="badge-item">Hạ tầng mạng</span>
+        <span class="badge-item">Lập trình hệ thống</span>
+        <span class="badge-item">Bảo mật dữ liệu</span>
+      </div>
+    </div>
   </div>
 </div>
 
