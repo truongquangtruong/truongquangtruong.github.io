@@ -290,21 +290,21 @@ permalink: /about/
     </div>
     
     <div class="profile-info">
-      <span class="profile-tagline">Hành trình nghiên cứu</span>
+      <span class="profile-tagline">Hành trình học tập & Nghiên cứu</span>
       <h1 class="profile-name-title">Trương Quang Trường</h1>
-      <div class="profile-role-line">Sinh viên An ninh mạng | Nhà nghiên cứu Fullstack Security</div>
-      <div class="profile-specialty">Chuyên ngành Hệ thống phân tán</div>
+      <div class="profile-role-line">Sinh viên năm 4 | Công nghệ Thông tin</div>
+      <div class="profile-specialty">Chuyên ngành An ninh mạng</div>
       
       <p class="profile-bio-text">
-        Tôi chuyên tâm vào việc xây dựng hạ tầng kỹ thuật số an toàn và hiệu năng cao. 
-        Mọi dòng code tôi viết đều là một viên gạch trong hành trình thấu hiểu bản chất của các kênh truyền dữ liệu.
+        Chào bạn! Tôi là Trường, sinh viên chuyên ngành An ninh mạng với niềm đam mê tìm hiểu sâu về cách thức vận hành và bảo mật hạ tầng hệ thống. 
+        Hiện tại, tôi đang thực hiện chuỗi 09 bài nghiên cứu thực nghiệm từ nền tảng Socket TCP đến các kiến trúc Microservices và WebSockets để củng cố nền tảng kỹ thuật của mình.
       </p>
       
       <div class="tech-badges-group">
         <span class="tech-badge">Hạ tầng mạng</span>
         <span class="tech-badge">Lập trình hệ thống</span>
-        <span class="tech-badge">Bảo mật dữ liệu</span>
-        <span class="tech-badge">Java Expert</span>
+        <span class="tech-badge">Nghiên cứu Java</span>
+        <span class="tech-badge">Học tập & Chia sẻ</span>
       </div>
     </div>
   </section>
@@ -313,7 +313,7 @@ permalink: /about/
 
   <!-- Story Section -->
   <section class="story-container">
-    <h2 class="content-section-title">Câu chuyện nghiên cứu</h2>
+    <h2 class="content-section-title">Câu chuyện nghiên cứu & học tập</h2>
     <p class="story-paragraph">
       Chào bạn! Tôi là Trưởng. Blog này không chỉ là một trang web, mà là cuốn nhật ký ghi lại hành trình tôi tự phá vỡ giới hạn của chính mình. Xuất phát điểm là một sinh viên chuyên về mạng (Network), tôi luôn tự hỏi: <em>"Làm sao để dữ liệu đi từ Server Java đến trình duyệt JavaScript một cách an toàn và nhanh nhất?"</em>. 
     </p>
@@ -324,19 +324,19 @@ permalink: /about/
 
   <!-- Focus Section -->
   <section>
-    <h2 class="content-section-title">Định hướng phát triển</h2>
+    <h2 class="content-section-title">Mục tiêu phát triển</h2>
     <div class="focus-grid">
       <div class="focus-card">
-        <h4>🛠 Nghiên cứu Kỹ thuật</h4>
+        <h4>🛠 Tìm hiểu Kỹ thuật</h4>
         <p>
-          Đi sâu vào bản chất của các giao thức truyền tải. Tôi muốn nắm vững cách từng byte dữ liệu di chuyển trong các hệ thống Microservices hiện đại để tối ưu hóa khả năng bảo mật từ tầng thấp nhất.
+          Tập trung vào bản chất của các giao thức truyền tải. Tôi đang nỗ lực nắm vững cách dữ liệu di chuyển trong các hệ thống hiện đại để tối ưu hóa khả năng bảo mật từ những bước cơ bản nhất.
         </p>
       </div>
       
       <div class="focus-card">
-        <h4>🚀 Fullstack Security</h4>
+        <h4>🚀 Định hướng Security</h4>
         <p>
-          Mục tiêu của tôi là trở thành một kỹ sư có khả năng vừa thiết kế hạ tầng mạng an toàn, vừa phát triển Backend Java tối ưu và quản lý quy trình vận hành trên Cloud một cách chuyên nghiệp.
+          Trong tương lai, tôi mong muốn trở thành một kỹ sư có khả năng vừa thiết kế hạ tầng mạng an toàn, vừa phát triển Backend Java tối ưu và hiểu rõ quy trình vận hành hệ thống.
         </p>
       </div>
     </div>

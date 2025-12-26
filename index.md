@@ -283,8 +283,8 @@ title: Trang Chủ
   
   <h1 class="hero-title">Trương Quang Trường</h1>
   <p class="hero-subtitle">
-    Khám phá hành trình nghiên cứu chuyên sâu về <strong>An ninh mạng</strong>, 
-    hạ tầng mạng và kiến trúc hệ thống hiện đại.
+    Khám phá và chia sẻ hành trình học tập, nghiên cứu thực nghiệm về <strong>Mạng & Bảo mật</strong> 
+    qua những dự án Lab cá nhân và bài viết chuyên sâu.
   </p>
 
   <div class="cta-group">
@@ -311,22 +311,22 @@ title: Trang Chủ
     <div class="card">
       <span class="card-icon">🌐</span>
       <h3>Hạ tầng mạng</h3>
-      <p>Thiết kế và tối ưu hóa hạ tầng mạng đa tầng, thành thạo các giao thức OSPF, BGP và kiến trúc SDN.</p>
+      <p>Tìm hiểu và thực hành triển khai hạ tầng mạng, nghiên cứu các giao thức cốt lõi và kiến trúc mạng hiện đại.</p>
     </div>
     <div class="card">
       <span class="card-icon">🛡️</span>
       <h3>An ninh mạng</h3>
-      <p>Phân tích lỗ hổng, thiết lập tường lửa đa tầng và bảo vệ hệ thống trước các cuộc tấn công hiện đại.</p>
+      <p>Nghiên cứu các kỹ thuật phân tích lỗ hổng, thực hành thiết lập tường lửa và các giải pháp bảo vệ hệ thống cơ bản.</p>
     </div>
     <div class="card">
       <span class="card-icon">💻</span>
       <h3>Fullstack Dev</h3>
-      <p>Xây dựng ứng dụng web bảo mật cao với quy trình Fullstack, chú trọng vào hiệu suất và trải nghiệm người dùng.</p>
+      <p>Xây dựng ứng dụng web với quy trình Fullstack, chú trọng vào việc triển khai code sạch và bảo mật từ Backend đến Frontend.</p>
     </div>
     <div class="card">
       <span class="card-icon">⚙️</span>
       <h3>Hệ thống phân tán</h3>
-      <p>Nghiên cứu về tính khả dụng cao, khả năng mở rộng và quản lý dữ liệu trong các hệ thống phân tán.</p>
+      <p>Tìm hiểu về các mô hình xử lý dữ liệu, tính khả dụng và khả năng mở rộng của tài nguyên trong môi trường phân tán.</p>
     </div>
   </div>
 
