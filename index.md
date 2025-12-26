@@ -12,82 +12,134 @@ title: Trang Chủ
     --bg-card: #ffffff;
     --border-color: #e2e8f0;
     --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
-    --shadow-md: 0 4px 20px rgba(0,0,0,0.05);
-    --transition: all 0.3s ease;
+    --shadow-md: 0 10px 30px rgba(0,0,0,0.08);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
   body {
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     color: var(--text-main);
     background-color: #fcfcfc;
+    margin: 0;
   }
 
   .hero-container {
-    padding: 80px 20px;
-    text-align: center;
+    padding: 100px 20px;
     background: white;
     margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
   }
 
-  .profile-wrapper {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 2rem;
+  .hero-flex-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    display: flex;
+    gap: 60px;
+    align-items: flex-start;
+    text-align: left;
+  }
+
+  .profile-column {
+    flex-shrink: 0;
   }
 
   .profile-img {
-    width: 180px;
-    height: 180px;
-    border-radius: 50%;
+    width: 320px;
+    height: 420px;
+    border-radius: 20px;
     object-fit: cover;
-    border: 4px solid white;
+    display: block;
     box-shadow: var(--shadow-md);
+    transition: var(--transition);
   }
 
-  .hero-title {
-    font-size: 3rem;
+  .profile-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+  }
+
+  .content-column {
+    flex: 1;
+    padding-top: 10px;
+  }
+
+  .intro-label {
+    color: var(--primary-color);
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    display: block;
+  }
+
+  .hero-name {
+    font-size: 4.5rem;
     font-weight: 800;
-    margin-bottom: 1rem;
-    letter-spacing: -0.02em;
-    color: var(--text-main);
+    margin: 0 0 15px 0;
+    line-height: 1;
+    color: #111;
+    letter-spacing: -2px;
+    text-transform: uppercase;
   }
 
-  .hero-subtitle {
+  .hero-title-group {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     font-size: 1.25rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+  }
+
+  .hero-title-group span {
     color: var(--text-muted);
-    max-width: 600px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.6;
+  }
+
+  .hero-major {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: #334155;
+  }
+
+  .hero-description {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.8;
+    margin-bottom: 40px;
+    max-width: 700px;
   }
 
   .cta-group {
     display: flex;
     gap: 15px;
-    justify-content: center;
-    margin-bottom: 3rem;
+    margin-bottom: 50px;
   }
 
   .btn-primary {
-    padding: 12px 30px;
+    padding: 14px 35px;
     background: var(--primary-color);
     color: white !important;
-    border-radius: 50px;
+    border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
-    box-shadow: 0 4px 14px rgba(0,123,255,0.39);
+    box-shadow: 0 4px 14px rgba(0,123,255,0.3);
   }
 
   .btn-primary:hover {
     background: var(--primary-hover);
     transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0,123,255,0.4);
   }
 
   .btn-outline {
-    padding: 12px 30px;
+    padding: 14px 35px;
     border: 2px solid var(--border-color);
     color: var(--text-main) !important;
-    border-radius: 50px;
+    border-radius: 12px;
     font-weight: 600;
     text-decoration: none;
     transition: var(--transition);
@@ -100,9 +152,9 @@ title: Trang Chủ
 
   /* Search Section */
   .search-section {
-    max-width: 800px;
-    margin: 0 auto 4rem;
-    padding: 0 20px;
+    max-width: 100%;
+    margin: 0; /* Remove previous margin */
+    padding: 0; /* Remove previous padding */
   }
 
   .search-box-wrapper {
@@ -171,6 +223,41 @@ title: Trang Chủ
     max-height: 400px;
     overflow-y: auto;
     text-align: left;
+  }
+
+  @media (max-width: 992px) {
+    .hero-flex-wrapper {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 40px;
+    }
+    .hero-name {
+      font-size: 3.5rem;
+    }
+    .hero-title-group {
+      justify-content: center;
+    }
+    .cta-group {
+      justify-content: center;
+    }
+    .hero-description {
+      margin: 0 auto 40px;
+    }
+    .profile-img {
+      width: 280px;
+      height: 380px;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .hero-name {
+      font-size: 2.5rem;
+      letter-spacing: -1px;
+    }
+    .hero-container {
+      padding: 60px 20px;
+    }
   }
 
   /* Sections */
