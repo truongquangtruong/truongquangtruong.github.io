@@ -4,115 +4,328 @@ title: Trang Chủ
 ---
 
 <style>
-  .hero-section {
+  :root {
+    --primary-color: #007bff;
+    --primary-hover: #0056b3;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --bg-card: #ffffff;
+    --border-color: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.05);
+    --transition: all 0.3s ease;
+  }
+
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--text-main);
+    background-color: #fcfcfc;
+  }
+
+  .hero-container {
+    padding: 80px 20px;
     text-align: center;
-    padding: 60px 20px;
-    background: #ffffff;
-    border-radius: 12px;
-    margin-bottom: 40px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: white;
+    margin-bottom: 2rem;
+  }
+
+  .profile-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
   }
 
   .profile-img {
-    width: 100%;
-    max-width: 250px;
-    height: auto;
-    border-radius: 12px;
-    object-fit: contain;
-    border: 4px solid #007bff;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    margin-bottom: 20px;
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid white;
+    box-shadow: var(--shadow-md);
   }
 
   .hero-title {
-    color: #1a202c;
-    font-size: 2.5em;
-    font-weight: 700;
-    margin-bottom: 10px;
+    font-size: 3rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--text-main);
   }
 
   .hero-subtitle {
-    color: #4a5568;
-    font-size: 1.2em;
-    margin-bottom: 30px;
+    font-size: 1.25rem;
+    color: var(--text-muted);
+    max-width: 600px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.6;
   }
 
-  .btn-hero {
-    display: inline-block;
-    padding: 10px 25px;
-    background-color: #007bff;
+  .cta-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary {
+    padding: 12px 30px;
+    background: var(--primary-color);
     color: white !important;
-    text-decoration: none;
-    border-radius: 25px;
+    border-radius: 50px;
     font-weight: 600;
-    transition: transform 0.2s;
-  }
-
-  .btn-hero:hover {
-    transform: translateY(-2px);
-    background-color: #0056b3;
     text-decoration: none;
-    color: white !important;
+    transition: var(--transition);
+    box-shadow: 0 4px 14px rgba(0,123,255,0.39);
   }
 
-  .features-grid {
+  .btn-primary:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    padding: 12px 30px;
+    border: 2px solid var(--border-color);
+    color: var(--text-main) !important;
+    border-radius: 50px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+  }
+
+  .btn-outline:hover {
+    background: #f8fafc;
+    border-color: var(--text-main);
+  }
+
+  /* Search Section */
+  .search-section {
+    max-width: 800px;
+    margin: 0 auto 4rem;
+    padding: 0 20px;
+  }
+
+  .search-box-wrapper {
+    position: relative;
+    display: flex;
+    gap: 10px;
+  }
+
+  .search-input-container {
+    position: relative;
+    flex: 1;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 16px 24px;
+    border: 2px solid var(--border-color);
+    border-radius: 16px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    background: white;
+  }
+
+  .search-input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 4px rgba(0,123,255,0.1);
+  }
+
+  #suggestion-box {
+    display: none;
+    position: absolute;
+    width: 100%;
+    background: white;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    z-index: 1000;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    top: 65px;
+    max-height: 400px;
+    overflow-y: auto;
+    text-align: left;
+  }
+
+  /* Sections */
+  .section-title {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 3rem;
+    position: relative;
+    padding-bottom: 15px;
+  }
+
+  .section-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 2px;
+  }
+
+  .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-bottom: 50px;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    padding: 20px;
+    max-width: 1100px;
+    margin: 0 auto 5rem;
   }
 
-  .feature-card {
-    background: #f8f9fa;
+  .card {
+    background: white;
+    padding: 35px 25px;
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    text-align: center;
+  }
+
+  .card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary-color);
+  }
+
+  .card-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .card h3 {
+    margin-bottom: 15px;
+    color: var(--text-main);
+  }
+
+  .card p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Recent Posts */
+  .recent-posts {
+    background: #f8fafc;
+    padding: 80px 20px;
+    border-radius: 40px;
+    margin-bottom: 5rem;
+  }
+
+  .post-card-mini {
+    background: white;
     padding: 25px;
-    border-radius: 12px;
-    border: 1px solid #e9ecef;
-    transition: 0.3s;
+    border-radius: 16px;
+    border: 1px solid var(--border-color);
+    transition: var(--transition);
+    text-decoration: none;
+    color: inherit;
+    display: block;
   }
 
-  .feature-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    border-color: #007bff;
+  .post-card-mini:hover {
+    transform: scale(1.02);
+    box-shadow: var(--shadow-md);
+  }
+
+  .post-date {
+    font-size: 0.8rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+
+  .post-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 10px;
   }
 </style>
 
-<div class="hero-section">
-  <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
+<div class="hero-container">
+  <div class="profile-wrapper">
+    <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
+  </div>
   
-  <h1 class="hero-title">Chào mừng bạn đến với blog của tôi</h1>
-  <p class="hero-subtitle">Tôi là <strong>Trương Quang Trường</strong> – Chuyên ngành an ninh mạng</p>
+  <h1 class="hero-title">Trương Quang Trường</h1>
+  <p class="hero-subtitle">
+    Khám phá hành trình nghiên cứu chuyên sâu về <strong>An ninh mạng</strong>, 
+    hạ tầng mạng và kiến trúc hệ thống hiện đại.
+  </p>
 
-  <div style="margin-bottom: 20px;">
-    <a href="{{ '/about/' | relative_url }}" class="btn-hero">Giới thiệu về tôi</a>
-    <a href="{{ '/blog/' | relative_url }}" class="btn-hero" style="margin-left: 10px;">Bài viết</a>
+  <div class="cta-group">
+    <a href="{{ '/about/' | relative_url }}" class="btn-primary">Tìm hiểu thêm</a>
+    <a href="{{ '/blog/' | relative_url }}" class="btn-outline">Xem bài viết</a>
   </div>
 
-  <!-- Thanh tìm kiếm giống Blog -->
-  <div style="display: flex; gap: 15px; margin-top: 40px; align-items: center; justify-content: center;">
-    <div style="position: relative; flex: 1; max-width: 700px;">
-      <input type="text" id="search-home" placeholder="Tìm kiếm bài viết nghiên cứu..." 
-             onkeyup="handleKeyUp(event)"
-             style="width: 100%; padding: 15px 20px; border: 2px solid #e1e8ed; border-radius: 12px; font-size: 16px; outline: none; transition: 0.3s;"
-             onfocus="this.style.borderColor='#007bff'" onblur="this.style.borderColor='#e1e8ed'">
-      
-      <span onclick="clearSearch()" id="clear-btn" 
-            style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: #aaa; display: none; font-size: 20px;">✕</span>
-      
-      <div id="suggestion-box" 
-           style="display: none; position: absolute; width: 100%; background: white; border: 1px solid #ddd; border-radius: 12px; z-index: 1000; box-shadow: 0 15px 35px rgba(0,0,0,0.1); top: 65px; max-height: 300px; overflow-y: auto; text-align: left;">
+  <div class="search-section">
+    <div class="search-box-wrapper">
+      <div class="search-input-container">
+        <input type="text" id="search-home" class="search-input" placeholder="Bạn muốn tìm hiểu về điều gì?">
+        <div id="suggestion-box"></div>
       </div>
+      <button onclick="executeSearch()" class="btn-primary" style="border-radius: 16px; border: none; cursor: pointer;">
+        Tìm kiếm
+      </button>
     </div>
+  </div>
+</div>
 
-    <button onclick="executeSearch()" 
-            style="padding: 15px 35px; background-color: #007bff; color: white; border: none; border-radius: 12px; font-weight: bold; cursor: pointer; font-size: 16px; box-shadow: 0 4px 12px rgba(0,123,255,0.3); transition: 0.3s;">
-      Tìm kiếm
-    </button>
+<div class="container">
+  <h2 class="section-title">Lĩnh vực chuyên môn</h2>
+  <div class="grid-container">
+    <div class="card">
+      <span class="card-icon">🌐</span>
+      <h3>Hạ tầng mạng</h3>
+      <p>Thiết kế và tối ưu hóa hạ tầng mạng đa tầng, thành thạo các giao thức OSPF, BGP và kiến trúc SDN.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">🛡️</span>
+      <h3>An ninh mạng</h3>
+      <p>Phân tích lỗ hổng, thiết lập tường lửa đa tầng và bảo vệ hệ thống trước các cuộc tấn công hiện đại.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">💻</span>
+      <h3>Fullstack Dev</h3>
+      <p>Xây dựng ứng dụng web bảo mật cao với quy trình Fullstack, chú trọng vào hiệu suất và trải nghiệm người dùng.</p>
+    </div>
+    <div class="card">
+      <span class="card-icon">⚙️</span>
+      <h3>Hệ thống phân tán</h3>
+      <p>Nghiên cứu về tính khả dụng cao, khả năng mở rộng và quản lý dữ liệu trong các hệ thống phân tán.</p>
+    </div>
+  </div>
+
+  <div class="recent-posts">
+    <h2 class="section-title">Bài viết mới nhất</h2>
+    <div class="grid-container" style="margin-bottom: 0;">
+      {% assign recent_posts = site.posts | sort: "date" | reverse | limit: 3 %}
+      {% for post in recent_posts %}
+      <a href="{{ post.url | relative_url }}" class="post-card-mini">
+        <span class="post-date">{{ post.date | date: "%-d/%m/%Y" }}</span>
+        <div class="post-title">{{ post.title }}</div>
+        <p style="margin: 0; font-size: 0.9rem;">{{ post.excerpt | strip_html | truncatewords: 15 }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <div style="text-align: center; margin-top: 3rem;">
+      <a href="{{ '/blog/' | relative_url }}" style="color: var(--primary-color); font-weight: 700; text-decoration: none;">
+        Xem toàn bộ kho tàng kiến thức →
+      </a>
+    </div>
   </div>
 </div>
 
 <script>
-  // Dữ liệu bài viết để tìm kiếm
+  // Tái sử dụng dữ liệu bài viết
   const posts = [
     {% for post in site.posts %}
     {
@@ -124,13 +337,12 @@ title: Trang Chủ
     {% endfor %}
   ];
 
-  function handleKeyUp(event) {
-    const query = event.target.value.toLowerCase();
-    const suggestionBox = document.getElementById('suggestion-box');
-    const clearBtn = document.getElementById('clear-btn');
+  const searchInput = document.getElementById('search-home');
+  const suggestionBox = document.getElementById('suggestion-box');
 
+  searchInput.addEventListener('keyup', (e) => {
+    const query = e.target.value.toLowerCase();
     if (query.length > 0) {
-      clearBtn.style.display = 'block';
       const matches = posts.filter(post => 
         post.title.toLowerCase().includes(query) || 
         post.excerpt.toLowerCase().includes(query)
@@ -151,24 +363,16 @@ title: Trang Chủ
         suggestionBox.style.display = 'none';
       }
     } else {
-      clearBtn.style.display = 'none';
       suggestionBox.style.display = 'none';
     }
 
-    if (event.key === 'Enter') {
+    if (e.key === 'Enter') {
       executeSearch();
     }
-  }
-
-  function clearSearch() {
-    const input = document.getElementById('search-home');
-    input.value = '';
-    document.getElementById('suggestion-box').style.display = 'none';
-    document.getElementById('clear-btn').style.display = 'none';
-  }
+  });
 
   function executeSearch() {
-    const query = document.getElementById('search-home').value.toLowerCase();
+    const query = searchInput.value.toLowerCase();
     if (query.trim() !== "") {
       window.location.href = "{{ '/blog/' | relative_url }}?q=" + encodeURIComponent(query);
     } else {
@@ -176,21 +380,9 @@ title: Trang Chủ
     }
   }
 
-  // Đóng suggestion box khi click ra ngoài
-  document.addEventListener('click', function(e) {
+  document.addEventListener('click', (e) => {
     if (!e.target.closest('#search-home') && !e.target.closest('#suggestion-box')) {
-      document.getElementById('suggestion-box').style.display = 'none';
+      suggestionBox.style.display = 'none';
     }
   });
 </script>
-
-<div class="features-grid">
-  <div class="feature-card">
-    <h3 style="color: #007bff;">🌐 Network Engineering</h3>
-    <p style="color: #4a5568;">Nghiên cứu triển khai hạ tầng mạng đa tầng, tối ưu hóa OSPF và BGP.</p>
-  </div>
-  <div class="feature-card">
-    <h3 style="color: #007bff;">🛡️ Cyber Security</h3>
-    <p style="color: #4a5568;">Thiết lập lá chắn bảo mật đa tầng qua xác thực JWT và kiểm soát Fullstack.</p>
-  </div>
-</div>
