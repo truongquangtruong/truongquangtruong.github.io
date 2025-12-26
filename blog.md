@@ -145,4 +145,20 @@ permalink: /blog/
       document.getElementById('suggestion-box').style.display = 'none';
     }
   });
+
+  // Xử lý tìm kiếm từ URL (cho phép trang chủ chuyển hướng đến)
+  window.addEventListener('load', function() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    if (query) {
+      const searchInput = document.getElementById('search-blog');
+      if (searchInput) {
+        searchInput.value = query;
+        const clearBtn = document.getElementById('clear-btn');
+        if (clearBtn) clearBtn.style.display = 'block';
+        executeSearch();
+      }
+    }
+  });
 </script>
+```
