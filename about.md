@@ -83,10 +83,11 @@ permalink: /about/
 
   .profile-name-title {
     font-family: 'Playfair Display', serif;
-    font-size: 4rem;
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    line-height: 1.2;
     margin: 0 0 20px 0;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
+    white-space: nowrap;
   }
 
   .profile-role-line {
@@ -117,6 +118,7 @@ permalink: /about/
     line-height: 1.8;
     color: var(--text-muted);
     margin-bottom: 35px;
+    text-align: justify;
   }
 
   /* Badges */
@@ -260,7 +262,8 @@ permalink: /about/
       gap: 40px;
     }
     .profile-name-title {
-      font-size: 3rem;
+      font-size: 2.5rem;
+      white-space: normal;
     }
     .profile-specialty {
       justify-content: center;
