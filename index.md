@@ -108,12 +108,14 @@ title: Trang Chủ
   .search-box-wrapper {
     position: relative;
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    align-items: stretch;
   }
 
   .search-input-container {
     position: relative;
     flex: 1;
+    min-width: 0; /* Quan trọng để flex: 1 không bị tràn */
   }
 
   .search-input {
@@ -125,6 +127,30 @@ title: Trang Chủ
     outline: none;
     transition: var(--transition);
     background: white;
+    box-sizing: border-box;
+  }
+
+  .btn-search {
+    padding: 0 35px;
+    background: var(--primary-color);
+    color: white !important;
+    border-radius: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: var(--transition);
+    border: none;
+    cursor: pointer;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0; /* Ngăn nút bị co lại */
+  }
+
+  .btn-search:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
   }
 
   .search-input:focus {
@@ -272,7 +298,7 @@ title: Trang Chủ
         <input type="text" id="search-home" class="search-input" placeholder="Bạn muốn tìm hiểu về điều gì?">
         <div id="suggestion-box"></div>
       </div>
-      <button onclick="executeSearch()" class="btn-primary" style="border-radius: 16px; border: none; cursor: pointer;">
+      <button onclick="executeSearch()" class="btn-search">
         Tìm kiếm
       </button>
     </div>
