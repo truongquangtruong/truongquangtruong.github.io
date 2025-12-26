@@ -1,4 +1,3 @@
-```
 ---
 title: "Chinh Phục Socket TCP - Từ Lý Thuyết Mô Hình OSI Đến Thực Thi Java Chuyên Sâu"
 date: 2025-12-15
