@@ -308,10 +308,10 @@ permalink: /about/
       </div>
 
       <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
-        <a href="{{ '/assets/CV_Truong_Quang_Truong.pdf' | relative_url }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #007bff; color: white !important; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.2);">
+        <a href="{{ '/assets/tqt.pdf' | relative_url }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #007bff; color: white !important; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.2);">
           <span>👁️</span> Xem CV Online
         </a>
-        <a href="{{ '/assets/CV_Truong_Quang_Truong.pdf' | relative_url }}" download style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #007bff !important; padding: 11px 23px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 2px solid #007bff; transition: 0.3s;">
+        <a href="{{ '/assets/tqt.pdf' | relative_url }}" download style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #007bff !important; padding: 11px 23px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 2px solid #007bff; transition: 0.3s;">
           <span>📥</span> Tải CV (PDF)
         </a>
       </div>
