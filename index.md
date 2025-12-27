@@ -1,6 +1,6 @@
 ---
-layout: default
-title: Trang Chủ
+layout: home
+title: Home
 ---
 
 <style>
