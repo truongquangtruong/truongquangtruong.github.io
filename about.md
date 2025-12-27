@@ -279,6 +279,53 @@ permalink: /about/
       height: 380px;
     }
   }
+
+  /* Personalized CV Buttons */
+  .cv-button-container {
+    margin-top: 40px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-cv {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 26px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 0.95rem;
+    text-decoration: none !important;
+    transition: var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-cv-primary {
+    background: linear-gradient(135deg, var(--primary-color), #0056b3);
+    color: white !important;
+    box-shadow: 0 8px 20px -6px rgba(0, 123, 255, 0.3);
+  }
+
+  .btn-cv-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px -6px rgba(0, 123, 255, 0.4);
+    filter: brightness(1.05);
+  }
+
+  .btn-cv-outline {
+    background: white;
+    color: var(--primary-color) !important;
+    border: 2px solid var(--primary-color);
+    box-sizing: border-box;
+  }
+
+  .btn-cv-outline:hover {
+    background: var(--bg-accent);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.08);
+  }
 </style>
 
 <div class="profile-wrapper">
@@ -307,11 +354,11 @@ permalink: /about/
         <span class="tech-badge">Học tập & Chia sẻ</span>
       </div>
 
-      <div style="margin-top: 30px; display: flex; gap: 15px; flex-wrap: wrap;">
-        <a href="{{ '/assets/tqt.pdf' | relative_url }}" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; background: #007bff; color: white !important; padding: 12px 24px; border-radius: 10px; font-weight: 600; text-decoration: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,123,255,0.2);">
+      <div class="cv-button-container">
+        <a href="{{ '/assets/tqt.pdf' | relative_url }}" target="_blank" class="btn-cv btn-cv-primary">
           <span>👁️</span> Xem CV Online
         </a>
-        <a href="{{ '/assets/tqt.pdf' | relative_url }}" download style="display: inline-flex; align-items: center; gap: 8px; background: white; color: #007bff !important; padding: 11px 23px; border-radius: 10px; font-weight: 600; text-decoration: none; border: 2px solid #007bff; transition: 0.3s;">
+        <a href="{{ '/assets/tqt.pdf' | relative_url }}" download class="btn-cv btn-cv-outline">
           <span>📥</span> Tải CV (PDF)
         </a>
       </div>
