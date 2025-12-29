@@ -283,8 +283,8 @@ title: Home
   
   <h1 class="hero-title">Trương Quang Trường</h1>
   <p class="hero-subtitle">
-    Nơi một sinh viên An toàn thông tin HUTECH "mổ xẻ" các giao thức mạng. 
-    Hành trình chinh phục đồ án qua 09 bài nghiên cứu thực nghiệm với sức mạnh của <strong>Java & JavaScript</strong>.
+    Nơi một sinh viên An toàn thông tin HUTECH chia sẻ về bảo mật và lập trình hệ thống. 
+    Hành trình nghiên cứu thực nghiệm và chinh phục đồ án học phần cùng <strong>Java & JavaScript</strong>.
   </p>
 
   <div class="cta-group">

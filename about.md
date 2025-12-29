@@ -427,8 +427,7 @@ permalink: /about/
       
       <p class="profile-bio-text">
         Chào bạn, mình là Trương Quang Trường. Tại HUTECH, mình không chỉ học cách bảo mật hệ thống, mà còn đam mê việc xây dựng chúng từ những viên gạch đầu tiên. 
-        Blog này chính là "phòng thí nghiệm" cá nhân của mình — nơi chuỗi 09 bài nghiên cứu về lập trình mạng được thành hình. 
-        Từ việc làm chủ luồng dữ liệu với <strong>Java</strong> đến sự linh hoạt của <strong>JavaScript</strong>, mình tin rằng việc hiểu rõ cách hệ thống vận hành chính là nền tảng vững chắc nhất để bảo vệ thế giới số.
+        Blog này đóng vai trò như một 'phòng thí nghiệm' cá nhân — nơi mình hiện thực hóa các ý tưởng về lập trình mạng và bảo mật qua sức mạnh của <strong>Java & JavaScript</strong>.
       </p>
       
       <div class="tech-badges-group">
