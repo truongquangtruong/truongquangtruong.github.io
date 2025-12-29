@@ -453,12 +453,12 @@ permalink: /about/
 
   <!-- Story Section -->
   <section class="story-container">
-    <h2 class="content-section-title">Câu chuyện nghiên cứu & học tập</h2>
+    <h2 class="content-section-title">Hành trình 09 bài học thực nghiệm</h2>
     <p class="story-paragraph">
-      Chào bạn! Tôi là Trưởng. Blog này không chỉ là một trang web, mà là cuốn nhật ký ghi lại hành trình tôi tự phá vỡ giới hạn của chính mình. Xuất phát điểm là một sinh viên chuyên về mạng (Network), tôi luôn tự hỏi: <em>"Làm sao để dữ liệu đi từ Server Java đến trình duyệt JavaScript một cách an toàn và nhanh nhất?"</em>. 
+      Để hiểu sâu về cách thức vận hành của mạng và bảo mật, mình đã tự đặt ra thử thách cho bản thân thông qua <strong>09 bài nghiên cứu thực nghiệm</strong>. 
     </p>
     <p class="story-paragraph">
-      Câu hỏi đó đã dẫn dắt tôi đi qua <strong>09 bài nghiên cứu thực nghiệm</strong>. Tôi đã dành hàng giờ để nghiên cứu cách Java "đóng gói" thực thể qua Serialization, cách thiết lập kênh truyền thời gian thực bằng WebSockets, và cách xây dựng những lá chắn bảo mật kiên cố để bảo vệ dữ liệu người dùng.
+      Mỗi bài học là một bước tiến từ những nền tảng Socket cơ bản cho đến các kiến trúc hiện đại, giúp mình không chỉ nắm vững lý thuyết mà còn làm chủ kỹ năng xử lý dữ liệu thực tế trên môi trường mạng.
     </p>
   </section>
 
