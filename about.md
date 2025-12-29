@@ -333,7 +333,7 @@ permalink: /about/
   <!-- Hero Section -->
   <section class="profile-hero">
     <div class="profile-photo-container">
-      <img src="{{ '/assets/me.png' | relative_url }}" alt="Trương Quang Trường" class="profile-img-premium">
+      <img src="{{ '/assets/me.png?v=2' | relative_url }}" alt="Trương Quang Trường" class="profile-img-premium">
     </div>
     
     <div class="profile-info">
