@@ -355,10 +355,10 @@ permalink: /about/
       </div>
 
       <div class="cv-button-container">
-        <a href="{{ '/assets/cv-ca-nhan.pdf' | relative_url }}" target="_blank" class="btn-cv btn-cv-primary">
+        <a href="{{ '/assets/cv-ca-nhan-tqt.pdf' | relative_url }}" target="_blank" class="btn-cv btn-cv-primary">
           <span>👁️</span> Xem CV Online
         </a>
-        <a href="{{ '/assets/cv-ca-nhan.pdf' | relative_url }}" download class="btn-cv btn-cv-outline">
+        <a href="{{ '/assets/cv-ca-nhan-tqt.pdf' | relative_url }}" download class="btn-cv btn-cv-outline">
           <span>📥</span> Tải CV (PDF)
         </a>
       </div>
