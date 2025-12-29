@@ -283,8 +283,8 @@ title: Home
   
   <h1 class="hero-title">Trương Quang Trường</h1>
   <p class="hero-subtitle">
-    Mình là sinh viên năm 4 chuyên ngành An toàn thông tin (HUTECH). 
-    Blog này chia sẻ hành trình thực hiện đồ án học phần về <strong>Lập trình mạng</strong> với ngôn ngữ <strong>Java & JavaScript</strong>.
+    Nơi một sinh viên An toàn thông tin HUTECH "mổ xẻ" các giao thức mạng. 
+    Hành trình chinh phục đồ án qua 09 bài nghiên cứu thực nghiệm với sức mạnh của <strong>Java & JavaScript</strong>.
   </p>
 
   <div class="cta-group">

@@ -426,9 +426,9 @@ permalink: /about/
       <div class="profile-specialty">Trường Đại học Công nghệ TP.HCM (HUTECH)</div>
       
       <p class="profile-bio-text">
-        Chào bạn! Mình là Trường, sinh viên năm 4 chuyên ngành An toàn thông tin tại HUTECH. 
-        Đối với mình, công nghệ không chỉ là những dòng code khô khan mà là công cụ mạnh mẽ để bảo vệ không gian số. 
-        Blog này là nơi mình thực hiện <strong>đồ án học phần</strong> thông qua chuỗi 09 bài nghiên cứu thực nghiệm, tập trung vào việc xử lý và truyền tải dữ liệu bằng ngôn ngữ <strong>Java và JavaScript</strong>.
+        Chào bạn, mình là Trương Quang Trường. Tại HUTECH, mình không chỉ học cách bảo mật hệ thống, mà còn đam mê việc xây dựng chúng từ những viên gạch đầu tiên. 
+        Blog này chính là "phòng thí nghiệm" cá nhân của mình — nơi chuỗi 09 bài nghiên cứu về lập trình mạng được thành hình. 
+        Từ việc làm chủ luồng dữ liệu với <strong>Java</strong> đến sự linh hoạt của <strong>JavaScript</strong>, mình tin rằng việc hiểu rõ cách hệ thống vận hành chính là nền tảng vững chắc nhất để bảo vệ thế giới số.
       </p>
       
       <div class="tech-badges-group">
