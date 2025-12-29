@@ -326,6 +326,89 @@ permalink: /about/
     transform: translateY(-3px);
     box-shadow: 0 8px 15px -5px rgba(0, 0, 0, 0.08);
   }
+
+  /* Certificates Section */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+  }
+
+  .cert-card {
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    border: 1px solid var(--border-soft);
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cert-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-premium);
+    border-color: var(--primary-color);
+  }
+
+  .cert-img-container {
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: #f1f5f9;
+    position: relative;
+    cursor: zoom-in;
+  }
+
+  .cert-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition-smooth);
+  }
+
+  .cert-card:hover .cert-img {
+    transform: scale(1.05);
+  }
+
+  .cert-content {
+    padding: 25px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .cert-issuer {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .cert-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    color: var(--text-main);
+  }
+
+  .cert-date {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  @media (max-width: 600px) {
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+  }
 </style>
 
 <div class="profile-wrapper">
@@ -394,6 +477,50 @@ permalink: /about/
         <p>
           Trong tương lai, tôi mong muốn trở thành một kỹ sư có khả năng vừa thiết kế hạ tầng mạng an toàn, vừa phát triển Backend Java tối ưu và hiểu rõ quy trình vận hành hệ thống.
         </p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="section-divider">
+
+  <!-- Certificates Section -->
+  <section>
+    <h2 class="content-section-title">Chứng chỉ & Thành tựu chuyên môn</h2>
+    <div class="cert-grid">
+      <!-- Cert 1 -->
+      <div class="cert-card">
+        <div class="cert-img-container" onclick="window.open('{{ '/assets/cert-networking-basics.png' | relative_url }}', '_blank')">
+          <img src="{{ '/assets/cert-networking-basics.png' | relative_url }}" alt="Networking Basics" class="cert-img">
+        </div>
+        <div class="cert-content">
+          <span class="cert-issuer">Cisco Networking Academy</span>
+          <h3 class="cert-title">Networking Basics</h3>
+          <div class="cert-date"><span>📅</span> Nov 24, 2025</div>
+        </div>
+      </div>
+
+      <!-- Cert 2 -->
+      <div class="cert-card">
+        <div class="cert-img-container" onclick="window.open('{{ '/assets/cert-js-essentials-1.png' | relative_url }}', '_blank')">
+          <img src="{{ '/assets/cert-js-essentials-1.png' | relative_url }}" alt="JavaScript Essentials 1" class="cert-img">
+        </div>
+        <div class="cert-content">
+          <span class="cert-issuer">Cisco / OpenEDG</span>
+          <h3 class="cert-title">JavaScript Essentials 1</h3>
+          <div class="cert-date"><span>📅</span> Nov 25, 2025</div>
+        </div>
+      </div>
+
+      <!-- Cert 3 -->
+      <div class="cert-card">
+        <div class="cert-img-container" onclick="window.open('{{ '/assets/cert-js-essentials-2.png' | relative_url }}', '_blank')">
+          <img src="{{ '/assets/cert-js-essentials-2.png' | relative_url }}" alt="JavaScript Essentials 2" class="cert-img">
+        </div>
+        <div class="cert-content">
+          <span class="cert-issuer">Cisco / OpenEDG</span>
+          <h3 class="cert-title">JavaScript Essentials 2</h3>
+          <div class="cert-date"><span>📅</span> Dec 08, 2025</div>
+        </div>
       </div>
     </div>
   </section>
