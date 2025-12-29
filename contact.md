@@ -225,7 +225,7 @@ permalink: /contact/
       <div class="info-item">
         <span class="info-label">Mạng xã hội</span>
         <div class="social-links">
-          <a href="https://zalo.me/0123456789" target="_blank" class="social-link">Zalo</a>
+          <span class="social-link" style="cursor: default; border-bottom: none;">Zalo</span>
           <a href="https://github.com/truongquangtruong" target="_blank" class="social-link">GitHub</a>
         </div>
       </div>
