@@ -283,8 +283,8 @@ title: Home
   
   <h1 class="hero-title">Trương Quang Trường</h1>
   <p class="hero-subtitle">
-    Khám phá và chia sẻ hành trình học tập, nghiên cứu thực nghiệm về <strong>Mạng & Bảo mật</strong> 
-    qua những dự án Lab cá nhân và bài viết chuyên sâu.
+    Mình là sinh viên năm 4 chuyên ngành An toàn thông tin (HUTECH). 
+    Blog này chia sẻ hành trình thực hiện đồ án học phần về <strong>Lập trình mạng</strong> với ngôn ngữ <strong>Java & JavaScript</strong>.
   </p>
 
   <div class="cta-group">

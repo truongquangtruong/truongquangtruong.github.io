@@ -422,12 +422,13 @@ permalink: /about/
     <div class="profile-info">
       <span class="profile-tagline">Hành trình học tập & Nghiên cứu</span>
       <h1 class="profile-name-title">Trương Quang Trường</h1>
-      <div class="profile-role-line">Sinh viên năm 4 | Công nghệ Thông tin</div>
-      <div class="profile-specialty">Chuyên ngành An ninh mạng</div>
+      <div class="profile-role-line">Sinh viên năm 4 | An toàn thông tin</div>
+      <div class="profile-specialty">Trường Đại học Công nghệ TP.HCM (HUTECH)</div>
       
       <p class="profile-bio-text">
-        Chào bạn! Tôi là Trường, sinh viên chuyên ngành An ninh mạng với niềm đam mê tìm hiểu sâu về cách thức vận hành và bảo mật hạ tầng hệ thống. 
-        Hiện tại, tôi đang thực hiện chuỗi 09 bài nghiên cứu thực nghiệm từ nền tảng Socket TCP đến các kiến trúc Microservices và WebSockets để củng cố nền tảng kỹ thuật của mình.
+        Chào bạn! Mình là Trường, sinh viên năm 4 chuyên ngành An toàn thông tin tại HUTECH. 
+        Đối với mình, công nghệ không chỉ là những dòng code khô khan mà là công cụ mạnh mẽ để bảo vệ không gian số. 
+        Blog này là nơi mình thực hiện <strong>đồ án học phần</strong> thông qua chuỗi 09 bài nghiên cứu thực nghiệm, tập trung vào việc xử lý và truyền tải dữ liệu bằng ngôn ngữ <strong>Java và JavaScript</strong>.
       </p>
       
       <div class="tech-badges-group">
