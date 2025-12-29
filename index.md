@@ -278,7 +278,7 @@ title: Home
 
 <div class="hero-container">
   <div class="profile-wrapper">
-    <img src="{{ '/assets/me.png?v=2' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
+    <img src="{{ '/assets/me.png?v=3' | relative_url }}" alt="Trương Quang Trường" class="profile-img">
   </div>
   
   <h1 class="hero-title">Trương Quang Trường</h1>
