@@ -147,6 +147,26 @@ permalink: /about/
     transform: translateY(-2px);
   }
 
+  .btn-download-cv {
+    display: inline-block;
+    margin-top: 25px;
+    padding: 14px 32px;
+    background: var(--primary-color);
+    color: white !important;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 1rem;
+    transition: var(--transition-smooth);
+    box-shadow: 0 4px 14px rgba(0, 123, 255, 0.3);
+  }
+
+  .btn-download-cv:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
+  }
+
   /* Content Sections */
   .section-divider {
     border: 0;
@@ -438,10 +458,10 @@ permalink: /about/
       </div>
 
       <div class="cv-button-container">
-        <a href="{{ '/assets/cv-ca-nhan-tqt.pdf' | relative_url }}" target="_blank" class="btn-cv btn-cv-primary">
+        <a href="{{ '/assets/CV.pdf' | relative_url }}" target="_blank" class="btn-cv btn-cv-primary">
           <span>👁️</span> Xem CV Online
         </a>
-        <a href="{{ '/assets/cv-ca-nhan-tqt.pdf' | relative_url }}" download class="btn-cv btn-cv-outline">
+        <a href="{{ '/assets/CV.pdf' | relative_url }}" download class="btn-cv btn-cv-outline">
           <span>📥</span> Tải CV (PDF)
         </a>
       </div>
